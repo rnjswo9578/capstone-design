@@ -6,7 +6,6 @@ public class pgj_cshAnimatorParameter : MonoBehaviour
 {
     private Animator animator;
     private bool isAttack = false, isAttack2 = false;
-    private int attackStack = 0;
 
     // Start is called before the first frame update
     void Start()
