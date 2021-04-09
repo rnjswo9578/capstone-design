@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class lji_playerMove : MonoBehaviour
+public class playerMove : MonoBehaviour
 {
-
     float speed = 10f;
     float rotateSpeed = 10f;
 
@@ -13,7 +12,7 @@ public class lji_playerMove : MonoBehaviour
     Quaternion newRotation;
     float h, v; //horizontal, vertical
 
-    bool isDash = false;
+    bool isDash=false;
     float dashTimer = 0f;
 
     void Start()
@@ -68,7 +67,7 @@ public class lji_playerMove : MonoBehaviour
                 }
                 else //대쉬 중
                 {
-                    movement = movement.normalized * speed * Time.deltaTime * 5;//숫자는 대쉬할 때 배속되는 속도
+                    movement = movement.normalized * speed * Time.deltaTime*5;//숫자는 대쉬할 때 배속되는 속도
                     rigidbody.MovePosition(transform.position + movement);
                     dashTimer += Time.deltaTime;
                 }
@@ -90,4 +89,5 @@ public class lji_playerMove : MonoBehaviour
 
         }
     }
+
 }
