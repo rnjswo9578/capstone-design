@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class pgj_cshMonsterCtrl : MonoBehaviour
 {
     public Transform[] points;
     public int nextIndex = 1;
 
-    public float speed = 20.0f;
     public float damping = 5.0f;
 
     private Transform tr;
@@ -15,12 +15,13 @@ public class pgj_cshMonsterCtrl : MonoBehaviour
 
     private Vector3 movePos;
     private bool isAttack = false;
-    private bool isObject = false;
     private Animator anim;
+    NavMeshAgent nav;
 
     // Start is called before the first frame update
     void Start()
     {
+        nav = GetComponent<NavMeshAgent>();
 
         tr = this.GetComponent<Transform>();
         playerTr = GameObject.FindGameObjectWithTag("PLAYER").GetComponent<Transform>();
@@ -33,30 +34,32 @@ public class pgj_cshMonsterCtrl : MonoBehaviour
     void Update()
     {
         float dist = Vector3.Distance(tr.position, playerTr.position);
-
+        
         if (dist <= 7.0f)
         {
             isAttack = true;
+            AttackNavSetting();
         }
-        else if (dist <= 35.0f)
+        else if (dist <= 40.0f)
         {
             movePos = playerTr.position;
             isAttack = false;
+            ChaseNavSetting();
         }
         else
         {
             movePos = points[nextIndex].position;
             isAttack = false;
-            isObject = false;
+            ChaseNavSetting();
         }
 
         anim.SetBool("isAttack", isAttack);
 
-        if (!isAttack && !isObject) //공격중이거나 오브젝트에 충돌중이 아닐 때 다음 포인트로 움직임
+        if (!isAttack) //공격중이 아닐 때 다음 포인트로 움직임
         {
             Quaternion rot = Quaternion.LookRotation(movePos - tr.position);
             tr.rotation = Quaternion.Slerp(tr.rotation, rot, Time.deltaTime * damping);
-            tr.Translate(Vector3.forward * speed * Time.deltaTime);
+            nav.SetDestination(movePos);
         }
     }
     void OnTriggerEnter(Collider coll)
@@ -65,9 +68,15 @@ public class pgj_cshMonsterCtrl : MonoBehaviour
         {
             nextIndex = (++nextIndex == points.Length) ? 1 : nextIndex;
         }
-        if (coll.tag == "WALL")
-        {
-            isObject = true;
-        }
+    }
+    void ChaseNavSetting() 
+    {
+        nav.isStopped = false;
+        nav.ResetPath();
+    }
+    void AttackNavSetting()
+    {
+        nav.isStopped = true;
+        nav.velocity = Vector3.zero;
     }
 }
