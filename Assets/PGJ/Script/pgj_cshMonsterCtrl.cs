@@ -14,9 +14,11 @@ public class pgj_cshMonsterCtrl : MonoBehaviour
     private Transform playerTr;
 
     private Vector3 movePos;
+    private bool targetDie = false;
     private bool isAttack = false;
+
     private Animator anim;
-    NavMeshAgent nav;
+    private NavMeshAgent nav;
 
     // Start is called before the first frame update
     void Start()
@@ -34,8 +36,8 @@ public class pgj_cshMonsterCtrl : MonoBehaviour
     void Update()
     {
         float dist = Vector3.Distance(tr.position, playerTr.position);
-        
-        if (dist <= 7.0f)
+
+        else if (dist <= 7.0f)
         {
             isAttack = true;
             AttackNavSetting();
@@ -67,6 +69,7 @@ public class pgj_cshMonsterCtrl : MonoBehaviour
         if (coll.tag == "WAY_POINT")
         {
             nextIndex = (++nextIndex == points.Length) ? 1 : nextIndex;
+            
         }
     }
     void ChaseNavSetting() 
