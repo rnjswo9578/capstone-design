@@ -29,14 +29,7 @@ public class lji_playerMove : MonoBehaviour
         {
             isDash = true;
         }
-        if (Input.GetMouseButtonDown(0))//마우스 왼쪽:0 마우스 오른쪽:1
-        {
-            animator.SetTrigger("Attack");
-        }
-        if (Input.GetMouseButtonDown(1))
-        {
-
-        }
+        
        
     }
     private void PlayerMove()
