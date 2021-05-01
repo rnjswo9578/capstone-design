@@ -1,108 +1,125 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class lji_playerMove : MonoBehaviour
+namespace RPGCharacterAnims
 {
-
-    float speed = 10f;
-    float rotateSpeed = 10f;
-
-    Animator animator;
-    Rigidbody rigidbody;
-    Vector3 movement; //물체의 xyz값 담을 변수
-    Quaternion newRotation;
-    float h, v; //horizontal, vertical
-
-    bool isDash = false;
-    float dashTimer = 0f;
-
-    void Start()
+    public class lji_playerMove : MonoBehaviour
     {
-        animator = GetComponent<Animator>();
-    }
-    void Update()
-    {
-        PlayerMove();
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        float speed = 10f;
+        float rotateSpeed = 10f;
+
+        Animator animator;
+        Rigidbody rigidbody;
+        Vector3 movement; //물체의 xyz값 담을 변수
+        Quaternion newRotation;
+        private RPGCharacterController rpgCharacterController;
+        float h, v; //horizontal, vertical
+
+        bool isDash = false;
+        float dashTimer = 0f;
+
+        void Start()
         {
-            isDash = true;
+
+            rpgCharacterController = GetComponent<RPGCharacterController>();
+            animator = GetComponent<Animator>();
         }
-        
-       
-    }
-    private void PlayerMove()
-    {
-        CharacterController controller = GetComponent<CharacterController>();
-        float gravity = 20.0f;
-        h = Input.GetAxisRaw("Horizontal");
-        v = Input.GetAxisRaw("Vertical");
-        
-        if (controller.isGrounded)
+        void Update()
         {
-            if (isDash)//대쉬 움직임
+            PlayerMove();
+
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                Dash(controller);
+                isDash = true;
             }
-            else //기본 움직임
+
+
+        }
+        private void PlayerMove()
+        {
+            CharacterController controller = GetComponent<CharacterController>();
+            float gravity = 20.0f;
+            h = Input.GetAxisRaw("Horizontal");
+            v = Input.GetAxisRaw("Vertical");
+
+            if (controller.isGrounded)
             {
-                //플레이어의 움직임 부분
-                movement = new Vector3(h, 0, v);//가로값 세로값 방향 셋
+                if (isDash)//대쉬 움직임
+                {
+                    Dash(controller);
+                }
+                else //기본 움직임
+                {
+                    //플레이어의 움직임 부분
+                    movement = new Vector3(h, 0, v);//가로값 세로값 방향 셋
+                    movement = movement.normalized;
+
+
+                    //rpgCharacterController.StartAction("Moving");
+                    //rpgCharacterController.StartAction("Move");   
+                    rpgCharacterController.animator.SetBool("Moving", true);
+                    rpgCharacterController.animator.SetFloat("Velocity X", h);
+                    rpgCharacterController.animator.SetFloat("Velocity Z", v);
+                    //animator.SetFloat("Walk", movement.magnitude);
+
+                    if (movement.magnitude > 0.5)
+                    {
+                        transform.LookAt(transform.position + movement);
+                    }
+
+
+                }
+            }
+
+            movement.y -= gravity * Time.deltaTime;
+            controller.Move(movement * speed * Time.deltaTime);
+        }
+
+        private void Dash(CharacterController controller)
+        {
+            if (dashTimer == 0)//대쉬 시작할 때. 이때 방향을 고정시켜줘야할 것 같다
+            {
+                if (h == 0 && v == 0)
+                {
+                    movement.Set(0, 0f, 1);//아무 키 안누르고 대쉬 누르면 전진 이동
+                }
+                else
+                {
+                    movement.Set(h, 0f, v);
+                }
+
                 movement = movement.normalized;
-                animator.SetFloat("Walk", movement.magnitude);
-             
+
+                //animator.SetFloat("Walk", movement.magnitude);
+
                 if (movement.magnitude > 0.5)
                 {
                     transform.LookAt(transform.position + movement);
                 }
 
-                
-            }
-        }
-
-        movement.y -= gravity * Time.deltaTime;
-        controller.Move(movement * speed * Time.deltaTime);
-    }
-
-    private void Dash(CharacterController controller)
-    {
-        if (dashTimer == 0)//대쉬 시작할 때. 이때 방향을 고정시켜줘야할 것 같다
-        {
-            if (h == 0 && v == 0)
-            {
-                movement.Set(0, 0f, 1);//아무 키 안누르고 대쉬 누르면 전진 이동
+                dashTimer += Time.deltaTime;
             }
             else
             {
-                movement.Set(h, 0f, v);
-            }
+                if (dashTimer > 0.15f)//dash 시간 설정하기
+                {
+                    isDash = false;
+                    dashTimer = 0f;
+                    rpgCharacterController.EndSprint();
+                }
+                else //대쉬 중
+                {
+                    movement = movement.normalized;//숫자는 대쉬할 때 배속되는 속도
 
-            movement = movement.normalized;
-
-            animator.SetFloat("Walk", movement.magnitude);
-
-            if (movement.magnitude > 0.5)
-            {
-                transform.LookAt(transform.position + movement);
-            }
-
-            dashTimer += Time.deltaTime;
-        }
-        else
-        {
-            if (dashTimer > 0.15f)//dash 시간 설정하기
-            {
-                isDash = false;
-                dashTimer = 0f;
-            }
-            else //대쉬 중
-            {
-                movement = movement.normalized;//숫자는 대쉬할 때 배속되는 속도
-                
-                controller.Move(movement * speed * Time.deltaTime * 5);
-                dashTimer += Time.deltaTime;
+                    rpgCharacterController.StartSprint();
+                    controller.Move(movement * speed * Time.deltaTime * 5);
+                    dashTimer += Time.deltaTime;
+                }
             }
         }
     }
+
 }
