@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class pgj_cshMonsterCtrl : MonoBehaviour
+public class pgj_cshBossCtrl : MonoBehaviour
 {
-    public Transform[] points;
-    public int nextIndex = 1;
+    public Transform point;
 
     public float damping = 5.0f;
 
@@ -16,6 +15,7 @@ public class pgj_cshMonsterCtrl : MonoBehaviour
     private Vector3 movePos;
     private bool targetDie = false;
     private bool isAttack = false;
+    private bool isIdle = true;
 
     private Animator anim;
     private NavMeshAgent nav;
@@ -35,43 +35,47 @@ public class pgj_cshMonsterCtrl : MonoBehaviour
     void Update()
     {
         float dist = Vector3.Distance(tr.position, playerTr.position);
+        float distPoint = Vector3.Distance(tr.position, point.position);
 
         if (dist <= 5.0f)
         {
             isAttack = true;
+            isIdle = false;
             AttackNavSetting();
         }
         else if (dist <= 20.0f)
         {
             movePos = playerTr.position;
             isAttack = false;
+            isIdle = false;
             ChaseNavSetting();
         }
         else
         {
-            movePos = points[nextIndex].position;
+            movePos = point.position;
             isAttack = false;
-            ChaseNavSetting();
+            if (distPoint < 1)
+            {
+                AttackNavSetting();
+                isIdle = true;
+            }
+            else
+            {
+                ChaseNavSetting();
+            }
         }
 
         anim.SetBool("isAttack", isAttack);
+        anim.SetBool("isIdle", isIdle);
 
-        if (!isAttack) //공격중이 아닐 때 다음 포인트로 움직임
+        if (!isAttack && !isIdle)
         {
             Quaternion rot = Quaternion.LookRotation(movePos - tr.position);
             tr.rotation = Quaternion.Slerp(tr.rotation, rot, Time.deltaTime * damping);
             nav.SetDestination(movePos);
         }
     }
-    void OnTriggerEnter(Collider coll)
-    {
-        if (coll.tag == "WAY_POINT")
-        {
-            nextIndex = (++nextIndex == points.Length) ? 1 : nextIndex;
-            
-        }
-    }
-    void ChaseNavSetting() 
+    void ChaseNavSetting()
     {
         nav.isStopped = false;
         nav.ResetPath();
