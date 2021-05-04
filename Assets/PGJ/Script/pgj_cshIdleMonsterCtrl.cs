@@ -9,6 +9,7 @@ public class pgj_cshIdleMonsterCtrl : MonoBehaviour
     public Transform point;
 
     public float damping = 5.0f;
+    public float crossLoad;
 
     private Transform tr;
     private Transform playerTr;
@@ -38,7 +39,7 @@ public class pgj_cshIdleMonsterCtrl : MonoBehaviour
         float dist = Vector3.Distance(tr.position, playerTr.position);
         float distPoint = Vector3.Distance(tr.position, point.position);
 
-        if (dist <= 5.0f)
+        if (dist <= crossLoad)
         {
             isAttack = true;
             isIdle = false;

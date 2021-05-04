@@ -36,7 +36,7 @@ public class pgj_cshMonsterCtrl : MonoBehaviour
     {
         float dist = Vector3.Distance(tr.position, playerTr.position);
 
-        if (dist <= 5.0f)
+        if (dist <= 2.0f)
         {
             isAttack = true;
             AttackNavSetting();
