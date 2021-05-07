@@ -13,9 +13,9 @@ public class pgj_cshBossCtrl : MonoBehaviour
     private Transform playerTr;
 
     private Vector3 movePos;
-    private bool targetDie = false;
     private bool isAttack = false;
     private bool isIdle = true;
+    private bool isExist = false;
 
     private Animator anim;
     private NavMeshAgent nav;
@@ -34,21 +34,50 @@ public class pgj_cshBossCtrl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float dist = Vector3.Distance(tr.position, playerTr.position);
         float distPoint = Vector3.Distance(tr.position, point.position);
+        isExist = GameObject.FindGameObjectWithTag("PLAYER").activeSelf;
 
-        if (dist <= 5.0f)
+        if (isExist) //맵상에 플레이어 존재 시
         {
-            isAttack = true;
-            isIdle = false;
-            AttackNavSetting();
-        }
-        else if (dist <= 20.0f)
-        {
-            movePos = playerTr.position;
-            isAttack = false;
-            isIdle = false;
-            ChaseNavSetting();
+            float dist = Vector3.Distance(tr.position, playerTr.position);
+
+            if (dist <= 4.5f)
+            {
+                isAttack = true;
+                isIdle = false;
+                AttackNavSetting();
+            }
+            else if (dist <= 25.0f)
+            {
+                movePos = playerTr.position;
+                isAttack = false;
+                isIdle = false;
+                ChaseNavSetting();
+            }
+            else
+            {
+                movePos = point.position;
+                isAttack = false;
+                if (distPoint < 1)
+                {
+                    AttackNavSetting();
+                    isIdle = true;
+                }
+                else
+                {
+                    ChaseNavSetting();
+                }
+            }
+
+            anim.SetBool("isAttack", isAttack);
+            anim.SetBool("isIdle", isIdle);
+
+            if (!isAttack && !isIdle)
+            {
+                Quaternion rot = Quaternion.LookRotation(movePos - tr.position);
+                tr.rotation = Quaternion.Slerp(tr.rotation, rot, Time.deltaTime * damping);
+                nav.SetDestination(movePos);
+            }
         }
         else
         {
@@ -63,16 +92,15 @@ public class pgj_cshBossCtrl : MonoBehaviour
             {
                 ChaseNavSetting();
             }
-        }
+            anim.SetBool("isAttack", isAttack);
+            anim.SetBool("isIdle", isIdle);
 
-        anim.SetBool("isAttack", isAttack);
-        anim.SetBool("isIdle", isIdle);
-
-        if (!isAttack && !isIdle)
-        {
-            Quaternion rot = Quaternion.LookRotation(movePos - tr.position);
-            tr.rotation = Quaternion.Slerp(tr.rotation, rot, Time.deltaTime * damping);
-            nav.SetDestination(movePos);
+            if (!isAttack && !isIdle)
+            {
+                Quaternion rot = Quaternion.LookRotation(movePos - tr.position);
+                tr.rotation = Quaternion.Slerp(tr.rotation, rot, Time.deltaTime * damping);
+                nav.SetDestination(movePos);
+            }
         }
     }
     void ChaseNavSetting()

@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Shadow
   - Collide
+  - WAY_POINT
+  - WALL
+  - PLAYER
+  - MONSTER_WEAPON
   layers:
   - Default
   - TransparentFX
