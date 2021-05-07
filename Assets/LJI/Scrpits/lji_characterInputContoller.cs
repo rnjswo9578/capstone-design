@@ -140,9 +140,9 @@ namespace RPGCharacterAnims
 
                 if (Input.GetKeyDown(KeyCode.Alpha1))
                 {
+                    weaponContext = new SwitchWeaponContext();
                     weaponContext.type = "Switch";
                     weaponContext.side = "Dual";
-                    weaponContext.sheathLocation = "Hips";
                     weaponContext.rightWeapon = (int)Weapon.RightSword;
                     weaponContext.leftWeapon = (int)Weapon.LeftDagger;
                     rpgCharacterController.StartAction("SwitchWeapon", weaponContext);
@@ -150,18 +150,19 @@ namespace RPGCharacterAnims
 
                 if (Input.GetKeyDown(KeyCode.Alpha2))
                 {
+                    weaponContext = new SwitchWeaponContext();
                     weaponContext.type = "Switch";
                     weaponContext.side = "None";
-                    weaponContext.sheathLocation = "Back";
                     weaponContext.rightWeapon = (int)Weapon.TwoHandSword;
-                    weaponContext.leftWeapon = -1;
+                    weaponContext.leftWeapon = (int)Weapon.Unarmed;
                     rpgCharacterController.StartAction("SwitchWeapon", weaponContext);
                 }
 
                 if (Input.GetKeyDown(KeyCode.Alpha3))
                 {
+                    weaponContext = new SwitchWeaponContext();
                     weaponContext.type = "Switch";
-                    weaponContext.side = "Both";
+                    weaponContext.side = "Dual";
                     weaponContext.rightWeapon = (int)Weapon.Unarmed;
                     weaponContext.leftWeapon = (int)Weapon.Unarmed;
                     rpgCharacterController.StartAction("SwitchWeapon", weaponContext);
