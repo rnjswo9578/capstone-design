@@ -323,6 +323,14 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5487551422815904298, guid: 44af22e4f41cd5a448530d133535e030, type: 3}
+      propertyPath: hp
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 5487551422815904298, guid: 44af22e4f41cd5a448530d133535e030, type: 3}
+      propertyPath: maxHp
+      value: 150
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44af22e4f41cd5a448530d133535e030, type: 3}
 --- !u!4 &624925429 stripped
@@ -631,7 +639,7 @@ GameObject:
   - component: {fileID: 2103383516}
   - component: {fileID: 2103383515}
   - component: {fileID: 2103383514}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
