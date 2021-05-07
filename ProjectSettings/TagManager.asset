@@ -4,11 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Shadow
+  - Collide
   - WAY_POINT
-  - PLAYER
   - WALL
+  - PLAYER
   - MONSTER_WEAPON
-  - PLAYER_DIE
   layers:
   - Default
   - TransparentFX
@@ -18,8 +19,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - TempCast
+  - Walkable
   - 
   - 
   - 

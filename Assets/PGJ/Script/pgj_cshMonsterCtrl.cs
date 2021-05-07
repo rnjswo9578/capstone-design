@@ -36,7 +36,7 @@ public class pgj_cshMonsterCtrl : MonoBehaviour
     {
         float dist = Vector3.Distance(tr.position, playerTr.position);
 
-        if (dist <= 5.0f)
+        if (dist <= 2.0f)
         {
             isAttack = true;
             AttackNavSetting();
@@ -63,6 +63,7 @@ public class pgj_cshMonsterCtrl : MonoBehaviour
             nav.SetDestination(movePos);
         }
     }
+
     void OnTriggerEnter(Collider coll)
     {
         if (coll.tag == "WAY_POINT")
@@ -71,11 +72,13 @@ public class pgj_cshMonsterCtrl : MonoBehaviour
             
         }
     }
+
     void ChaseNavSetting() 
     {
         nav.isStopped = false;
         nav.ResetPath();
     }
+
     void AttackNavSetting()
     {
         nav.isStopped = true;
