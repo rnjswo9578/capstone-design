@@ -8,11 +8,16 @@ namespace RPGCharacterAnims
     public class lji_characterInputContoller : MonoBehaviour
     {
         RPGCharacterController rpgCharacterController;
+        lji_playerStatus playerStatus;
 
         float speed = 30f;
         Rigidbody rigidbody;
         Vector3 movement; //물체의 xyz값 담을 변수
         Quaternion newRotation;
+        
+        //공격 속도 제한 함수(기본은 2초)
+        public float attackDelay = 2f;
+        float attackTimer = 0f;
 
         SwitchWeaponContext weaponContext = new SwitchWeaponContext();
 
@@ -57,6 +62,7 @@ namespace RPGCharacterAnims
         private void Awake()
         {
             rpgCharacterController = GetComponent<RPGCharacterController>();
+            playerStatus = GetComponent<lji_playerStatus>();
             currentAim = Vector3.zero;
 
             rigidbody = GetComponent<Rigidbody>();
@@ -73,6 +79,7 @@ namespace RPGCharacterAnims
 
             Inputs();
             Blocking();
+
             if (isDash == false)
             {
                 if (inputDash)
@@ -84,6 +91,7 @@ namespace RPGCharacterAnims
             {
                 Dashing();
             }
+
             Damage();
             SwitchWeapons();
 
@@ -95,6 +103,8 @@ namespace RPGCharacterAnims
                 Rolling();
                 Attacking();
             }
+
+            StatusUpdate();
         }
 
         /// <summary>
@@ -118,21 +128,120 @@ namespace RPGCharacterAnims
                 //isJumpHeld = Input.GetButton("Jump");
                 //inputLightHit = Input.GetButtonDown("LightHit");
                 //inputDeath = Input.GetButtonDown("Death");
-                inputAttackL = Input.GetMouseButtonDown(1);
-                inputAttackR = Input.GetMouseButtonDown(0);
+
+                //inputAttackL = Input.GetMouseButtonDown(1);
+                if (Input.GetMouseButtonDown(1))
+                {
+                    if (attackTimer == 0f)
+                    {
+                        attackTimer += Time.deltaTime;
+                        if (rpgCharacterController.leftWeapon.Equals((int)Weapon.TwoHandStaff))
+                        {
+                            inputCastL = Input.GetMouseButtonDown(1);
+                        }
+                        else
+                        {
+                            inputAttackL = Input.GetMouseButtonDown(1);
+                        }
+                    }
+                    else
+                    {
+                        if (attackTimer > attackDelay)
+                        {
+                            attackTimer = 0f;
+                        }
+                        else
+                        {
+                            attackTimer += Time.deltaTime;
+                        }
+                    }
+                    
+                }
+                else
+                {
+                    inputCastL = Input.GetMouseButtonDown(1);
+                    inputAttackL = Input.GetMouseButtonDown(1);
+
+                    if (attackTimer != 0f)
+                    {
+                        if (attackTimer > attackDelay)
+                        {
+                            attackTimer = 0f;
+                        }
+                        else
+                        {
+                            attackTimer += Time.deltaTime;
+                        }
+                    }
+                    
+                }
+                
+                //inputAttackR = Input.GetMouseButtonDown(0);
+                if (Input.GetMouseButtonDown(0))
+                {
+                    if (attackTimer == 0f)
+                    {
+                        attackTimer += Time.deltaTime;
+                        if (rpgCharacterController.rightWeapon.Equals((int)Weapon.TwoHandStaff))
+                        {
+                            inputCastR = Input.GetMouseButtonDown(0);
+                        }
+                        else
+                        {
+                            inputAttackR = Input.GetMouseButtonDown(0);
+                        }
+                    }
+                    else
+                    {
+                        if (attackTimer > attackDelay)
+                        {
+                            attackTimer = 0f;
+                        }
+                        else
+                        {
+                            attackTimer += Time.deltaTime;
+                        }
+                    }
+                    
+                }
+                else
+                {
+                    inputCastR = Input.GetMouseButtonDown(0);
+                    inputAttackR = Input.GetMouseButtonDown(0);
+
+
+                    if (attackTimer != 0f)
+                    {
+                        if (attackTimer > attackDelay)
+                        {
+                            attackTimer = 0f;
+                        }
+                        else
+                        {
+                            attackTimer += Time.deltaTime;
+                        }
+                    }
+                }
+
                 //inputCastL = Input.GetButtonDown("CastL");
                 //inputCastR = Input.GetButtonDown("CastR");
                 //inputSwitchUpDown = Input.GetAxisRaw("SwitchUpDown");
                 //inputSwitchLeftRight = Input.GetAxisRaw("SwitchLeftRight");
                 //inputAimBlock = Input.GetAxisRaw("Aim");
                 //inputAiming = Input.GetButton("Aiming");
+
                 inputHorizontal = Input.GetAxisRaw("Horizontal");
                 inputVertical = Input.GetAxisRaw("Vertical");
-                //inputFace = Input.GetMouseButton(1);
+                inputFace = (Input.GetMouseButton(1)|| Input.GetMouseButton(0));
                 //inputFacingHorizontal = Input.GetAxisRaw("FacingHorizontal");
                 //inputFacingVertical = Input.GetAxisRaw("FacingVertical");
                 //inputRoll = Input.GetButtonDown("L3");
+
                 //inputShield = Input.GetButtonDown("Shield");
+                if(rpgCharacterController.rightWeapon.Equals((int)Weapon.Shield))
+                    inputShield = Input.GetMouseButton(0);
+                if (rpgCharacterController.leftWeapon.Equals((int)Weapon.Shield))
+                    inputShield = Input.GetMouseButton(1);
                 //inputRelax = Input.GetButtonDown("Relax");
 
                 //추가 input
@@ -140,29 +249,28 @@ namespace RPGCharacterAnims
 
                 if (Input.GetKeyDown(KeyCode.Alpha1))
                 {
-                    weaponContext = new SwitchWeaponContext();
                     weaponContext.type = "Switch";
                     weaponContext.side = "Dual";
+                    weaponContext.sheathLocation = "Hips";
                     weaponContext.rightWeapon = (int)Weapon.RightSword;
-                    weaponContext.leftWeapon = (int)Weapon.LeftDagger;
+                    weaponContext.leftWeapon = (int)Weapon.Shield;
                     rpgCharacterController.StartAction("SwitchWeapon", weaponContext);
                 }
 
                 if (Input.GetKeyDown(KeyCode.Alpha2))
                 {
-                    weaponContext = new SwitchWeaponContext();
                     weaponContext.type = "Switch";
                     weaponContext.side = "None";
-                    weaponContext.rightWeapon = (int)Weapon.TwoHandSword;
-                    weaponContext.leftWeapon = (int)Weapon.Unarmed;
+                    weaponContext.sheathLocation = "Back";
+                    weaponContext.rightWeapon = (int)Weapon.TwoHandBow;
+                    weaponContext.leftWeapon = -1;
                     rpgCharacterController.StartAction("SwitchWeapon", weaponContext);
                 }
 
                 if (Input.GetKeyDown(KeyCode.Alpha3))
                 {
-                    weaponContext = new SwitchWeaponContext();
                     weaponContext.type = "Switch";
-                    weaponContext.side = "Dual";
+                    weaponContext.side = "Both";
                     weaponContext.rightWeapon = (int)Weapon.Unarmed;
                     weaponContext.leftWeapon = (int)Weapon.Unarmed;
                     rpgCharacterController.StartAction("SwitchWeapon", weaponContext);
@@ -534,6 +642,18 @@ namespace RPGCharacterAnims
             // If we've received input, then "doSwitch" is true, and the context is filled out,
             // so start the SwitchWeapon action.
             if (doSwitch) { rpgCharacterController.StartAction("SwitchWeapon", context); }
+        }
+
+        //player의 최종 스탯 업데이트
+        public void StatusUpdate()
+        {
+            //무기나 장비에 따른 공격력 속도 방어력 계산식 추가
+            playerStatus.totalAttackPower = playerStatus.attackPower;
+            playerStatus.totalAttackSpeed = playerStatus.attackSpeed;
+            playerStatus.totalDefense = playerStatus.defense;
+            playerStatus.movementStat.runSpeed = playerStatus.runSpeed+3;
+
+            //attackDelay에다가 공속 반영해서 계산하는 식 추가해야한다.
         }
     }
 }

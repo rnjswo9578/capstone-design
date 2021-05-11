@@ -1168,8 +1168,8 @@ GameObject:
   - component: {fileID: 8823931805123710974}
   - component: {fileID: 6629024707269033970}
   - component: {fileID: 91739685857130971}
-  - component: {fileID: 229337121}
-  - component: {fileID: 5487551422815904298}
+  - component: {fileID: 661620741454972394}
+  - component: {fileID: 4716352416021122228}
   m_Layer: 0
   m_Name: RPG-Character
   m_TagString: Player
@@ -1272,7 +1272,7 @@ MonoBehaviour:
   walkSpeed: 0.5
   walkAccel: 15
   runSpeed: 1
-  runAccel: 30
+  runAccel: 50
   sprintSpeed: 2.5
   sprintAccel: 15
   crawlSpeed: 0.15
@@ -1451,7 +1451,7 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 1
   m_ObstacleAvoidanceType: 2
---- !u!114 &229337121
+--- !u!114 &661620741454972394
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1463,7 +1463,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bc249603a95f89469d66e469d48cce3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5487551422815904298
+  attackDelay: 2
+--- !u!114 &4716352416021122228
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1477,6 +1478,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 150
   hp: 150
+  attackSpeed: 1
+  attackPower: 10
+  defense: 5
+  runSpeed: 1
+  totalAttackSpeed: 0
+  totalAttackPower: 0
+  totalDefense: 0
+  movementStat: {fileID: 0}
 --- !u!1 &3723423945954571858
 GameObject:
   m_ObjectHideFlags: 0
