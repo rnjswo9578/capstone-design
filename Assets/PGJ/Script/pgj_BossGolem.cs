@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
-public class pgj_cshBossCtrl : MonoBehaviour
+public class pgj_BossGolem : MonoBehaviour
 {
     public Transform point;
 
@@ -18,6 +18,7 @@ public class pgj_cshBossCtrl : MonoBehaviour
     private Transform playerTr;
     public BoxCollider myWeapon;
     public Image hpBar;
+    public ParticleSystem beamFX;
 
     private Vector3 movePos;
     private bool isAttack = false;
@@ -40,9 +41,9 @@ public class pgj_cshBossCtrl : MonoBehaviour
 
         anim = this.GetComponentInChildren<Animator>();
 
-
+        anim.speed =1f;
         myWeapon.enabled = false;
-
+        beamFX.Stop();
     }
 
     // Update is called once per frame
@@ -56,14 +57,14 @@ public class pgj_cshBossCtrl : MonoBehaviour
         {
             float dist = Vector3.Distance(tr.position, playerTr.position);
 
-            if (dist <= 4f)
+            if (dist <= 12f)
             {
                 isAttack = true;
                 isIdle = false;
                 AttackNavSetting();
                 Attack();
             }
-            else if (dist <= 20.0f)
+            else if (dist <= 30.0f)
             {
                 pattern = 0;
                 movePos = playerTr.position;
@@ -92,7 +93,7 @@ public class pgj_cshBossCtrl : MonoBehaviour
             anim.SetBool("isAttack", isAttack);
             anim.SetBool("isIdle", isIdle);
             anim.SetInteger("pattern", pattern);
-            
+
 
 
             Quaternion rot = Quaternion.LookRotation(movePos - tr.position);
@@ -153,7 +154,7 @@ public class pgj_cshBossCtrl : MonoBehaviour
                 StartCoroutine(MonsterDeath(2f));
                 canvas.gameObject.SetActive(false);
                 myWeapon.enabled = false;
-                
+
             }
         }
     }
@@ -167,12 +168,12 @@ public class pgj_cshBossCtrl : MonoBehaviour
         else if (anim.GetCurrentAnimatorStateInfo(0).IsName("pattern1") && pattern == 1)
         {
             pattern = 2;
-            StartCoroutine(AttackTimer(0.5f,0.5f));
+            StartCoroutine(AttackTimer(0.5f, 0.5f));
         }
         else if (anim.GetCurrentAnimatorStateInfo(0).IsName("pattern2") && pattern == 2)
         {
             pattern = 3;
-            StartCoroutine(AttackTimer(0.2f,0.3f));
+            StartCoroutine(AttackTimer(0.2f, 0.3f));
         }
         else if (anim.GetCurrentAnimatorStateInfo(0).IsName("pattern3") && pattern == 3)
         {
@@ -181,8 +182,25 @@ public class pgj_cshBossCtrl : MonoBehaviour
         }
         else if (anim.GetCurrentAnimatorStateInfo(0).IsName("pattern4") && pattern == 4)
         {
+            pattern = 5;
+        }
+        else if (anim.GetCurrentAnimatorStateInfo(0).IsName("pattern5") && pattern == 5)
+        {
             pattern = 1;
             StartCoroutine(AttackTimer(0.7f, 0.5f));
+        }
+
+        if (beamFX)
+        {
+            if (anim.GetCurrentAnimatorStateInfo(0).IsTag("StartBeam"))
+            {
+                beamFX.Play();
+                anim.speed = 0.25f;
+            }
+            else
+            {
+                anim.speed = 1;
+            }
         }
     }
 

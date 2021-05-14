@@ -6,12 +6,12 @@ TagManager:
   tags:
   - Shadow
   - Collide
-
+<<<<<<< HEAD
+=======
   - PLAYER
-  - MONSTER_WEAPON
   - PLAYER_WEAPON
-  - WAY_POINT
-  - SHOP
+  - MONSTER_WEAPON
+>>>>>>> fbd2a60f4cf91af8178595a97861fab9b7cc977b
   layers:
   - Default
   - TransparentFX

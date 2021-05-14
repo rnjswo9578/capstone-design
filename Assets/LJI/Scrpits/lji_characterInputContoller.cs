@@ -57,7 +57,7 @@ namespace RPGCharacterAnims
         //Ãß°¡µÈ Variables.
         private bool isDash = false;
         float dashTimer = 0f;
-
+        public int side = 1;
 
         private void Awake()
         {
@@ -105,6 +105,12 @@ namespace RPGCharacterAnims
             }
 
             StatusUpdate();
+
+            if (rpgCharacterController.GetHandler("Attack").IsActive())
+            {
+                Debug.Log("isAttacking");
+            }
+
         }
 
         /// <summary>
@@ -143,6 +149,7 @@ namespace RPGCharacterAnims
                         {
                             inputAttackL = Input.GetMouseButtonDown(1);
                         }
+                        side = 1;
                     }
                     else
                     {
@@ -190,6 +197,7 @@ namespace RPGCharacterAnims
                         {
                             inputAttackR = Input.GetMouseButtonDown(0);
                         }
+                        side = 2;
                     }
                     else
                     {
@@ -249,9 +257,10 @@ namespace RPGCharacterAnims
 
                 if (Input.GetKeyDown(KeyCode.Alpha1))
                 {
+                    weaponContext = new SwitchWeaponContext();
                     weaponContext.type = "Switch";
-                    weaponContext.side = "Dual";
-                    weaponContext.sheathLocation = "Hips";
+                    weaponContext.side = "Both";
+                    //weaponContext.sheathLocation = "Hips";
                     weaponContext.rightWeapon = (int)Weapon.RightSword;
                     weaponContext.leftWeapon = (int)Weapon.Shield;
                     rpgCharacterController.StartAction("SwitchWeapon", weaponContext);
@@ -259,18 +268,20 @@ namespace RPGCharacterAnims
 
                 if (Input.GetKeyDown(KeyCode.Alpha2))
                 {
+                    weaponContext = new SwitchWeaponContext();
                     weaponContext.type = "Switch";
                     weaponContext.side = "None";
-                    weaponContext.sheathLocation = "Back";
-                    weaponContext.rightWeapon = (int)Weapon.TwoHandBow;
+                    //weaponContext.sheathLocation = "Back";
+                    weaponContext.rightWeapon = (int)Weapon.TwoHandSword;
                     weaponContext.leftWeapon = -1;
                     rpgCharacterController.StartAction("SwitchWeapon", weaponContext);
                 }
 
                 if (Input.GetKeyDown(KeyCode.Alpha3))
                 {
+                    weaponContext = new SwitchWeaponContext();
                     weaponContext.type = "Switch";
-                    weaponContext.side = "Both";
+                    weaponContext.side = "Dual";
                     weaponContext.rightWeapon = (int)Weapon.Unarmed;
                     weaponContext.leftWeapon = (int)Weapon.Unarmed;
                     rpgCharacterController.StartAction("SwitchWeapon", weaponContext);
