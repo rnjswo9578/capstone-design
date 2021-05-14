@@ -3,15 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Shadow
-  - Collide
-<<<<<<< HEAD
-=======
-  - PLAYER
-  - PLAYER_WEAPON
-  - MONSTER_WEAPON
->>>>>>> fbd2a60f4cf91af8178595a97861fab9b7cc977b
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -21,8 +13,8 @@ TagManager:
   - UI
   - 
   - 
-  - TempCast
-  - Walkable
+  - 
+  - 
   - 
   - 
   - 
