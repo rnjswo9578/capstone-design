@@ -8,14 +8,21 @@ public class lji_playerStatus : MonoBehaviour
     public int maxHp;
     public int hp;
 
+    //기초 스텟;
     public float attackSpeed;
     public int attackPower;
     public int defense;
-    public float runSpeed;
+    public int runSpeed;
 
-    public float totalAttackSpeed;
-    public int totalAttackPower;
-    public int totalDefense;
+    public float addAttackSpeed;
+    public int addAttackPower;
+    public int addDefense;
+    public int addRunSpeed;
+
+    public float totalAttackSpeed; //0~1사이
+    public int totalAttackPower; 
+    public int totalDefense; 
+    public int totalRunSpeed; //5~10사이가 적당
     
 
     public RPGCharacterMovementController movementStat;

@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using RPGCharacterAnims.Actions;
 
@@ -18,6 +20,7 @@ namespace RPGCharacterAnims
         //공격 속도 제한 함수(기본은 2초)
         public float attackDelay = 2f;
         float attackTimer = 0f;
+        private bool isAttack = false;
 
         SwitchWeaponContext weaponContext = new SwitchWeaponContext();
 
@@ -58,6 +61,7 @@ namespace RPGCharacterAnims
         private bool isDash = false;
         float dashTimer = 0f;
         public int side = 1;
+        
 
         private void Awake()
         {
@@ -138,9 +142,10 @@ namespace RPGCharacterAnims
                 //inputAttackL = Input.GetMouseButtonDown(1);
                 if (Input.GetMouseButtonDown(1))
                 {
-                    if (attackTimer == 0f)
+                    if (isAttack == false)
                     {
-                        attackTimer += Time.deltaTime;
+                        StartCoroutine(IsAttack());
+
                         if (rpgCharacterController.leftWeapon.Equals((int)Weapon.TwoHandStaff))
                         {
                             inputCastL = Input.GetMouseButtonDown(1);
@@ -151,43 +156,23 @@ namespace RPGCharacterAnims
                         }
                         side = 1;
                     }
-                    else
-                    {
-                        if (attackTimer > attackDelay)
-                        {
-                            attackTimer = 0f;
-                        }
-                        else
-                        {
-                            attackTimer += Time.deltaTime;
-                        }
-                    }
-                    
                 }
                 else
                 {
                     inputCastL = Input.GetMouseButtonDown(1);
                     inputAttackL = Input.GetMouseButtonDown(1);
-
-                    if (attackTimer != 0f)
-                    {
-                        if (attackTimer > attackDelay)
-                        {
-                            attackTimer = 0f;
-                        }
-                        else
-                        {
-                            attackTimer += Time.deltaTime;
-                        }
-                    }
+                    
                     
                 }
                 
                 //inputAttackR = Input.GetMouseButtonDown(0);
                 if (Input.GetMouseButtonDown(0))
                 {
-                    if (attackTimer == 0f)
+                    
+                    if (isAttack == false)
                     {
+                        StartCoroutine(IsAttack());
+
                         attackTimer += Time.deltaTime;
                         if (rpgCharacterController.rightWeapon.Equals((int)Weapon.TwoHandStaff))
                         {
@@ -199,36 +184,12 @@ namespace RPGCharacterAnims
                         }
                         side = 2;
                     }
-                    else
-                    {
-                        if (attackTimer > attackDelay)
-                        {
-                            attackTimer = 0f;
-                        }
-                        else
-                        {
-                            attackTimer += Time.deltaTime;
-                        }
-                    }
-                    
                 }
                 else
                 {
                     inputCastR = Input.GetMouseButtonDown(0);
                     inputAttackR = Input.GetMouseButtonDown(0);
 
-
-                    if (attackTimer != 0f)
-                    {
-                        if (attackTimer > attackDelay)
-                        {
-                            attackTimer = 0f;
-                        }
-                        else
-                        {
-                            attackTimer += Time.deltaTime;
-                        }
-                    }
                 }
 
                 //inputCastL = Input.GetButtonDown("CastL");
@@ -240,7 +201,10 @@ namespace RPGCharacterAnims
 
                 inputHorizontal = Input.GetAxisRaw("Horizontal");
                 inputVertical = Input.GetAxisRaw("Vertical");
+
                 inputFace = (Input.GetMouseButton(1)|| Input.GetMouseButton(0));
+                if (isAttack)
+                    inputFace = true;
                 //inputFacingHorizontal = Input.GetAxisRaw("FacingHorizontal");
                 //inputFacingVertical = Input.GetAxisRaw("FacingVertical");
                 //inputRoll = Input.GetButtonDown("L3");
@@ -402,6 +366,8 @@ namespace RPGCharacterAnims
                 }
             }
         }
+        
+        
 
         public void Rolling()
         {
@@ -514,6 +480,13 @@ namespace RPGCharacterAnims
             else if (inputAttackR) { rpgCharacterController.StartAction("Attack", new Actions.AttackContext("Attack", "Right")); }
             else if (inputCastL) { rpgCharacterController.StartAction("Cast", new Actions.CastContext("Cast", "Left")); }
             else if (inputCastR) { rpgCharacterController.StartAction("Cast", new Actions.CastContext("Cast", "Right")); }
+        }
+
+        IEnumerator IsAttack()
+        {
+            isAttack= true;
+            yield return new WaitForSeconds(attackDelay);
+            isAttack = false;
         }
 
         private void Damage()
@@ -659,12 +632,15 @@ namespace RPGCharacterAnims
         public void StatusUpdate()
         {
             //무기나 장비에 따른 공격력 속도 방어력 계산식 추가
-            playerStatus.totalAttackPower = playerStatus.attackPower;
-            playerStatus.totalAttackSpeed = playerStatus.attackSpeed;
-            playerStatus.totalDefense = playerStatus.defense;
-            playerStatus.movementStat.runSpeed = playerStatus.runSpeed+3;
+            playerStatus.totalAttackPower = playerStatus.attackPower+playerStatus.addAttackPower;
+            playerStatus.totalAttackSpeed = playerStatus.attackSpeed + playerStatus.addAttackSpeed;
+            playerStatus.totalDefense = playerStatus.defense+playerStatus.addDefense;
+            playerStatus.totalRunSpeed = playerStatus.runSpeed+playerStatus.addRunSpeed;
 
             //attackDelay에다가 공속 반영해서 계산하는 식 추가해야한다.
+            attackDelay = 2.1f - (2f * playerStatus.totalAttackSpeed);//총 공속은 0~1사이 값으로 1이면 공속 제한 풀린다
+            rpgCharacterController.animationSpeed = 1f + (playerStatus.totalAttackSpeed*0.5f);
+            playerStatus.movementStat.runSpeed = playerStatus.totalRunSpeed;
         }
     }
 }
