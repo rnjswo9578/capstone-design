@@ -14,7 +14,7 @@ public class pgj_followPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 offset = new Vector3(0, 7, -10);
+        Vector3 offset = new Vector3(0, 13, -20);
         transform.position = player.transform.position + offset;
         transform.LookAt(player.transform);
     }

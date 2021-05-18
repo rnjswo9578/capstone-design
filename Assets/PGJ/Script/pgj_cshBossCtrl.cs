@@ -100,35 +100,6 @@ public class pgj_cshBossCtrl : MonoBehaviour
             nav.SetDestination(movePos);
 
         }
-        else
-        {
-            pattern = 0;
-            movePos = point.position;
-            isAttack = false;
-            myWeapon.enabled = false;
-
-            if (distPoint < 1)
-            {
-                AttackNavSetting();
-                isIdle = true;
-            }
-            else
-            {
-                ChaseNavSetting();
-            }
-            anim.SetBool("isAttack", isAttack);
-            anim.SetBool("isIdle", isIdle);
-            anim.SetFloat("pattern", pattern);
-
-            if (!isAttack && !isIdle)
-            {
-                Quaternion rot = Quaternion.LookRotation(movePos - tr.position);
-                tr.rotation = Quaternion.Slerp(tr.rotation, rot, Time.deltaTime * damping);
-                nav.SetDestination(movePos);
-            }
-
-        }
-
     }
 
     private void OnTriggerEnter(Collider other)
