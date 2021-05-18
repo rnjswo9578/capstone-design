@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 5680362102299332737}
   m_Layer: 0
   m_Name: Dagger
-  m_TagString: Untagged
+  m_TagString: PLAYER_WEAPON
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 5680362102299332742}
   m_Layer: 0
   m_Name: Pistol
-  m_TagString: Untagged
+  m_TagString: PLAYER_WEAPON
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -234,7 +234,7 @@ GameObject:
   - component: {fileID: 5680362102299332743}
   m_Layer: 0
   m_Name: Mace
-  m_TagString: Untagged
+  m_TagString: PLAYER_WEAPON
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -329,7 +329,7 @@ GameObject:
   - component: {fileID: 5680362102299332736}
   m_Layer: 0
   m_Name: Knife
-  m_TagString: Untagged
+  m_TagString: PLAYER_WEAPON
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -424,7 +424,7 @@ GameObject:
   - component: {fileID: 5680362102299332741}
   m_Layer: 0
   m_Name: Sword
-  m_TagString: Untagged
+  m_TagString: PLAYER_WEAPON
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -609,7 +609,7 @@ GameObject:
   - component: {fileID: 5680362102299332749}
   m_Layer: 0
   m_Name: Dagger
-  m_TagString: Untagged
+  m_TagString: PLAYER_WEAPON
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -713,9 +713,10 @@ GameObject:
   - component: {fileID: 5186527960534930753}
   - component: {fileID: 1127987556485045279}
   - component: {fileID: 5680362102343628002}
+  - component: {fileID: 1699277232}
   m_Layer: 0
   m_Name: RPG-Character 1
-  m_TagString: Player
+  m_TagString: PLAYER
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1023,13 +1024,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 150
   hp: 150
-  attackSpeed: 1
-  attackPower: 10
+  attackSpeed: 0
+  attackPower: 5
   defense: 5
-  runSpeed: 1
+  runSpeed: 4
+  addAttackSpeed: 0
+  addAttackPower: 0
+  addDefense: 0
+  addRunSpeed: 0
   totalAttackSpeed: 0
   totalAttackPower: 0
   totalDefense: 0
+  totalRunSpeed: 0
   movementStat: {fileID: 0}
 --- !u!114 &5680362102343628002
 MonoBehaviour:
@@ -1045,6 +1051,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handL: {fileID: 9042604604616977950}
   handR: {fileID: 9042449783631187142}
+--- !u!114 &1699277232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9041241670624681363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dac2bf3101b03f645a4d6d5cd75b80ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageTimer: 1
 --- !u!1 &9041241670682152755
 GameObject:
   m_ObjectHideFlags: 0
@@ -1059,7 +1078,7 @@ GameObject:
   - component: {fileID: 5680362102299332755}
   m_Layer: 0
   m_Name: Mace
-  m_TagString: Untagged
+  m_TagString: PLAYER_WEAPON
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1184,7 +1203,7 @@ GameObject:
   - component: {fileID: 5680362102299332753}
   m_Layer: 0
   m_Name: Sword
-  m_TagString: Untagged
+  m_TagString: PLAYER_WEAPON
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1279,7 +1298,7 @@ GameObject:
   - component: {fileID: 5680362102299332745}
   m_Layer: 0
   m_Name: 2Hand-Crossbow
-  m_TagString: Untagged
+  m_TagString: PLAYER_WEAPON
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1375,7 +1394,7 @@ GameObject:
   - component: {fileID: 5680362102299332754}
   m_Layer: 0
   m_Name: Pistol
-  m_TagString: Untagged
+  m_TagString: PLAYER_WEAPON
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1470,7 +1489,7 @@ GameObject:
   - component: {fileID: 5680362102299332750}
   m_Layer: 0
   m_Name: 2Hand-Sword
-  m_TagString: Untagged
+  m_TagString: PLAYER_WEAPON
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1566,7 +1585,7 @@ GameObject:
   - component: {fileID: 5680362102299332759}
   m_Layer: 0
   m_Name: Shield
-  m_TagString: Untagged
+  m_TagString: PLAYER_WEAPON
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1661,7 +1680,7 @@ GameObject:
   - component: {fileID: 5680362102299332752}
   m_Layer: 0
   m_Name: 2Hand-Bow
-  m_TagString: Untagged
+  m_TagString: PLAYER_WEAPON
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1756,7 +1775,7 @@ GameObject:
   - component: {fileID: 5680362102299332748}
   m_Layer: 0
   m_Name: Knife
-  m_TagString: Untagged
+  m_TagString: PLAYER_WEAPON
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1851,7 +1870,7 @@ GameObject:
   - component: {fileID: 5680362102299332751}
   m_Layer: 0
   m_Name: 2Hand-Spear
-  m_TagString: Untagged
+  m_TagString: PLAYER_WEAPON
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1947,7 +1966,7 @@ GameObject:
   - component: {fileID: 5680362102299332746}
   m_Layer: 0
   m_Name: 2Hand-Axe
-  m_TagString: Untagged
+  m_TagString: PLAYER_WEAPON
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2043,7 +2062,7 @@ GameObject:
   - component: {fileID: 5680362102299332740}
   m_Layer: 0
   m_Name: Staff
-  m_TagString: Untagged
+  m_TagString: PLAYER_WEAPON
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2138,7 +2157,7 @@ GameObject:
   - component: {fileID: 5680362102299332747}
   m_Layer: 0
   m_Name: Spear
-  m_TagString: Untagged
+  m_TagString: PLAYER_WEAPON
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2233,7 +2252,7 @@ GameObject:
   - component: {fileID: 5680362102299332744}
   m_Layer: 0
   m_Name: 2Hand-Rifle
-  m_TagString: Untagged
+  m_TagString: PLAYER_WEAPON
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2370,6 +2389,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1470733680307004, guid: 99454aa1bd3d70344af7fb23aa28deb2, type: 3}
+      propertyPath: m_TagString
+      value: PLAYER_WEAPON
+      objectReference: {fileID: 0}
+    - target: {fileID: 1633113746065892, guid: 99454aa1bd3d70344af7fb23aa28deb2, type: 3}
+      propertyPath: m_TagString
+      value: PLAYER_WEAPON
+      objectReference: {fileID: 0}
     - target: {fileID: 4116030754469468, guid: 99454aa1bd3d70344af7fb23aa28deb2, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -2446,14 +2473,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4044537295400000, guid: 99454aa1bd3d70344af7fb23aa28deb2, type: 3}
   m_PrefabInstance: {fileID: 9041241671128532258}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &9040535243346572158 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4116030754469468, guid: 99454aa1bd3d70344af7fb23aa28deb2, type: 3}
-  m_PrefabInstance: {fileID: 9041241671128532258}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &9042604604616977950 stripped
+--- !u!1 &9041832053062717172 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 1470733680307004, guid: 99454aa1bd3d70344af7fb23aa28deb2, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1120664368450518, guid: 99454aa1bd3d70344af7fb23aa28deb2, type: 3}
   m_PrefabInstance: {fileID: 9041241671128532258}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &9040797219726625904 stripped
@@ -2461,9 +2483,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4411577406474578, guid: 99454aa1bd3d70344af7fb23aa28deb2, type: 3}
   m_PrefabInstance: {fileID: 9041241671128532258}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &9041832053062717172 stripped
+--- !u!1 &9042604604616977950 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 1120664368450518, guid: 99454aa1bd3d70344af7fb23aa28deb2, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1470733680307004, guid: 99454aa1bd3d70344af7fb23aa28deb2, type: 3}
+  m_PrefabInstance: {fileID: 9041241671128532258}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &9036517001753549104 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4742401157438482, guid: 99454aa1bd3d70344af7fb23aa28deb2, type: 3}
+  m_PrefabInstance: {fileID: 9041241671128532258}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &9040535243346572158 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4116030754469468, guid: 99454aa1bd3d70344af7fb23aa28deb2, type: 3}
   m_PrefabInstance: {fileID: 9041241671128532258}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &9036828464544419912 stripped
@@ -2474,10 +2506,5 @@ Transform:
 --- !u!4 &9036591746984822036 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4676452118331446, guid: 99454aa1bd3d70344af7fb23aa28deb2, type: 3}
-  m_PrefabInstance: {fileID: 9041241671128532258}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &9036517001753549104 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4742401157438482, guid: 99454aa1bd3d70344af7fb23aa28deb2, type: 3}
   m_PrefabInstance: {fileID: 9041241671128532258}
   m_PrefabAsset: {fileID: 0}
