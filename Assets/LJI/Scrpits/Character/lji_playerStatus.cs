@@ -5,6 +5,7 @@ using RPGCharacterAnims;
 
 public class lji_playerStatus : MonoBehaviour
 {
+    [Header("Character")]
     public int maxHp;
     public int hp;
 
@@ -31,6 +32,17 @@ public class lji_playerStatus : MonoBehaviour
 
     RPGCharacterController characterController;
 
+    [Header("Weapon")]
+    // Weapon SET//3¹øÀº ¸ÇÁÖ¸Ô
+    public int [] rightWeapon = new int[3] { 0, 0, 0 };
+    public int [] leftWeapon = new int[3] { 0, 0, 0 };
+
+    public int[] rightWeaponTier = new int[3] { 0, 0, 0 };
+    public int[] leftWeaponTier = new int[3] { 0, 0, 0 };
+
+    public float[] rightWeaponSpeed = new float[3] { 0f, 0f, 0f };
+    public float[] leftWeaponSpeed = new float[3] { 0f, 0f, 0f };
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +54,7 @@ public class lji_playerStatus : MonoBehaviour
         totalAttackPower = attackPower;
         totalDefense = defense;
         movementStat.runSpeed = runSpeed;
+        
     }
 
     // Update is called once per frame
