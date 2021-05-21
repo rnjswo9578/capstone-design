@@ -59,9 +59,12 @@ namespace RPGCharacterAnims
 
         //추가된 Variables.
         private bool isDash = false;
-        float dashTimer = 0f;
+        float dashTimer = 0.3f;
         public int side = 1;
-        
+        private float DashingHorizontal;
+        private float DashingVertical;
+
+        public int nowWeaponSet = 0;
 
         private void Awake()
         {
@@ -84,16 +87,31 @@ namespace RPGCharacterAnims
             Inputs();
             Blocking();
 
-            if (isDash == false)
+            //if (isDash == false)
+            //{
+            //    if (inputDash)
+            //        isDash = true;
+            //    else
+            //        Moving();
+            //}
+            //else
+            //{
+            //    Dashing();
+            //}
+            if (inputDash)
             {
-                if (inputDash)
-                    isDash = true;
-                else
-                    Moving();
+                DashingHorizontal = inputHorizontal;
+                DashingVertical = inputVertical;
+                StartCoroutine(DashCounter());
             }
             else
             {
-                Dashing();
+                if (isDash)
+                {
+                    Dashing();
+                }
+                else
+                    Moving();
             }
 
             Damage();
@@ -221,34 +239,20 @@ namespace RPGCharacterAnims
 
                 if (Input.GetKeyDown(KeyCode.Alpha1))
                 {
-                    weaponContext = new SwitchWeaponContext();
-                    weaponContext.type = "Switch";
-                    weaponContext.side = "Both";
-                    //weaponContext.sheathLocation = "Hips";
-                    weaponContext.rightWeapon = (int)Weapon.RightSword;
-                    weaponContext.leftWeapon = (int)Weapon.Shield;
-                    rpgCharacterController.StartAction("SwitchWeapon", weaponContext);
+                    nowWeaponSet = 0;
+                    WeaponSwitch(1);
                 }
 
                 if (Input.GetKeyDown(KeyCode.Alpha2))
                 {
-                    weaponContext = new SwitchWeaponContext();
-                    weaponContext.type = "Switch";
-                    weaponContext.side = "None";
-                    //weaponContext.sheathLocation = "Back";
-                    weaponContext.rightWeapon = (int)Weapon.TwoHandSword;
-                    weaponContext.leftWeapon = -1;
-                    rpgCharacterController.StartAction("SwitchWeapon", weaponContext);
+                    nowWeaponSet = 1;
+                    WeaponSwitch(2);
                 }
 
                 if (Input.GetKeyDown(KeyCode.Alpha3))
                 {
-                    weaponContext = new SwitchWeaponContext();
-                    weaponContext.type = "Switch";
-                    weaponContext.side = "Dual";
-                    weaponContext.rightWeapon = (int)Weapon.Unarmed;
-                    weaponContext.leftWeapon = (int)Weapon.Unarmed;
-                    rpgCharacterController.StartAction("SwitchWeapon", weaponContext);
+                    nowWeaponSet = 2;
+                    WeaponSwitch(3);
                 }
                 //// Injury toggle.
                 //if (Input.GetKeyDown(KeyCode.I))
@@ -330,44 +334,25 @@ namespace RPGCharacterAnims
 
         public void Dashing()
         {
-            if (dashTimer == 0)//대쉬 시작할 때. 이때 방향을 고정시켜줘야할 것 같다
-            {
-                if (inputHorizontal == 0 && inputVertical == 0)
-                {
-                    isDash = false;
-                }
-                else
-                {
-                    movement= new Vector3(inputHorizontal, 0f, inputVertical);
-                }
 
-                //대쉬 방향 바라보기
-                //newRotation = Quaternion.LookRotation(movement);
-                //rigidbody.MoveRotation(newRotation);
-                dashTimer += Time.deltaTime;
-            }
-            else
-            {
-                if (dashTimer > 0.2f)//dash 시간 설정하기
-                {
-                    if(rpgCharacterController.isSprinting)
-                        rpgCharacterController.EndAction("Sprint");
-                    isDash = false;
-                    dashTimer = 0f;
-                }
-                else //대쉬 중
-                {
-                    if (rpgCharacterController.CanStartAction("Sprint"))
-                        rpgCharacterController.StartAction("Sprint");
-                    movement = movement.normalized * Time.deltaTime*speed;//숫자는 대쉬할 때 배속되는 속도
-                    transform.position = Vector3.MoveTowards(transform.position, transform.position + movement, Time.deltaTime * speed);
-                    //rigidbody.MovePosition(transform.position + movement);
-                    dashTimer += Time.deltaTime;
-                }
-            }
+            moveInput = new Vector3(DashingHorizontal,DashingVertical, 0f);
+            rpgCharacterController.SetMoveInput(moveInput);
+            
         }
         
-        
+        IEnumerator DashCounter()
+        {
+
+            if (rpgCharacterController.CanStartAction("Sprint"))
+                rpgCharacterController.StartAction("Sprint");
+            isDash = true;
+
+            yield return new WaitForSeconds(dashTimer);
+
+            if (rpgCharacterController.isSprinting)
+                rpgCharacterController.EndAction("Sprint");
+            isDash = false;
+        }
 
         public void Rolling()
         {
@@ -627,20 +612,104 @@ namespace RPGCharacterAnims
             // so start the SwitchWeapon action.
             if (doSwitch) { rpgCharacterController.StartAction("SwitchWeapon", context); }
         }
+        //무기 바꾸기
+        public void WeaponSwitch(int set)
+        {
+            weaponContext = new SwitchWeaponContext();
+            int rightWeapon = 0;
+            int leftWeapon = 0;
+
+            if (set == 3)
+            {
+                rightWeapon = (int) Weapon.Unarmed;
+                leftWeapon = (int)Weapon.Unarmed;
+            }
+            else
+            {
+                rightWeapon = playerStatus.rightWeapon[nowWeaponSet];
+                leftWeapon = playerStatus.leftWeapon[nowWeaponSet];
+            }
+
+            //만약 양손 무기라면?
+            if (rightWeapon == (int)Weapon.TwoHandSword ||
+               rightWeapon == (int)Weapon.TwoHandSpear ||
+               rightWeapon == (int)Weapon.TwoHandAxe ||
+               rightWeapon == (int)Weapon.TwoHandBow ||
+               rightWeapon == (int)Weapon.TwoHandCrossbow ||
+               rightWeapon == (int)Weapon.TwoHandStaff ||
+               rightWeapon == (int)Weapon.Rifle)
+            {
+                weaponContext.type = "Switch";
+                weaponContext.side = "None";
+                weaponContext.rightWeapon = rightWeapon;
+                weaponContext.leftWeapon = -1;
+                rpgCharacterController.StartAction("SwitchWeapon", weaponContext);
+            }
+            else if(rightWeapon == (int)Weapon.Unarmed|| leftWeapon == (int)Weapon.Unarmed)
+            {
+                if(rightWeapon == leftWeapon)
+                {
+                    weaponContext.type = "Switch";
+                    weaponContext.side = "Dual";
+                    weaponContext.rightWeapon = rightWeapon;
+                    weaponContext.leftWeapon = leftWeapon;
+                    rpgCharacterController.StartAction("SwitchWeapon", weaponContext);
+                }
+                else if(rightWeapon == (int)Weapon.Unarmed)
+                {
+                    weaponContext.type = "Switch";
+                    weaponContext.side = "Left";
+                    weaponContext.rightWeapon = rightWeapon;
+                    weaponContext.leftWeapon = leftWeapon;
+                    rpgCharacterController.StartAction("SwitchWeapon", weaponContext);
+                }
+                else
+                {
+                    weaponContext.type = "Switch";
+                    weaponContext.side = "Right";
+                    weaponContext.rightWeapon = rightWeapon;
+                    weaponContext.leftWeapon = leftWeapon;
+                    rpgCharacterController.StartAction("SwitchWeapon", weaponContext);
+                }
+            }
+            else if (rightWeapon == leftWeapon)//양손이 같은 무기?
+            {
+                weaponContext.type = "Switch";
+                weaponContext.side = "Dual";
+                weaponContext.rightWeapon = rightWeapon;
+                weaponContext.leftWeapon = leftWeapon;
+                rpgCharacterController.StartAction("SwitchWeapon", weaponContext);
+            }
+            else//양손이 다른 무기
+            {
+                weaponContext.type = "Switch";
+                weaponContext.side = "Both";
+                weaponContext.rightWeapon = rightWeapon;
+                weaponContext.leftWeapon = leftWeapon;
+                rpgCharacterController.StartAction("SwitchWeapon", weaponContext);
+            }
+        }
+        
 
         //player의 최종 스탯 업데이트
         public void StatusUpdate()
         {
             //무기나 장비에 따른 공격력 속도 방어력 계산식 추가
             playerStatus.totalAttackPower = playerStatus.attackPower+playerStatus.addAttackPower;
-            playerStatus.totalAttackSpeed = playerStatus.attackSpeed + playerStatus.addAttackSpeed;
+            playerStatus.totalAttackSpeed = playerStatus.attackSpeed + playerStatus.addAttackSpeed+playerStatus.rightWeaponSpeed[nowWeaponSet];
             playerStatus.totalDefense = playerStatus.defense+playerStatus.addDefense;
             playerStatus.totalRunSpeed = playerStatus.runSpeed+playerStatus.addRunSpeed;
+
+            if (playerStatus.totalAttackSpeed > 1)
+                playerStatus.totalAttackSpeed = 1;
 
             //attackDelay에다가 공속 반영해서 계산하는 식 추가해야한다.
             attackDelay = 2.1f - (2f * playerStatus.totalAttackSpeed);//총 공속은 0~1사이 값으로 1이면 공속 제한 풀린다
             rpgCharacterController.animationSpeed = 1f + (playerStatus.totalAttackSpeed*0.5f);
-            playerStatus.movementStat.runSpeed = playerStatus.totalRunSpeed;
+            if(isDash)
+                playerStatus.movementStat.sprintSpeed = playerStatus.totalRunSpeed*5;
+            else
+                playerStatus.movementStat.runSpeed = playerStatus.totalRunSpeed;
         }
     }
 }
