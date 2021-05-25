@@ -44,6 +44,11 @@ public class lji_playerStatus : MonoBehaviour
     public float[] rightWeaponSpeed = new float[3] { 0f, 0f, 0f };
     public float[] leftWeaponSpeed = new float[3] { 0f, 0f, 0f };
 
+    [Header("Armor")]
+    public int head = (int)Armor.Default;
+    public int upperArmor = (int)Armor.Default;
+    public int lowerArmor = (int)Armor.Default;
+
     // Start is called before the first frame update
     void Start()
     {
