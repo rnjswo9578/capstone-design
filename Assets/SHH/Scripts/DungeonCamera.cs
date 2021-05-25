@@ -15,6 +15,6 @@ public class DungeonCamera : MonoBehaviour {
 		Vector3 position = Vector3.Lerp(transform.position, desiredPosition, Time.deltaTime * damping);
 		transform.position = position;
 
-		transform.LookAt(target.transform.position);
+		//transform.LookAt(target.transform.position);
 	}
 }
