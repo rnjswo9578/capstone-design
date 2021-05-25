@@ -1,12 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using RPGCharacterAnims;
 using System.Xml;
 
-public class lji_playerStatus : MonoBehaviour
+public class pgj_XMLcrtl : MonoBehaviour
 {
-    [Header("Character")]
     public int maxHp;
     public int hp;
 
@@ -22,21 +20,15 @@ public class lji_playerStatus : MonoBehaviour
     public int addRunSpeed;
 
     public float totalAttackSpeed; //0~1사이
-    public int totalAttackPower; 
-    public int totalDefense; 
+    public int totalAttackPower;
+    public int totalDefense;
     public int totalRunSpeed; //5~10사이가 적당
-    
 
-    public RPGCharacterMovementController movementStat;
-    //이동 속도 관련 함수는 movementStat을 불러서 수정;
-    //ex) movementStat.runSpeed = 5
-
-    RPGCharacterController characterController;
 
     [Header("Weapon")]
     // Weapon SET//3번은 맨주먹
-    public int [] rightWeapon = new int[3] { 0, 0, 0 };
-    public int [] leftWeapon = new int[3] { 0, 0, 0 };
+    public int[] rightWeapon = new int[3] { 0, 0, 0 };
+    public int[] leftWeapon = new int[3] { 0, 0, 0 };
 
     public int[] rightWeaponTier = new int[3] { 0, 0, 0 };
     public int[] leftWeaponTier = new int[3] { 0, 0, 0 };
@@ -44,59 +36,10 @@ public class lji_playerStatus : MonoBehaviour
     public float[] rightWeaponSpeed = new float[3] { 0f, 0f, 0f };
     public float[] leftWeaponSpeed = new float[3] { 0f, 0f, 0f };
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        LoadXml();
-
-        movementStat = GetComponent<RPGCharacterMovementController>();
-
-        characterController = GetComponent<RPGCharacterController>();
-
-        totalAttackSpeed = attackSpeed;
-        totalAttackPower = attackPower;
-        totalDefense = defense;
-        movementStat.runSpeed = runSpeed;
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //hp는 maxHp를 넘어서면 안된다.
-        if (hp > maxHp)
-            hp = maxHp;
-        
-        if (hp <= 0)
-        {
-            death();
-        }
-    }
-
-    void death()
-    {
-        if (characterController.CanStartAction("Death"))
-        {
-            characterController.StartAction("Death");
-        }
-
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            if (characterController.isDead)
-                Destroy(this.gameObject);
-        }
-    }
-
-
-
-
-    private void OnDestroy()
-    {
-        OverwriteXml();
-    }
 
     void LoadXml()
     {
+
         TextAsset textAsset = (TextAsset)Resources.Load("PlayerStatus");
         Debug.Log(textAsset);
         XmlDocument xmlDoc = new XmlDocument();
@@ -150,12 +93,12 @@ public class lji_playerStatus : MonoBehaviour
 
         foreach (XmlNode node in nodes)
         {
-            Debug.Log("rightWeapon :: " + node.SelectSingleNode("rightWeapon1").InnerText+" :: " + node.SelectSingleNode("rightWeapon2").InnerText+" :: " + node.SelectSingleNode("rightWeapon3").InnerText);
-            Debug.Log("leftWeapon :: " + node.SelectSingleNode("leftWeapon1").InnerText+" :: " + node.SelectSingleNode("leftWeapon2").InnerText+" :: " + node.SelectSingleNode("leftWeapon3").InnerText);
-            Debug.Log("rightWeaponTier :: " + node.SelectSingleNode("rightWeaponTier1").InnerText+" :: " + node.SelectSingleNode("rightWeaponTier2").InnerText+" :: " + node.SelectSingleNode("rightWeaponTier3").InnerText);
-            Debug.Log("leftWeaponTier :: " + node.SelectSingleNode("leftWeaponTier1").InnerText+" :: " + node.SelectSingleNode("leftWeaponTier2").InnerText+" :: " + node.SelectSingleNode("leftWeaponTier3").InnerText);
-            Debug.Log("rightWeaponSpeed :: " + node.SelectSingleNode("rightWeaponSpeed1").InnerText+" :: " + node.SelectSingleNode("rightWeaponSpeed2").InnerText+" :: " + node.SelectSingleNode("rightWeaponSpeed3").InnerText);
-            Debug.Log("leftWeaponSpeed :: " + node.SelectSingleNode("leftWeaponSpeed1").InnerText+ " :: " + node.SelectSingleNode("leftWeaponSpeed2").InnerText+ " :: " + node.SelectSingleNode("leftWeaponSpeed3").InnerText);
+            Debug.Log("rightWeapon :: " + node.SelectSingleNode("rightWeapon1").InnerText + " :: " + node.SelectSingleNode("rightWeapon2").InnerText + " :: " + node.SelectSingleNode("rightWeapon3").InnerText);
+            Debug.Log("leftWeapon :: " + node.SelectSingleNode("leftWeapon1").InnerText + " :: " + node.SelectSingleNode("leftWeapon2").InnerText + " :: " + node.SelectSingleNode("leftWeapon3").InnerText);
+            Debug.Log("rightWeaponTier :: " + node.SelectSingleNode("rightWeaponTier1").InnerText + " :: " + node.SelectSingleNode("rightWeaponTier2").InnerText + " :: " + node.SelectSingleNode("rightWeaponTier3").InnerText);
+            Debug.Log("leftWeaponTier :: " + node.SelectSingleNode("leftWeaponTier1").InnerText + " :: " + node.SelectSingleNode("leftWeaponTier2").InnerText + " :: " + node.SelectSingleNode("leftWeaponTier3").InnerText);
+            Debug.Log("rightWeaponSpeed :: " + node.SelectSingleNode("rightWeaponSpeed1").InnerText + " :: " + node.SelectSingleNode("rightWeaponSpeed2").InnerText + " :: " + node.SelectSingleNode("rightWeaponSpeed3").InnerText);
+            Debug.Log("leftWeaponSpeed :: " + node.SelectSingleNode("leftWeaponSpeed1").InnerText + " :: " + node.SelectSingleNode("leftWeaponSpeed2").InnerText + " :: " + node.SelectSingleNode("leftWeaponSpeed3").InnerText);
 
             rightWeapon[0] = int.Parse(node.SelectSingleNode("rightWeapon1").InnerText);
             rightWeapon[1] = int.Parse(node.SelectSingleNode("rightWeapon2").InnerText);
