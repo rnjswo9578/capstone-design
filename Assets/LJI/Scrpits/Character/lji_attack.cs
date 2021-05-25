@@ -28,25 +28,25 @@ public class lji_attack : MonoBehaviour
         handL.GetComponent<BoxCollider>().enabled = false;
         handR.GetComponent<BoxCollider>().enabled = false;
 
-        weaponController.twoHandAxe.GetComponent<BoxCollider>().enabled = false;
-        weaponController.twoHandSword.GetComponent<BoxCollider>().enabled = false;
-        weaponController.twoHandSpear.GetComponent<BoxCollider>().enabled = false;
+        weaponController.twoHandAxe.GetComponent<MeshCollider>().enabled = false;
+        weaponController.twoHandSword.GetComponent<MeshCollider>().enabled = false;
+        weaponController.twoHandSpear.GetComponent<MeshCollider>().enabled = false;
         weaponController.twoHandBow.GetComponent<BoxCollider>().enabled = false;
         weaponController.twoHandCrossbow.GetComponent<BoxCollider>().enabled = false;
-        weaponController.staff.GetComponent<BoxCollider>().enabled = false;
-        weaponController.swordL.GetComponent<BoxCollider>().enabled = false;
-        weaponController.swordR.GetComponent<BoxCollider>().enabled = false;
-        weaponController.maceL.GetComponent<BoxCollider>().enabled = false;
-        weaponController.maceR.GetComponent<BoxCollider>().enabled = false;
-        weaponController.daggerL.GetComponent<BoxCollider>().enabled = false;
-        weaponController.daggerR.GetComponent<BoxCollider>().enabled = false;
-        weaponController.itemL.GetComponent<BoxCollider>().enabled = false;
-        weaponController.itemR.GetComponent<BoxCollider>().enabled = false;
-        weaponController.shield.GetComponent<BoxCollider>().enabled = false;
+        weaponController.staff.GetComponent<MeshCollider>().enabled = false;
+        weaponController.swordL.GetComponent<MeshCollider>().enabled = false;
+        weaponController.swordR.GetComponent<MeshCollider>().enabled = false;
+        weaponController.maceL.GetComponent<MeshCollider>().enabled = false;
+        weaponController.maceR.GetComponent<MeshCollider>().enabled = false;
+        weaponController.daggerL.GetComponent<MeshCollider>().enabled = false;
+        weaponController.daggerR.GetComponent<MeshCollider>().enabled = false;
+        weaponController.itemL.GetComponent<MeshCollider>().enabled = false;
+        weaponController.itemR.GetComponent<MeshCollider>().enabled = false;
+        weaponController.shield.GetComponent<MeshCollider>().enabled = false;
         weaponController.pistolL.GetComponent<BoxCollider>().enabled = false;
         weaponController.pistolR.GetComponent<BoxCollider>().enabled = false;
         weaponController.rifle.GetComponent<BoxCollider>().enabled = false;
-        weaponController.spear.GetComponent<BoxCollider>().enabled = false;
+        weaponController.spear.GetComponent<MeshCollider>().enabled = false;
 
     }
 
@@ -62,12 +62,12 @@ public class lji_attack : MonoBehaviour
             {
                 switch (characterController.rightWeapon)//양손 무기 번호가 왼손 무기로 오지만 사용은 그대로 오른쪽무기로 쓴다
                 {
-                    case (int)Weapon.TwoHandSword: weaponController.twoHandSword.GetComponent<BoxCollider>().enabled = true; break;
-                    case (int)Weapon.TwoHandSpear: weaponController.twoHandSpear.GetComponent<BoxCollider>().enabled = true; break;
-                    case (int)Weapon.TwoHandAxe: weaponController.twoHandAxe.GetComponent<BoxCollider>().enabled = true; break;
+                    case (int)Weapon.TwoHandSword: weaponController.twoHandSword.GetComponent<MeshCollider>().enabled = true; break;
+                    case (int)Weapon.TwoHandSpear: weaponController.twoHandSpear.GetComponent<MeshCollider>().enabled = true; break;
+                    case (int)Weapon.TwoHandAxe: weaponController.twoHandAxe.GetComponent<MeshCollider>().enabled = true; break;
                     case (int)Weapon.TwoHandBow: weaponController.twoHandBow.GetComponent<BoxCollider>().enabled = true; break;
                     case (int)Weapon.TwoHandCrossbow: weaponController.twoHandCrossbow.GetComponent<BoxCollider>().enabled = true; break;
-                    case (int)Weapon.TwoHandStaff: weaponController.staff.GetComponent<BoxCollider>().enabled = true; break;
+                    case (int)Weapon.TwoHandStaff: weaponController.staff.GetComponent<MeshCollider>().enabled = true; break;
                 }
             }
             else if (characterInputController.side==1)//left공격
@@ -78,11 +78,11 @@ public class lji_attack : MonoBehaviour
                 {
                     switch (characterController.leftWeapon)
                     {
-                        case (int)Weapon.Shield: weaponController.shield.GetComponent<BoxCollider>().enabled = true; break;
-                        case (int)Weapon.LeftSword: weaponController.swordL.GetComponent<BoxCollider>().enabled = true; break;
-                        case (int)Weapon.LeftMace: weaponController.maceL.GetComponent<BoxCollider>().enabled = true; break;
-                        case (int)Weapon.LeftDagger: weaponController.daggerL.GetComponent<BoxCollider>().enabled = true; break;
-                        case (int)Weapon.LeftItem: weaponController.itemL.GetComponent<BoxCollider>().enabled = true; break;
+                        case (int)Weapon.Shield: weaponController.shield.GetComponent<MeshCollider>().enabled = true; break;
+                        case (int)Weapon.LeftSword: weaponController.swordL.GetComponent<MeshCollider>().enabled = true; break;
+                        case (int)Weapon.LeftMace: weaponController.maceL.GetComponent<MeshCollider>().enabled = true; break;
+                        case (int)Weapon.LeftDagger: weaponController.daggerL.GetComponent<MeshCollider>().enabled = true; break;
+                        case (int)Weapon.LeftItem: weaponController.itemL.GetComponent<MeshCollider>().enabled = true; break;
                         case (int)Weapon.LeftPistol: weaponController.pistolL.GetComponent<BoxCollider>().enabled = true; break;
                     }
                 }
@@ -95,13 +95,13 @@ public class lji_attack : MonoBehaviour
                 {
                     switch (characterController.rightWeapon)
                     {
-                        case (int)Weapon.RightSword: weaponController.swordR.GetComponent<BoxCollider>().enabled = true; break;
-                        case (int)Weapon.RightMace: weaponController.maceR.GetComponent<BoxCollider>().enabled = true; break;
-                        case (int)Weapon.RightDagger: weaponController.daggerR.GetComponent<BoxCollider>().enabled = true; break;
-                        case (int)Weapon.RightItem: weaponController.itemR.GetComponent<BoxCollider>().enabled = true; break;
+                        case (int)Weapon.RightSword: weaponController.swordR.GetComponent<MeshCollider>().enabled = true; break;
+                        case (int)Weapon.RightMace: weaponController.maceR.GetComponent<MeshCollider>().enabled = true; break;
+                        case (int)Weapon.RightDagger: weaponController.daggerR.GetComponent<MeshCollider>().enabled = true; break;
+                        case (int)Weapon.RightItem: weaponController.itemR.GetComponent<MeshCollider>().enabled = true; break;
                         case (int)Weapon.RightPistol: weaponController.pistolR.GetComponent<BoxCollider>().enabled = true; break;
                         case (int)Weapon.Rifle: weaponController.rifle.GetComponent<BoxCollider>().enabled = true; break;
-                        case (int)Weapon.RightSpear: weaponController.spear.GetComponent<BoxCollider>().enabled = true; break;
+                        case (int)Weapon.RightSpear: weaponController.spear.GetComponent<MeshCollider>().enabled = true; break;
                     }
                 }
             }
@@ -116,12 +116,12 @@ public class lji_attack : MonoBehaviour
 
                 switch (characterController.rightWeapon)
                 {
-                    case (int)Weapon.TwoHandSword: weaponController.twoHandSword.GetComponent<BoxCollider>().enabled = false; break;
-                    case (int)Weapon.TwoHandSpear: weaponController.twoHandSpear.GetComponent<BoxCollider>().enabled = false; break;
-                    case (int)Weapon.TwoHandAxe: weaponController.twoHandAxe.GetComponent<BoxCollider>().enabled = false; break;
+                    case (int)Weapon.TwoHandSword: weaponController.twoHandSword.GetComponent<MeshCollider>().enabled = false; break;
+                    case (int)Weapon.TwoHandSpear: weaponController.twoHandSpear.GetComponent<MeshCollider>().enabled = false; break;
+                    case (int)Weapon.TwoHandAxe: weaponController.twoHandAxe.GetComponent<MeshCollider>().enabled = false; break;
                     case (int)Weapon.TwoHandBow: weaponController.twoHandBow.GetComponent<BoxCollider>().enabled = false; break;
                     case (int)Weapon.TwoHandCrossbow: weaponController.twoHandCrossbow.GetComponent<BoxCollider>().enabled = false; break;
-                    case (int)Weapon.TwoHandStaff: weaponController.staff.GetComponent<BoxCollider>().enabled = false; break;
+                    case (int)Weapon.TwoHandStaff: weaponController.staff.GetComponent<MeshCollider>().enabled = false; break;
                 }
             }
             else
@@ -130,11 +130,11 @@ public class lji_attack : MonoBehaviour
 
                 switch (characterController.leftWeapon)
                 {
-                    case (int)Weapon.Shield: weaponController.shield.GetComponent<BoxCollider>().enabled = false; break;
-                    case (int)Weapon.LeftSword: weaponController.swordL.GetComponent<BoxCollider>().enabled = false; break;
-                    case (int)Weapon.LeftMace: weaponController.maceL.GetComponent<BoxCollider>().enabled = false; break;
-                    case (int)Weapon.LeftDagger: weaponController.daggerL.GetComponent<BoxCollider>().enabled = false; break;
-                    case (int)Weapon.LeftItem: weaponController.itemL.GetComponent<BoxCollider>().enabled = false; break;
+                    case (int)Weapon.Shield: weaponController.shield.GetComponent<MeshCollider>().enabled = false; break;
+                    case (int)Weapon.LeftSword: weaponController.swordL.GetComponent<MeshCollider>().enabled = false; break;
+                    case (int)Weapon.LeftMace: weaponController.maceL.GetComponent<MeshCollider>().enabled = false; break;
+                    case (int)Weapon.LeftDagger: weaponController.daggerL.GetComponent<MeshCollider>().enabled = false; break;
+                    case (int)Weapon.LeftItem: weaponController.itemL.GetComponent<MeshCollider>().enabled = false; break;
                     case (int)Weapon.LeftPistol: weaponController.pistolL.GetComponent<BoxCollider>().enabled = false; break;
                 }
 
@@ -144,13 +144,13 @@ public class lji_attack : MonoBehaviour
 
                 switch (characterController.rightWeapon)
                 {
-                    case (int)Weapon.RightSword: weaponController.swordR.GetComponent<BoxCollider>().enabled = false; break;
-                    case (int)Weapon.RightMace: weaponController.maceR.GetComponent<BoxCollider>().enabled = false; break;
-                    case (int)Weapon.RightDagger: weaponController.daggerR.GetComponent<BoxCollider>().enabled = false; break;
-                    case (int)Weapon.RightItem: weaponController.itemR.GetComponent<BoxCollider>().enabled = false; break;
+                    case (int)Weapon.RightSword: weaponController.swordR.GetComponent<MeshCollider>().enabled = false; break;
+                    case (int)Weapon.RightMace: weaponController.maceR.GetComponent<MeshCollider>().enabled = false; break;
+                    case (int)Weapon.RightDagger: weaponController.daggerR.GetComponent<MeshCollider>().enabled = false; break;
+                    case (int)Weapon.RightItem: weaponController.itemR.GetComponent<MeshCollider>().enabled = false; break;
                     case (int)Weapon.RightPistol: weaponController.pistolR.GetComponent<BoxCollider>().enabled = false; break;
                     case (int)Weapon.Rifle: weaponController.rifle.GetComponent<BoxCollider>().enabled = false; break;
-                    case (int)Weapon.RightSpear: weaponController.spear.GetComponent<BoxCollider>().enabled = false; break;
+                    case (int)Weapon.RightSpear: weaponController.spear.GetComponent<MeshCollider>().enabled = false; break;
                 }
 
             }
