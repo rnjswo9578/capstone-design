@@ -42,5 +42,5 @@
 		<leftWeaponSpeed1>0f</leftWeaponSpeed1>
 		<leftWeaponSpeed2>0f</leftWeaponSpeed2>
 		<leftWeaponSpeed3>0f</leftWeaponSpeed3>
-</Weapon>
+	</Weapon>
 </CharacterInfo>
