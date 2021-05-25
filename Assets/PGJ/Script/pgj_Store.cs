@@ -12,7 +12,7 @@ public class pgj_Store : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(player); //gameObject가 씬과 상관없이 관리가능
+        //DontDestroyOnLoad(player); //gameObject가 씬과 상관없이 관리가능
     }
 
     // Start is called before the first frame update
@@ -45,9 +45,9 @@ public class pgj_Store : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.F))
             {
                 Debug.Log("F");
-                SceneManager.LoadScene("store");
+                SceneManager.LoadScene("store", LoadSceneMode.Additive);
                 //SceneManager.LoadScene("store", LoadSceneMode.Additive); "store"씬을 현재 씬에 로드
-                MoveToOtherScene(player, sceneNum);
+                pgj_GameManager.instance.MoveToOtherScene(player, sceneNum);
             }
         }
     }
