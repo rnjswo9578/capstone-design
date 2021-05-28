@@ -70,7 +70,7 @@ public class lji_attack : MonoBehaviour
                     case (int)Weapon.TwoHandStaff: weaponController.staff.GetComponent<MeshCollider>().enabled = true; break;
                 }
             }
-            else if (characterInputController.side==1)//left공격
+            else if (characterInputController.playerStatus.side==1)//left공격
             {
                 if (!characterController.hasLeftWeapon)//왼손 맨주먹일 때
                     handL.GetComponent<BoxCollider>().enabled = true;

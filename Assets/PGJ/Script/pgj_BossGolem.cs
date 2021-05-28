@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+//lji 수정
+using RPGCharacterAnims;
 
 public class pgj_BossGolem : MonoBehaviour
 {
@@ -34,7 +36,11 @@ public class pgj_BossGolem : MonoBehaviour
     private Canvas canvas;
 
     private Vector3 offset;
-
+    
+    //lji 수정
+    public GameObject player;
+    lji_playerStatus playerStatus;
+    private bool isDamage = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -54,6 +60,9 @@ public class pgj_BossGolem : MonoBehaviour
         beamFx.Stop();
         drawFx.Stop();
         nextPhaseFX.Stop();
+
+        //lji 수정
+        playerStatus = player.GetComponent<lji_playerStatus>();
     }
 
     // Update is called once per frame
@@ -127,27 +136,29 @@ public class pgj_BossGolem : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        int damage;
+        //int damage;
 
-        if (other.tag == "PLAYER_WEAPON")
+        if (other.tag == "PLAYER_WEAPON" && isDamage == false)
         {
             //textUIAnim.SetTrigger("isHit");
-            damage = Random.Range(10, 15);
-            hp = hp - damage;
-            if (hp >= 0)
-            {
-                hpBar.fillAmount = (float)hp / (float)maxhp;
-            }
-            else
-            {
-                hpBar.fillAmount = 0;
-                isDead = true;
-                anim.SetBool("isDead", isDead);
-                AttackNavSetting();
-                StartCoroutine(MonsterDeath(2f));
-                canvas.gameObject.SetActive(false);
-                myWeapon.enabled = false;
-            }
+            //damage = Random.Range(10, 15);
+            //hp = hp - damage;
+            //if (hp >= 0)
+            //{
+            //    hpBar.fillAmount = (float)hp / (float)maxhp;
+            //}
+            //else
+            //{
+            //    hpBar.fillAmount = 0;
+            //    isDead = true;
+            //    anim.SetBool("isDead", isDead);
+            //    AttackNavSetting();
+            //    StartCoroutine(MonsterDeath(2f));
+            //    canvas.gameObject.SetActive(false);
+            //    myWeapon.enabled = false;
+            //}
+            StartCoroutine(DamageTimer());
+            playerAttack();
         }
     }
     void Attack()
@@ -198,6 +209,66 @@ public class pgj_BossGolem : MonoBehaviour
         }
     }
 
+    //lji 수정
+    void playerAttack()
+    {
+        int damage = 0;
+        int weapon;
+        int weaponTierDamage;
+        if (playerStatus.side == 2)//오른손 공격
+        {
+            weapon = playerStatus.rightWeapon[playerStatus.nowWeaponSet];
+            weaponTierDamage = playerStatus.rightWeaponTier[playerStatus.nowWeaponSet]*5;
+        }
+        else//왼손 공격
+        {
+            weapon = playerStatus.leftWeapon[playerStatus.nowWeaponSet];
+            weaponTierDamage = playerStatus.leftWeaponTier[playerStatus.nowWeaponSet]*5;
+        }
+
+        switch (weapon)//무기 초기 대미지 값
+        {
+            case (int)Weapon.Unarmed: damage = 10; break;
+            case (int)Weapon.Shield: damage = 10; break;
+            case (int)Weapon.LeftDagger : damage = 15;break;
+            case (int)Weapon.LeftItem: damage = 15; break;
+            case (int)Weapon.LeftMace: damage = 20; break;
+            case (int)Weapon.LeftSword: damage = 15; break;
+            case (int)Weapon.RightDagger: damage = 15; break;
+            case (int)Weapon.RightItem: damage = 15; break;
+            case (int)Weapon.RightMace: damage = 25; break;
+            case (int)Weapon.RightSword: damage = 20; break;
+            case (int)Weapon.RightSpear: damage = 25; break;
+            case (int)Weapon.TwoHandAxe: damage = 50; break;
+            case (int)Weapon.TwoHandSpear: damage = 40; break;
+            case (int)Weapon.TwoHandSword: damage = 45; break;
+        }
+
+        damage += weaponTierDamage + playerStatus.totalAttackPower;
+
+        hp = hp - damage;
+        if (hp >= 0)
+        {
+            hpBar.fillAmount = (float)hp / (float)maxhp;
+        }
+        else
+        {
+            hpBar.fillAmount = 0;
+            isDead = true;
+            anim.SetBool("isDead", isDead);
+            AttackNavSetting();
+            StartCoroutine(MonsterDeath(2f));
+            canvas.gameObject.SetActive(false);
+            myWeapon.enabled = false;
+        }
+    }
+    //
+    IEnumerator DamageTimer()
+    {
+        isDamage = true;
+        yield return new WaitForSeconds(0.5f);
+        isDamage = false;
+    }
     IEnumerator MonsterDeath(float time)
     {
         yield return new WaitForSeconds(time);

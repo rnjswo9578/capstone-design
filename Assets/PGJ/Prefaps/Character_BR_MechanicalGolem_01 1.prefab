@@ -30,6 +30,19 @@ Transform:
   m_Father: {fileID: 5947906418617734952}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5952499127857721308
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5951578285579427252}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 0.14392565, y: 0.15050559, z: 8.597485}
+  m_Center: {x: 0.000112959024, y: 0.0124707585, z: 4.3463573}
 --- !u!1 &5951590180500892660
 GameObject:
   m_ObjectHideFlags: 0
@@ -412,6 +425,19 @@ Transform:
   m_Father: {fileID: 5947725512798602922}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5952499126656709276
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5951646365882989173}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.36742038, y: 1.6764487, z: 0.47415507}
+  m_Center: {x: -0.008776483, y: 0.30307263, z: 0.116002664}
 --- !u!1 &5952499126675296850
 GameObject:
   m_ObjectHideFlags: 0
@@ -710,32 +736,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba76db7d722e2274aac4dcd876aff14d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &5952499126656709276
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5951646365882989173}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.36742038, y: 1.6764487, z: 0.47415507}
-  m_Center: {x: -0.008776483, y: 0.30307263, z: 0.116002664}
---- !u!65 &5952499127857721308
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5951578285579427252}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 0.14392565, y: 0.15050559, z: 8.597485}
-  m_Center: {x: 0.000112959024, y: 0.0124707585, z: 4.3463573}
 --- !u!1 &5952797922905725520
 GameObject:
   m_ObjectHideFlags: 0
@@ -3108,6 +3108,7 @@ MonoBehaviour:
   beamFx: {fileID: 5790358418411061972}
   drawFx: {fileID: 5790461566936459813}
   nextPhaseFX: {fileID: 5774836558389955624}
+  player: {fileID: 1984486853856238318, guid: 2e961a96029b8824e8ac7404e62bb509, type: 3}
 --- !u!195 &5952499126707778255
 NavMeshAgent:
   m_ObjectHideFlags: 0

@@ -61,6 +61,19 @@ Transform:
   m_Father: {fileID: 1531639242830213393}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1535691318005277551
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533774944794888928}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 0.102839485, y: 0.8163579, z: 0.3395648}
+  m_Center: {x: -0.00030355604, y: 0.11445519, z: 0.05740449}
 --- !u!1 &1533793328696552997
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,6 +616,7 @@ MonoBehaviour:
   maxhp: 100
   myWeapon: {fileID: 1535691318005277551}
   hpBar: {fileID: 1535691319055898872}
+  player: {fileID: 1984486853856238318, guid: 2e961a96029b8824e8ac7404e62bb509, type: 3}
 --- !u!195 &1535691318312818285
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -3238,19 +3252,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!65 &1535691318005277551
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1533774944794888928}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 0.102839485, y: 0.8163579, z: 0.3395648}
-  m_Center: {x: -0.00030355604, y: 0.11445519, z: 0.05740449}
 --- !u!1 &1535691319778450490
 GameObject:
   m_ObjectHideFlags: 0

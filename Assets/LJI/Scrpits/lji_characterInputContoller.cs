@@ -10,7 +10,7 @@ namespace RPGCharacterAnims
     public class lji_characterInputContoller : MonoBehaviour
     {
         RPGCharacterController rpgCharacterController;
-        lji_playerStatus playerStatus;
+        public lji_playerStatus playerStatus;
 
         float speed = 30f;
         Rigidbody rigidbody;
@@ -60,10 +60,10 @@ namespace RPGCharacterAnims
         //추가된 Variables.
         private bool isDash = false;
         float dashTimer = 0.3f;
-        public int side = 1;
         private float DashingHorizontal;
         private float DashingVertical;
 
+        public int side = 1;
         public int nowWeaponSet = 0;
 
         private void Awake()
@@ -172,7 +172,7 @@ namespace RPGCharacterAnims
                         {
                             inputAttackL = Input.GetMouseButtonDown(1);
                         }
-                        side = 1;
+                        playerStatus.side = 1;
                     }
                 }
                 else
@@ -200,7 +200,7 @@ namespace RPGCharacterAnims
                         {
                             inputAttackR = Input.GetMouseButtonDown(0);
                         }
-                        side = 2;
+                        playerStatus.side = 2;
                     }
                 }
                 else
@@ -239,19 +239,19 @@ namespace RPGCharacterAnims
 
                 if (Input.GetKeyDown(KeyCode.Alpha1))
                 {
-                    nowWeaponSet = 0;
+                    playerStatus.nowWeaponSet = 0;
                     WeaponSwitch(1);
                 }
 
                 if (Input.GetKeyDown(KeyCode.Alpha2))
                 {
-                    nowWeaponSet = 1;
+                    playerStatus.nowWeaponSet = 1;
                     WeaponSwitch(2);
                 }
 
                 if (Input.GetKeyDown(KeyCode.Alpha3))
                 {
-                    nowWeaponSet = 2;
+                    playerStatus.nowWeaponSet = 2;
                     WeaponSwitch(3);
                 }
                 //// Injury toggle.
@@ -626,8 +626,8 @@ namespace RPGCharacterAnims
             }
             else
             {
-                rightWeapon = playerStatus.rightWeapon[nowWeaponSet];
-                leftWeapon = playerStatus.leftWeapon[nowWeaponSet];
+                rightWeapon = playerStatus.rightWeapon[playerStatus.nowWeaponSet];
+                leftWeapon = playerStatus.leftWeapon[playerStatus.nowWeaponSet];
             }
 
             //만약 양손 무기라면?
@@ -696,8 +696,13 @@ namespace RPGCharacterAnims
         {
             //무기나 장비에 따른 공격력 속도 방어력 계산식 추가
             playerStatus.totalAttackPower = playerStatus.attackPower+playerStatus.addAttackPower;
-            playerStatus.totalAttackSpeed = playerStatus.attackSpeed + playerStatus.addAttackSpeed+playerStatus.rightWeaponSpeed[nowWeaponSet];
-            playerStatus.totalDefense = playerStatus.defense+playerStatus.addDefense;
+            AttackSpeedSet();
+            playerStatus.totalAttackSpeed = playerStatus.attackSpeed + playerStatus.addAttackSpeed+playerStatus.rightWeaponSpeed[playerStatus.nowWeaponSet];
+            //실드 장착했으면 방어력 +5
+            if(playerStatus.leftWeapon[playerStatus.nowWeaponSet]==(int)Weapon.Shield)
+                playerStatus.totalDefense = playerStatus.defense + playerStatus.addDefense+5;
+            else
+                playerStatus.totalDefense = playerStatus.defense+playerStatus.addDefense;
             playerStatus.totalRunSpeed = playerStatus.runSpeed+playerStatus.addRunSpeed;
 
             if (playerStatus.totalAttackSpeed > 1)
@@ -710,6 +715,25 @@ namespace RPGCharacterAnims
                 playerStatus.movementStat.sprintSpeed = playerStatus.totalRunSpeed*5;
             else
                 playerStatus.movementStat.runSpeed = playerStatus.totalRunSpeed;
+        }
+
+        //무기에 따른 공격 속도 설정//공격 속도는 플레이어의 오른손 무기에 따라 결정된다
+        void AttackSpeedSet()
+        {
+            float attackSpeed = 0f;
+            switch (playerStatus.rightWeapon[playerStatus.nowWeaponSet])
+            {
+                case (int)Weapon.Unarmed: attackSpeed = 0.5f; break;
+                case (int)Weapon.RightDagger: attackSpeed = 0.7f; break;
+                case (int)Weapon.RightItem: attackSpeed = 0.7f; break;
+                case (int)Weapon.RightMace: attackSpeed = 0.3f; break;
+                case (int)Weapon.RightSword: attackSpeed = 0.3f; break;
+                case (int)Weapon.RightSpear: attackSpeed = 0.5f; break;
+                case (int)Weapon.TwoHandAxe: attackSpeed = 0f; break;
+                case (int)Weapon.TwoHandSpear: attackSpeed = 0.1f; break;
+                case (int)Weapon.TwoHandSword: attackSpeed = 0f; break;
+            }
+            playerStatus.rightWeaponSpeed[playerStatus.nowWeaponSet]=attackSpeed;
         }
     }
 }

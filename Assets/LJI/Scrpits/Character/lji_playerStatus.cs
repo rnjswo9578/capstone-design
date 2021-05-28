@@ -28,6 +28,10 @@ public class lji_playerStatus : MonoBehaviour
     
 
     public RPGCharacterMovementController movementStat;
+
+    //공격 손과 현재 무기세트
+    public int side = 1;
+    public int nowWeaponSet = 0;
     //이동 속도 관련 함수는 movementStat을 불러서 수정;
     //ex) movementStat.runSpeed = 5
 
@@ -52,7 +56,7 @@ public class lji_playerStatus : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        LoadXml();
+        LoadXml("DefaultPlayerStatus");
 
         movementStat = GetComponent<RPGCharacterMovementController>();
 
@@ -100,9 +104,10 @@ public class lji_playerStatus : MonoBehaviour
         OverwriteXml();
     }
 
-    void LoadXml()
+
+    void LoadXml(string filename)
     {
-        TextAsset textAsset = (TextAsset)Resources.Load("PlayerStatus");
+        TextAsset textAsset = (TextAsset)Resources.Load(filename);
         Debug.Log(textAsset);
         XmlDocument xmlDoc = new XmlDocument();
         xmlDoc.LoadXml(textAsset.text);
@@ -144,7 +149,7 @@ public class lji_playerStatus : MonoBehaviour
             addDefense = int.Parse(node.SelectSingleNode("addDefense").InnerText);
             addRunSpeed = int.Parse(node.SelectSingleNode("addRunSpeed").InnerText);
 
-            totalAttackSpeed = int.Parse(node.SelectSingleNode("totalAttackSpeed").InnerText);
+            totalAttackSpeed = float.Parse(node.SelectSingleNode("totalAttackSpeed").InnerText);
             totalAttackPower = int.Parse(node.SelectSingleNode("totalAttackPower").InnerText);
             totalDefense = int.Parse(node.SelectSingleNode("totalDefense").InnerText);
             totalRunSpeed = int.Parse(node.SelectSingleNode("totalRunSpeed").InnerText);
