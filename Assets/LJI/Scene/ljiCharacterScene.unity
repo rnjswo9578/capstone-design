@@ -617,6 +617,7 @@ GameObject:
   - component: {fileID: 2016276640}
   - component: {fileID: 2016276639}
   - component: {fileID: 2016276638}
+  - component: {fileID: 2016276642}
   m_Layer: 0
   m_Name: weapon
   m_TagString: MONSTER_WEAPON
@@ -700,6 +701,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2016276642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2016276637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eefb330ae85a88f41acf773262ecddbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
+  player: {fileID: 9041241672109609082}
 --- !u!1001 &354746626188782582
 PrefabInstance:
   m_ObjectHideFlags: 0
