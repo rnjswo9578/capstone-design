@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <ItemsInfo>
 	<Weapon>
-		<Field sell="50" buy="100" icon="~~" name="item1" id="1"/>
+		<Field sell="0" buy="0" icon="~~" name="Basic RPG Item Free/Null_item" id="0"/>
+		<Field sell="50" buy="100" icon="Basic RPG Item Free/Berry_02" name="item1" id="1"/>
 		<Field sell="50" buy="100" icon="~~" name="item2" id="2"/>
 		<Field sell="50" buy="100" icon="~~" name="item3" id="3"/>
 		<Field sell="50" buy="100" icon="~~" name="item4" id="4"/>
