@@ -166,7 +166,7 @@ public class lji_playerStatus : MonoBehaviour
             Debug.Log("leftWeaponTier :: " + node.SelectSingleNode("leftWeaponTier1").InnerText+" :: " + node.SelectSingleNode("leftWeaponTier2").InnerText+" :: " + node.SelectSingleNode("leftWeaponTier3").InnerText);
             Debug.Log("rightWeaponSpeed :: " + node.SelectSingleNode("rightWeaponSpeed1").InnerText+" :: " + node.SelectSingleNode("rightWeaponSpeed2").InnerText+" :: " + node.SelectSingleNode("rightWeaponSpeed3").InnerText);
             Debug.Log("leftWeaponSpeed :: " + node.SelectSingleNode("leftWeaponSpeed1").InnerText+ " :: " + node.SelectSingleNode("leftWeaponSpeed2").InnerText+ " :: " + node.SelectSingleNode("leftWeaponSpeed3").InnerText);
-
+            
             rightWeapon[0] = int.Parse(node.SelectSingleNode("rightWeapon1").InnerText);
             rightWeapon[1] = int.Parse(node.SelectSingleNode("rightWeapon2").InnerText);
             rightWeapon[2] = int.Parse(node.SelectSingleNode("rightWeapon3").InnerText);
