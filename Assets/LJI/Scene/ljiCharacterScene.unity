@@ -779,6 +779,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7590196595679402850, guid: 2e961a96029b8824e8ac7404e62bb509, type: 3}
+      propertyPath: addRunSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7590196595679402850, guid: 2e961a96029b8824e8ac7404e62bb509, type: 3}
       propertyPath: nowWeaponSet
       value: 2
       objectReference: {fileID: 0}
