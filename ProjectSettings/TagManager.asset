@@ -9,6 +9,8 @@ TagManager:
   - PLAYER
   - PLAYER_WEAPON
   - MONSTER_WEAPON
+  - Door
+  - Stair
   layers:
   - Default
   - TransparentFX
