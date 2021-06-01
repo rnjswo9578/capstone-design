@@ -37,6 +37,8 @@ public class lji_playerStatus : MonoBehaviour
 
     RPGCharacterController characterController;
 
+    public int gold = 0;
+
     [Header("Weapon")]
     // Weapon SET//3¹øÀº ¸ÇÁÖ¸Ô
     public int [] rightWeapon = new int[3] { 0, 0, 0 };
@@ -250,5 +252,10 @@ public class lji_playerStatus : MonoBehaviour
         character.SelectSingleNode("leftWeaponSpeed3").InnerText = leftWeaponSpeed[2] + "";
 
         xmlDoc.Save("./Assets/Resources/PlayerStatus.xml");
+    }
+
+    public void SetGold(int addGold)
+    {
+        gold += addGold;
     }
 }
