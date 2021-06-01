@@ -7,7 +7,7 @@ public class lji_rightWeaponFX : MonoBehaviour
 {
 
     GameObject[] weaponFX = new GameObject[3];
-    public lji_characterInputContoller characterInputContoller;
+    //public lji_characterInputContoller characterInputContoller;
     public lji_playerStatus playerStatus;
 
     int nowWeaponTier = 0;
@@ -27,7 +27,7 @@ public class lji_rightWeaponFX : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        newWeaponTier = playerStatus.rightWeaponTier[characterInputContoller.nowWeaponSet];
+        newWeaponTier = playerStatus.rightWeaponTier[playerStatus.nowWeaponSet];
         //오른손 무기
         //무기 티어가 달라 효과 on off 해야한다
         if (newWeaponTier != nowWeaponTier)

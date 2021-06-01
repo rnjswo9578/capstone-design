@@ -25,6 +25,13 @@ public class lji_HPBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (character == null)
+        {
+            character = GameObject.FindWithTag("PLAYER");
+            status = character.GetComponent<lji_playerStatus>();
+            maxHp = status.maxHp;
+            hp = status.hp;
+        }
         //여기서 플레이어 hp 계속 받아오면 된다. //character 활용
         if (maxHp != status.maxHp)
             maxHp = status.maxHp;
@@ -34,5 +41,7 @@ public class lji_HPBar : MonoBehaviour
         hpBar.fillAmount = (float)hp / (float)maxHp;
         hpText.text = string.Format("HP {0} / {1}", hp, maxHp);
         hpText.color = Color.white;
+
+        
     }
 }

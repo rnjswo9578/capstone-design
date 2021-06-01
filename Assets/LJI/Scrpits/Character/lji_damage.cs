@@ -21,11 +21,19 @@ public class lji_damage : MonoBehaviour
         damage = 10;
     }
     
+    public void setDamage(int getDamage)//외부에서 damage 수정
+    {
+        damage = getDamage;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "MONSTER_WEAPON"&& isDamage==false )
         {
             StartCoroutine(IsDamage());
+            damage = damage - playerStatus.totalDefense;
+            if (damage <= 0)
+                damage = 1;
             playerStatus.hp -= damage;
             characterController.StartAction("GetHit",new HitContext());
         }

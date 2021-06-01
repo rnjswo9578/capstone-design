@@ -5,11 +5,11 @@
 		<Level>300</Level>
 		<maxHp>150</maxHp>
 		<hp>150</hp>
-		<attackSpeed>0</attackSpeed>
+		<attackSpeed>0f</attackSpeed>
 		<attackPower>5</attackPower>
 		<defense>5</defense>
 		<runSpeed>4</runSpeed>
-		<addAttackSpeed>0</addAttackSpeed>
+		<addAttackSpeed>0f</addAttackSpeed>
 		<addAttackPower>0</addAttackPower>
 		<addDefense>0</addDefense>
 		<addRunSpeed>0</addRunSpeed>
@@ -42,5 +42,5 @@
 		<leftWeaponSpeed1>0f</leftWeaponSpeed1>
 		<leftWeaponSpeed2>0f</leftWeaponSpeed2>
 		<leftWeaponSpeed3>0f</leftWeaponSpeed3>
-</Weapon>
+	</Weapon>
 </CharacterInfo>

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+//lji 수정
+using RPGCharacterAnims;
 
 public class pgj_cshBossCtrl : MonoBehaviour
 {
@@ -28,6 +30,10 @@ public class pgj_cshBossCtrl : MonoBehaviour
     private NavMeshAgent nav;
     private Canvas canvas;
 
+    //lji 수정
+    public GameObject player;
+    lji_playerStatus playerStatus;
+    private bool isDamage = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,15 +48,23 @@ public class pgj_cshBossCtrl : MonoBehaviour
 
 
         myWeapon.enabled = false;
-
+        
+        //lji 수정
+        playerStatus = player.GetComponent<lji_playerStatus>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (player == null)
+        {
+            playerTr = GameObject.FindGameObjectWithTag("PLAYER").GetComponent<Transform>();
+            player = GameObject.FindGameObjectWithTag("PLAYER");
+            playerStatus = player.GetComponent<lji_playerStatus>();
+        }
         distPoint = Vector3.Distance(tr.position, point.position);
 
-
+        
 
         if (!isDead)
         {
@@ -105,27 +119,27 @@ public class pgj_cshBossCtrl : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         int damage;
-
-        if (other.tag == "PLAYER_WEAPON")
+        if (other.tag == "PLAYER_WEAPON"&&isDamage==false)
         {
             //textUIAnim.SetTrigger("isHit");
-            damage = Random.Range(10, 15);
-            hp = hp - damage;
-            if (hp >= 0)
-            {
-                hpBar.fillAmount = (float)hp / (float)maxhp;
-            }
-            else
-            {
-                hpBar.fillAmount = 0;
-                isDead = true;
-                anim.SetBool("isDead", isDead);
-                AttackNavSetting();
-                StartCoroutine(MonsterDeath(2f));
-                canvas.gameObject.SetActive(false);
-                myWeapon.enabled = false;
-                
-            }
+            //damage = Random.Range(10, 15);
+            //hp = hp - damage;
+            //if (hp >= 0)
+            //{
+            //    hpBar.fillAmount = (float)hp / (float)maxhp;
+            //}
+            //else
+            //{
+            //    hpBar.fillAmount = 0;
+            //    isDead = true;
+            //    anim.SetBool("isDead", isDead);
+            //    AttackNavSetting();
+            //    StartCoroutine(MonsterDeath(2f));
+            //    canvas.gameObject.SetActive(false);
+            //    myWeapon.enabled = false;
+            //}
+            StartCoroutine(DamageTimer());
+            playerAttack();
         }
     }
     void Attack()
@@ -148,7 +162,7 @@ public class pgj_cshBossCtrl : MonoBehaviour
         else if (anim.GetCurrentAnimatorStateInfo(0).IsName("pattern3") && pattern == 3)
         {
             pattern = 4;
-            StartCoroutine(AttackTimer(0.1f, 0.3f));
+            StartCoroutine(AttackTimer(0.2f, 0.4f));
         }
         else if (anim.GetCurrentAnimatorStateInfo(0).IsName("pattern4") && pattern == 4)
         {
@@ -157,11 +171,72 @@ public class pgj_cshBossCtrl : MonoBehaviour
         }
     }
 
+    //lji 수정
+    void playerAttack()
+    {
+        int damage = 10;
+        int weapon;
+        int weaponTierDamage;
+        if (playerStatus.side == 2)//오른손 공격
+        {
+            weapon = playerStatus.rightWeapon[playerStatus.nowWeaponSet];
+            weaponTierDamage = playerStatus.rightWeaponTier[playerStatus.nowWeaponSet] * 5;
+        }
+        else//왼손 공격
+        {
+            weapon = playerStatus.leftWeapon[playerStatus.nowWeaponSet];
+            weaponTierDamage = playerStatus.leftWeaponTier[playerStatus.nowWeaponSet] * 5;
+        }
+        switch (weapon)//무기 초기 대미지 값
+        {
+            case (int)Weapon.Unarmed: damage = 10; break;
+            case (int)Weapon.Shield: damage = 10; break;
+            case (int)Weapon.LeftDagger: damage = 15; break;
+            case (int)Weapon.LeftItem: damage = 15; break;
+            case (int)Weapon.LeftMace: damage = 20; break;
+            case (int)Weapon.LeftSword: damage = 15; break;
+            case (int)Weapon.RightDagger: damage = 15; break;
+            case (int)Weapon.RightItem: damage = 15; break;
+            case (int)Weapon.RightMace: damage = 25; break;
+            case (int)Weapon.RightSword: damage = 20; break;
+            case (int)Weapon.RightSpear: damage = 25; break;
+            case (int)Weapon.TwoHandAxe: damage = 50; break;
+            case (int)Weapon.TwoHandSpear: damage = 40; break;
+            case (int)Weapon.TwoHandSword: damage = 45; break;
+        }
+        Debug.Log("weapon"+weapon);
+        Debug.Log("damage"+damage);
+        damage += weaponTierDamage + playerStatus.totalAttackPower;
+
+        hp = hp - damage;
+        if (hp >= 0)
+        {
+            hpBar.fillAmount = (float)hp / (float)maxhp;
+        }
+        else
+        {
+            hpBar.fillAmount = 0;
+            isDead = true;
+            anim.SetBool("isDead", isDead);
+            AttackNavSetting();
+            StartCoroutine(MonsterDeath(2f));
+            canvas.gameObject.SetActive(false);
+            myWeapon.enabled = false;
+        }
+    }
+    IEnumerator DamageTimer()
+    {
+        isDamage = true;
+        yield return new WaitForSeconds(0.5f);
+        isDamage = false;
+    }
+    //
     IEnumerator MonsterDeath(float time)
     {
         yield return new WaitForSeconds(time);
         //GameObject.FindGameObjectWithTag("PLAYER").SetActive(false);
         anim.speed = 0;
+        Destroy(this.gameObject);
         //myAnimator.speed = 0.0;
     }
     IEnumerator AttackTimer(float firstTime, float secondTime)

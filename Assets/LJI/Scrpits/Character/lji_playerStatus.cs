@@ -28,10 +28,16 @@ public class lji_playerStatus : MonoBehaviour
     
 
     public RPGCharacterMovementController movementStat;
+
+    //공격 손과 현재 무기세트
+    public int side = 1;
+    public int nowWeaponSet = 0;
     //이동 속도 관련 함수는 movementStat을 불러서 수정;
     //ex) movementStat.runSpeed = 5
 
     RPGCharacterController characterController;
+
+    public int gold = 0;
 
     [Header("Weapon")]
     // Weapon SET//3번은 맨주먹
@@ -52,7 +58,7 @@ public class lji_playerStatus : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        LoadXml();
+        LoadXml("DefaultPlayerStatus");
 
         movementStat = GetComponent<RPGCharacterMovementController>();
 
@@ -100,9 +106,10 @@ public class lji_playerStatus : MonoBehaviour
         OverwriteXml();
     }
 
-    void LoadXml()
+
+    void LoadXml(string filename)
     {
-        TextAsset textAsset = (TextAsset)Resources.Load("PlayerStatus");
+        TextAsset textAsset = (TextAsset)Resources.Load(filename);
         Debug.Log(textAsset);
         XmlDocument xmlDoc = new XmlDocument();
         xmlDoc.LoadXml(textAsset.text);
@@ -144,7 +151,7 @@ public class lji_playerStatus : MonoBehaviour
             addDefense = int.Parse(node.SelectSingleNode("addDefense").InnerText);
             addRunSpeed = int.Parse(node.SelectSingleNode("addRunSpeed").InnerText);
 
-            totalAttackSpeed = int.Parse(node.SelectSingleNode("totalAttackSpeed").InnerText);
+            totalAttackSpeed = float.Parse(node.SelectSingleNode("totalAttackSpeed").InnerText);
             totalAttackPower = int.Parse(node.SelectSingleNode("totalAttackPower").InnerText);
             totalDefense = int.Parse(node.SelectSingleNode("totalDefense").InnerText);
             totalRunSpeed = int.Parse(node.SelectSingleNode("totalRunSpeed").InnerText);
@@ -161,7 +168,7 @@ public class lji_playerStatus : MonoBehaviour
             Debug.Log("leftWeaponTier :: " + node.SelectSingleNode("leftWeaponTier1").InnerText+" :: " + node.SelectSingleNode("leftWeaponTier2").InnerText+" :: " + node.SelectSingleNode("leftWeaponTier3").InnerText);
             Debug.Log("rightWeaponSpeed :: " + node.SelectSingleNode("rightWeaponSpeed1").InnerText+" :: " + node.SelectSingleNode("rightWeaponSpeed2").InnerText+" :: " + node.SelectSingleNode("rightWeaponSpeed3").InnerText);
             Debug.Log("leftWeaponSpeed :: " + node.SelectSingleNode("leftWeaponSpeed1").InnerText+ " :: " + node.SelectSingleNode("leftWeaponSpeed2").InnerText+ " :: " + node.SelectSingleNode("leftWeaponSpeed3").InnerText);
-
+            
             rightWeapon[0] = int.Parse(node.SelectSingleNode("rightWeapon1").InnerText);
             rightWeapon[1] = int.Parse(node.SelectSingleNode("rightWeapon2").InnerText);
             rightWeapon[2] = int.Parse(node.SelectSingleNode("rightWeapon3").InnerText);
@@ -245,5 +252,10 @@ public class lji_playerStatus : MonoBehaviour
         character.SelectSingleNode("leftWeaponSpeed3").InnerText = leftWeaponSpeed[2] + "";
 
         xmlDoc.Save("./Assets/Resources/PlayerStatus.xml");
+    }
+
+    public void SetGold(int addGold)
+    {
+        gold += addGold;
     }
 }

@@ -37,31 +37,4 @@ public class pgj_inStore : MonoBehaviour
         }
     }
 
-    IEnumerator FadeOut()
-    {
-        int i = 10;
-        while (i > 0)
-        {
-            i -= 1;
-            float f = i / 10.0f;
-            Color c = renderer.material.color;
-            c.a = f;
-            renderer.material.color = c;
-            yield return new WaitForSeconds(0.02f);
-        }
-    }
-
-    IEnumerator FadeIn()
-    {
-        int i = 0;
-        while (i < 10)
-        {
-            i += 1;
-            float f = i / 10.0f;
-            Color c = renderer.material.color;
-            c.a = f;
-            renderer.material.color = c;
-            yield return new WaitForSeconds(0.02f);
-        }
-    }
 }
