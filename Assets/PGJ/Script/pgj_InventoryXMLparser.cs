@@ -5,12 +5,12 @@ using System.Xml;
 
 public class pgj_InventoryXMLparser : MonoBehaviour
 {
-    public string m_strName = "Inventory";
+    string m_strName = "Inventory";
 
     void Start()
     {
         //파싱 시작
-        Interpret(m_strName);
+        StartCoroutine(Process());
     }
 
     void Update()
@@ -19,10 +19,13 @@ public class pgj_InventoryXMLparser : MonoBehaviour
 
     }
 
-    private void OnDestroy()
+    IEnumerator Process()
     {
-        
+        yield return 0;
+        Interpret(m_strName);
     }
+
+
 
     private void Interpret(string _strSource)
     {
@@ -40,7 +43,7 @@ public class pgj_InventoryXMLparser : MonoBehaviour
         foreach (XmlNode node in xmlNodeList)
         {
             // 자식이 있을 때에 돔
-            if (node.Name.Equals("Items") && node.HasChildNodes)
+            if (node.Name.Equals("InventoryInfo") && node.HasChildNodes)
             {
                 foreach (XmlNode child in node.ChildNodes)
                 {
@@ -49,16 +52,7 @@ public class pgj_InventoryXMLparser : MonoBehaviour
                     item.ITEM_RANK = int.Parse(child.Attributes.GetNamedItem("rank").Value);
 
                     // 다 만들어 졌다면 이제 매니저에 넣어줌
-                    if (m_strName.Equals("Inventory"))
-                        pgj_InventoryManager.INSTANCE.AddItem(item);
-                    else if (m_strName.Equals("Store1"))
-                        pgj_StoreManager.INSTANCE.AddItem(item);
-                    else if (m_strName.Equals("Store2"))
-                        pgj_Store2Manager.INSTANCE.AddItem(item);
-                    else
-                    {
-                        Debug.Log("Erorr: pgj_InventoryXMLparser 잘못된 m_strName 넣음");
-                    }
+                    pgj_InventoryManager.INSTANCE.AddItem(item);
                 }
             }
         }

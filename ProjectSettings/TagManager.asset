@@ -3,29 +3,27 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
+<<<<<<< HEAD
+  tags: []
+=======
   tags:
   - Shadow
   - Collide
   - PLAYER
   - PLAYER_WEAPON
   - MONSTER_WEAPON
-  - Door
-  - Stair
-  - BEAM
-  - StartPortal
-  - StatusManager
-  - PortalManager
+>>>>>>> parent of 5edaaed (123123)
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Walkable
+  - 
   - Water
   - UI
   - 
   - 
-  - TempCast
-  - Walkable
+  - 
+  - 
   - 
   - 
   - 

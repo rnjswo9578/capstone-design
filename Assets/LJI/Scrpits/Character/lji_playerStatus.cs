@@ -40,8 +40,6 @@ public class lji_playerStatus : MonoBehaviour
 
     RPGCharacterController characterController;
 
-    public int gold = 0;
-
     [Header("Weapon")]
     // Weapon SET//3번은 맨주먹
     public int [] rightWeapon = new int[3] { 0, 0, 0 };
@@ -261,6 +259,8 @@ public class lji_playerStatus : MonoBehaviour
 
         xmlDoc.Save("./Assets/Resources/PlayerStatus.xml");
     }
+<<<<<<< HEAD
+<<<<<<< HEAD
 
     public void SetGold(int addGold)
     {
@@ -330,4 +330,8 @@ public class lji_playerStatus : MonoBehaviour
         statusManager.upperArmor=upperArmor;
         statusManager.lowerArmor=lowerArmor;
     }
+=======
+>>>>>>> parent of 5edaaed (123123)
+=======
+>>>>>>> parent of 5edaaed (123123)
 }

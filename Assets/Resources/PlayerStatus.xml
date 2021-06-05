@@ -3,7 +3,15 @@
   <Character>
     <Name>name2</Name>
     <maxHp>150</maxHp>
+<<<<<<< HEAD
+<<<<<<< HEAD
     <hp>142</hp>
+=======
+    <hp>150</hp>
+>>>>>>> parent of 5edaaed (123123)
+=======
+    <hp>150</hp>
+>>>>>>> parent of 5edaaed (123123)
     <attackSpeed>0</attackSpeed>
     <attackPower>5</attackPower>
     <defense>5</defense>
@@ -12,9 +20,15 @@
     <addAttackPower>0</addAttackPower>
     <addDefense>0</addDefense>
     <addRunSpeed>0</addRunSpeed>
+<<<<<<< HEAD
     <totalAttackSpeed>0.3</totalAttackSpeed>
     <totalAttackPower>5</totalAttackPower>
     <totalDefense>5</totalDefense>
+=======
+    <totalAttackSpeed>0</totalAttackSpeed>
+    <totalAttackPower>0</totalAttackPower>
+    <totalDefense>0</totalDefense>
+>>>>>>> parent of 550fcba (21.06.05 pgj)
     <totalRunSpeed>4</totalRunSpeed>
   </Character>
   <Weapon>
