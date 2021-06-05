@@ -7850,15 +7850,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1984486853856659150, guid: 2e961a96029b8824e8ac7404e62bb509, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.54
+      value: 3.51
       objectReference: {fileID: 0}
     - target: {fileID: 1984486853856659150, guid: 2e961a96029b8824e8ac7404e62bb509, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.17
+      value: 0.33
       objectReference: {fileID: 0}
     - target: {fileID: 1984486853856659150, guid: 2e961a96029b8824e8ac7404e62bb509, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.64
+      value: 2.6
       objectReference: {fileID: 0}
     - target: {fileID: 1984486853856659150, guid: 2e961a96029b8824e8ac7404e62bb509, type: 3}
       propertyPath: m_LocalRotation.w
@@ -8370,6 +8370,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drawMeshTreeOnStart: 1
+<<<<<<< HEAD
 --- !u!1 &1593660086
 GameObject:
   m_ObjectHideFlags: 0
@@ -8437,6 +8438,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+>>>>>>> parent of e76514f (Merge branch 'main' of https://github.com/rnjswo9578/capstone-design into main)
 --- !u!1 &1635496127 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8601188547486850742, guid: a2d67c12d92de5441b916e74be1796f8, type: 3}

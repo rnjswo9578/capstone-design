@@ -1572,7 +1572,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 809152260}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a5a6afaf80069348aa068ae586fb3ab, type: 3}
   m_Name: 
@@ -3656,10 +3656,6 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
-    - target: {fileID: 2768593434216069963, guid: 23a57ec55d5fb1d4eb819c4dbe841daf, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2768593434225277107, guid: 23a57ec55d5fb1d4eb819c4dbe841daf, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -4114,7 +4110,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2768593434801044981, guid: 23a57ec55d5fb1d4eb819c4dbe841daf, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2768593434801044981, guid: 23a57ec55d5fb1d4eb819c4dbe841daf, type: 3}
       propertyPath: m_StaticEditorFlags
