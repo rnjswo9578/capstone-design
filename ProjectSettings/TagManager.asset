@@ -11,6 +11,10 @@ TagManager:
   - MONSTER_WEAPON
   - Door
   - Stair
+  - BEAM
+  - StartPortal
+  - StatusManager
+  - PortalManager
   layers:
   - Default
   - TransparentFX

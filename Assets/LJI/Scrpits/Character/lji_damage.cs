@@ -28,7 +28,7 @@ public class lji_damage : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "MONSTER_WEAPON"&& isDamage==false )
+        if((other.gameObject.tag == "MONSTER_WEAPON"|| other.gameObject.tag == "BEAM") && isDamage==false )
         {
             StartCoroutine(IsDamage());
             damage = damage - playerStatus.totalDefense;

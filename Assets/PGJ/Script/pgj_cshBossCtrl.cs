@@ -34,6 +34,7 @@ public class pgj_cshBossCtrl : MonoBehaviour
     public GameObject player;
     lji_playerStatus playerStatus;
     private bool isDamage = false;
+    
     // Start is called before the first frame update
     void Start()
     {

@@ -6,6 +6,9 @@ using System.Xml;
 
 public class lji_playerStatus : MonoBehaviour
 {
+    GameObject playerStatusManger=null;
+    [Header("Xml")]
+    public string loadXml;
     [Header("Character")]
     public int maxHp;
     public int hp;
@@ -54,12 +57,16 @@ public class lji_playerStatus : MonoBehaviour
     public int head = (int)Armor.Default;
     public int upperArmor = (int)Armor.Default;
     public int lowerArmor = (int)Armor.Default;
-
+    
     // Start is called before the first frame update
     void Start()
     {
-        LoadXml("DefaultPlayerStatus");
 
+        playerStatusManger = GameObject.FindGameObjectWithTag("StatusManager");
+        //LoadXml(loadXml);
+        //StartCoroutine(WaitLoadXml());
+        GetPlayerStatus();
+        this.transform.position=GameObject.FindGameObjectWithTag("StartPortal").transform.position;
         movementStat = GetComponent<RPGCharacterMovementController>();
 
         characterController = GetComponent<RPGCharacterController>();
@@ -70,7 +77,7 @@ public class lji_playerStatus : MonoBehaviour
         movementStat.runSpeed = runSpeed;
         
     }
-
+    
     // Update is called once per frame
     void Update()
     {
@@ -103,6 +110,7 @@ public class lji_playerStatus : MonoBehaviour
 
     private void OnDestroy()
     {
+        SetPlayerStatus();
         OverwriteXml();
     }
 
@@ -195,7 +203,7 @@ public class lji_playerStatus : MonoBehaviour
         }
     }
 
-    void OverwriteXml()
+    public void OverwriteXml()
     {
         TextAsset textAsset = (TextAsset)Resources.Load("PlayerStatus");
         XmlDocument xmlDoc = new XmlDocument();
@@ -257,5 +265,69 @@ public class lji_playerStatus : MonoBehaviour
     public void SetGold(int addGold)
     {
         gold += addGold;
+    }
+    
+    //IEnumerator WaitLoadXml()
+    //{
+    //    yield return new WaitForSeconds(2f);
+    //    LoadXml(loadXml);
+    //}
+
+    void GetPlayerStatus()
+    {
+        lji_statusManager statusManager = playerStatusManger.GetComponent<lji_statusManager>();
+        maxHp = statusManager.maxHp;
+        hp = statusManager.hp;
+        attackSpeed = statusManager.attackSpeed;
+        attackPower = statusManager.attackPower;
+        defense = statusManager.defense;
+        runSpeed = statusManager.runSpeed;
+        addAttackSpeed = statusManager.addAttackSpeed;
+        addAttackPower = statusManager.addAttackPower;
+        addDefense = statusManager.addDefense;
+        addRunSpeed = statusManager.addRunSpeed;
+        side = statusManager.side;
+        nowWeaponSet = statusManager.nowWeaponSet;
+        gold = statusManager.gold;
+
+        rightWeapon = statusManager.rightWeapon;
+        leftWeapon = statusManager.leftWeapon;
+        rightWeaponTier = statusManager.rightWeaponTier;
+        leftWeaponTier = statusManager.leftWeaponTier;
+        rightWeaponSpeed = statusManager.rightWeaponSpeed;
+        leftWeaponSpeed = statusManager.leftWeaponSpeed;
+
+        head = statusManager.head;
+        upperArmor = statusManager.upperArmor;
+        lowerArmor = statusManager.lowerArmor;
+    }
+
+    void SetPlayerStatus()
+    {
+        lji_statusManager statusManager = playerStatusManger.GetComponent<lji_statusManager>();
+        statusManager.maxHp= maxHp;
+        statusManager.hp=hp;
+        statusManager.attackSpeed=attackSpeed;
+        statusManager.attackPower=attackPower;
+        statusManager.defense=defense;
+        statusManager.runSpeed=runSpeed;
+        statusManager.addAttackSpeed=addAttackSpeed;
+        statusManager.addAttackPower=addAttackPower;
+        statusManager.addDefense=addDefense;
+        statusManager.addRunSpeed=addRunSpeed;
+        statusManager.side=side;
+        statusManager.nowWeaponSet=nowWeaponSet;
+        statusManager.gold=gold;
+
+        statusManager.rightWeapon=rightWeapon;
+        statusManager.leftWeapon =leftWeapon ;
+        statusManager.rightWeaponTier=rightWeaponTier;
+        statusManager.leftWeaponTier=leftWeaponTier;
+        statusManager.rightWeaponSpeed=rightWeaponSpeed;
+        statusManager.leftWeaponSpeed=leftWeaponSpeed;
+
+        statusManager.head=head;
+        statusManager.upperArmor=upperArmor;
+        statusManager.lowerArmor=lowerArmor;
     }
 }
