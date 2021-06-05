@@ -2,9 +2,9 @@
 <InventoryInfo>
 	<Items>
 		<Field number="1" rank="0" id="1"/>
-		<Field number="2" rank="0" id="2"/>
-		<Field number="3" rank="0" id="4"/>
-		<Field number="4" rank="0" id="7"/>
+		<Field number="2" rank="0" id="0"/>
+		<Field number="3" rank="0" id="0"/>
+		<Field number="4" rank="0" id="0"/>
 		<Field number="5" rank="0" id="0"/>
 		<Field number="6" rank="0" id="0"/>
 		<Field number="7" rank="0" id="0"/>
