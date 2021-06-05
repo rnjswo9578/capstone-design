@@ -1,21 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <ItemsInfo>
 	<Weapon>
-		<Field sell="0" buy="0" icon="null_item" name="null_item" id="0"/>
-		<Field sell="50" buy="100" icon="Berry_02" name="item1" id="1"/>
-		<Field sell="50" buy="100" icon="aaa" name="item2" id="2"/>
-		<Field sell="50" buy="100" icon="aaa" name="item3" id="3"/>
-		<Field sell="50" buy="100" icon="aaa" name="item4" id="4"/>
-		<Field sell="50" buy="100" icon="aaa" name="item5" id="5"/>
-		<Field sell="50" buy="100" icon="aa" name="item6" id="6"/>
-		<Field sell="50" buy="100" icon="aa" name="item7" id="7"/>
-		<Field sell="50" buy="100" icon="aa" name="item8" id="8"/>
-		<Field sell="50" buy="100" icon="aa" name="item9" id="9"/>
-		<Field sell="50" buy="100" icon="aa" name="item10" id="10"/>
-		<Field sell="50" buy="100" icon="aa" name="item11" id="11"/>
-		<Field sell="50" buy="100" icon="aa" name="item12" id="12"/>
-		<Field sell="50" buy="100" icon="aa" name="item13" id="13"/>
-		<Field sell="50" buy="100" icon="aa" name="item14" id="14"/>
+		<Field sell="0" buy="0" icon="~~" name="Basic RPG Item Free/Null_item" id="0"/>
+		<Field sell="50" buy="100" icon="Basic RPG Item Free/Berry_02" name="item1" id="1"/>
+		<Field sell="50" buy="100" icon="~~" name="item2" id="2"/>
+		<Field sell="50" buy="100" icon="~~" name="item3" id="3"/>
+		<Field sell="50" buy="100" icon="~~" name="item4" id="4"/>
+		<Field sell="50" buy="100" icon="~~" name="item5" id="5"/>
+		<Field sell="50" buy="100" icon="~~" name="item6" id="6"/>
+		<Field sell="50" buy="100" icon="~~" name="item7" id="7"/>
+		<Field sell="50" buy="100" icon="~~" name="item8" id="8"/>
+		<Field sell="50" buy="100" icon="~~" name="item9" id="9"/>
+		<Field sell="50" buy="100" icon="~~" name="item10" id="10"/>
+		<Field sell="50" buy="100" icon="~~" name="item11" id="11"/>
+		<Field sell="50" buy="100" icon="~~" name="item12" id="12"/>
+		<Field sell="50" buy="100" icon="~~" name="item13" id="13"/>
+		<Field sell="50" buy="100" icon="~~" name="item14" id="14"/>
 	</Weapon>
 	<ItemRank>
 		<Rank1>1</Rank1>
