@@ -41,6 +41,7 @@ public class pgj_ItemManager : MonoBehaviour
 
     public void AddItem(ItemInfo _cInfo)
     {
+        Debug.Log("additem");
         // 아이템이 이미 있는지 체크
         if (m_dicData.ContainsKey(_cInfo.ID)) return;
         //아이템 추가

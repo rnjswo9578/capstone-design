@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class pgj_InventoryManager : MonoBehaviour
+public class pgj_Store2Manager : MonoBehaviour
 {
-    private static pgj_InventoryManager m_pInstance;
+    private static pgj_Store2Manager m_pInstance;
     private static object m_pLock = new object();
 
-    public static pgj_InventoryManager INSTANCE
+    public static pgj_Store2Manager INSTANCE
     {
         get
         {
@@ -15,9 +15,9 @@ public class pgj_InventoryManager : MonoBehaviour
             {
                 if (m_pInstance == null)
                 {
-                    m_pInstance = (pgj_InventoryManager)FindObjectOfType(typeof(pgj_InventoryManager));
+                    m_pInstance = (pgj_Store2Manager)FindObjectOfType(typeof(pgj_Store2Manager));
 
-                    if (FindObjectsOfType(typeof(pgj_InventoryManager)).Length > 1)
+                    if (FindObjectsOfType(typeof(pgj_Store2Manager)).Length > 1)
                     {
                         return m_pInstance;
                     }
@@ -25,8 +25,8 @@ public class pgj_InventoryManager : MonoBehaviour
                     if (m_pInstance == null)
                     {
                         GameObject singleton = new GameObject();
-                        m_pInstance = singleton.AddComponent<pgj_InventoryManager>();
-                        singleton.name = typeof(pgj_InventoryManager).ToString();
+                        m_pInstance = singleton.AddComponent<pgj_Store2Manager>();
+                        singleton.name = typeof(pgj_Store2Manager).ToString();
                         DontDestroyOnLoad(singleton);
                     }
                 }
@@ -42,17 +42,17 @@ public class pgj_InventoryManager : MonoBehaviour
     public void AddItem(InventoryInfo _cInfo)
     {
         //빈 칸이 있는지 체크
-        if (inven_Data.Count < 50)
+        if (inven_Data.Count <= 50)
             inven_Data.Add(_cInfo); //아이템 추가
         else
         {
             InventoryInfo temp = new InventoryInfo();
             temp.ID = 0;
             temp.ITEM_RANK = 0;
-            int index =0;
-            for (index = 0; index < 50; index++)
+            int index = 0;
+            for (index = 0; index < inven_Data.Count; index++)
             {
-                if(inven_Data[index].Equals(temp))
+                if (inven_Data[index].Equals(temp))
                     break;
             }
             //아이템 추가
@@ -63,17 +63,27 @@ public class pgj_InventoryManager : MonoBehaviour
     }
     public void deleteItem(int number)
     {
-        //빈 칸이 있는지 체크
         InventoryInfo temp = new InventoryInfo();
         temp.ID = 0;
         temp.ITEM_RANK = 0;
-        if (inven_Data[number].ID == 0 && inven_Data[number].ITEM_RANK ==0)
+        if (inven_Data[number].ID == 0 && inven_Data[number].ITEM_RANK == 0)
             return;
         else
         {
             //아이템 추가
             inven_Data.RemoveAt(index: number);
             inven_Data.Insert(index: number, item: temp);
+        }
+    }
+    public void deleteAllItem()
+    {
+        InventoryInfo temp = new InventoryInfo();
+        temp.ID = 0;
+        temp.ITEM_RANK = 0;
+        for (int index = 0; index < inven_Data.Count; index++)
+        {
+            inven_Data.RemoveAt(index: index);
+            inven_Data.Insert(index: index, item: temp);
         }
     }
     // 전체 리스트 얻기
@@ -91,20 +101,3 @@ public class pgj_InventoryManager : MonoBehaviour
 
 }
 
-public class InventoryInfo
-{
-    private int item_id;
-    private int item_rank;
-
-
-    public int ID
-    {
-        set { item_id = value; }
-        get { return item_id; }
-    }
-    public int ITEM_RANK
-    {
-        set { item_rank = value; }
-        get { return item_rank; }
-    }
-}
