@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6216809628047220362
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6216809628047220364}
+  - component: {fileID: 6216809628047220363}
+  m_Layer: 0
+  m_Name: StatusManager
+  m_TagString: StatusManager
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6216809628047220364
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6216809628047220362}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6216809628047220363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6216809628047220362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d663ec4cd64b11c478efff2c0dfe4e10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadXml: 
+  maxHp: 150
+  hp: 140
+  attackSpeed: 0
+  attackPower: 5
+  defense: 5
+  runSpeed: 4
+  addAttackSpeed: 0
+  addAttackPower: 0
+  addDefense: 0
+  addRunSpeed: 0
+  totalAttackSpeed: 0
+  totalAttackPower: 0
+  totalDefense: 0
+  totalRunSpeed: 0
+  movementStat: {fileID: 0}
+  side: 1
+  nowWeaponSet: 2
+  gold: 0
+  rightWeapon: 090000000000000000000000
+  leftWeapon: 080000000000000000000000
+  rightWeaponTier: 000000000000000000000000
+  leftWeaponTier: 000000000000000000000000
+  rightWeaponSpeed:
+  - 0
+  - 0
+  - 0
+  leftWeaponSpeed:
+  - 0
+  - 0
+  - 0
+  head: 0
+  upperArmor: 0
+  lowerArmor: 0

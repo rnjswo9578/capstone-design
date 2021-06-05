@@ -1,0 +1,74 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using RPGCharacterAnims;
+
+public class lji_statusManager : MonoBehaviour
+{
+    private static lji_statusManager instance = null;
+
+    [Header("Xml")]
+    public string loadXml;
+    [Header("Character")]
+    public int maxHp;
+    public int hp;
+
+    //기초 스텟;
+    public float attackSpeed;
+    public int attackPower;
+    public int defense;
+    public int runSpeed;
+
+    public float addAttackSpeed;
+    public int addAttackPower;
+    public int addDefense;
+    public int addRunSpeed;
+
+    public float totalAttackSpeed; //0~1사이
+    public int totalAttackPower;
+    public int totalDefense;
+    public int totalRunSpeed; //5~10사이가 적당
+
+
+    public RPGCharacterMovementController movementStat;
+
+    //공격 손과 현재 무기세트
+    public int side = 1;
+    public int nowWeaponSet = 0;
+    //이동 속도 관련 함수는 movementStat을 불러서 수정;
+    //ex) movementStat.runSpeed = 5
+
+    RPGCharacterController characterController;
+
+    public int gold = 0;
+
+    [Header("Weapon")]
+    // Weapon SET//3번은 맨주먹
+    public int[] rightWeapon = new int[3] { 0, 0, 0 };
+    public int[] leftWeapon = new int[3] { 0, 0, 0 };
+
+    public int[] rightWeaponTier = new int[3] { 0, 0, 0 };
+    public int[] leftWeaponTier = new int[3] { 0, 0, 0 };
+
+    public float[] rightWeaponSpeed = new float[3] { 0f, 0f, 0f };
+    public float[] leftWeaponSpeed = new float[3] { 0f, 0f, 0f };
+
+    [Header("Armor")]
+    public int head = (int)Armor.Default;
+    public int upperArmor = (int)Armor.Default;
+    public int lowerArmor = (int)Armor.Default;
+
+    private void Awake()
+    {
+        if (instance == null) //instance가 null. 즉, 시스템상에 존재하고 있지 않을때 
+        {
+            instance = this; //내자신을 instance로 넣어줍니다. 
+            DontDestroyOnLoad(gameObject); //OnLoad(씬이 로드 되었을때) 자신을 파괴하지 않고 유지 
+        }
+        else
+        {
+            if (instance != this) //instance가 내가 아니라면 이미 instance가 하나 존재하고 있다는 의미 
+                Destroy(this.gameObject); //둘 이상 존재하면 안되는 객체이니 방금 AWake된 자신을 삭제 
+        }
+    }
+}

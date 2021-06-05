@@ -5,10 +5,22 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/PGJ/Scenes/moster test3.unity
     guid: 7e6e22e7ce012d648b8e4cccd1ec8b14
-  - enabled: 1
+  - enabled: 0
     path: Assets/PGJ/Scenes/store.unity
     guid: cc44ef0e927540e4fb8a4bd919389bd8
+  - enabled: 1
+    path: Assets/GameScenes/Scene1.unity
+    guid: a2c83e9a268948c45bf7574c002b3113
+  - enabled: 1
+    path: Assets/GameScenes/Scene2.unity
+    guid: 6c7b7df7c6cecaa458d0e64a1df6caf5
+  - enabled: 1
+    path: Assets/GameScenes/Scene3.unity
+    guid: a414d1e1040e84a45acfb41548c2018e
+  - enabled: 1
+    path: Assets/GameScenes/Scene4.unity
+    guid: c4ccdb25592734e409a74514cd940b20
   m_configObjects: {}
