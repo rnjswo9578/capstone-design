@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 public class DungeonCamera : MonoBehaviour
 {
     public GameObject player;
@@ -69,10 +70,15 @@ public class DungeonCamera : MonoBehaviour
                     Debug.Log(hit.collider.gameObject + "2");
                 }
 =======
+=======
+>>>>>>> parent of 5edaaed (123123)
 public class DungeonCamera : MonoBehaviour {
 	public GameObject target;
 	public float damping = 1;
 	Vector3 offset;
+<<<<<<< HEAD
+>>>>>>> parent of 5edaaed (123123)
+=======
 >>>>>>> parent of 5edaaed (123123)
 
 	void Start() {

@@ -260,6 +260,7 @@ public class lji_playerStatus : MonoBehaviour
         xmlDoc.Save("./Assets/Resources/PlayerStatus.xml");
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     public void SetGold(int addGold)
     {
@@ -329,6 +330,8 @@ public class lji_playerStatus : MonoBehaviour
         statusManager.upperArmor=upperArmor;
         statusManager.lowerArmor=lowerArmor;
     }
+=======
+>>>>>>> parent of 5edaaed (123123)
 =======
 >>>>>>> parent of 5edaaed (123123)
 }

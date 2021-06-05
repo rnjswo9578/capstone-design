@@ -4,7 +4,11 @@
     <Name>name2</Name>
     <maxHp>150</maxHp>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <hp>142</hp>
+=======
+    <hp>150</hp>
+>>>>>>> parent of 5edaaed (123123)
 =======
     <hp>150</hp>
 >>>>>>> parent of 5edaaed (123123)
