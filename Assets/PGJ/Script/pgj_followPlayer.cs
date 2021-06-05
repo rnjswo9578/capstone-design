@@ -17,6 +17,9 @@ public class pgj_followPlayer : MonoBehaviour
     // Update is called once per frame
     void Update() 
     {
+        if (player == null)
+            player = GameObject.FindGameObjectWithTag("PLAYER");
+
         Vector3 offset = new Vector3(x,y,z); //0, 13, -20
         transform.position = player.transform.position + offset;
         transform.LookAt(player.transform);

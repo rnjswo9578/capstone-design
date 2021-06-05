@@ -68,6 +68,12 @@ public class pgj_BossGolem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (player == null)
+        {
+            playerTr = GameObject.FindGameObjectWithTag("PLAYER").GetComponent<Transform>();
+            player = GameObject.FindGameObjectWithTag("PLAYER");
+            playerStatus = player.GetComponent<lji_playerStatus>();
+        }
         distPoint = Vector3.Distance(tr.position, point.position);
 
         if (hp <= (maxhp / 2) && !nextPhase)
@@ -274,6 +280,7 @@ public class pgj_BossGolem : MonoBehaviour
         yield return new WaitForSeconds(time);
         //GameObject.FindGameObjectWithTag("PLAYER").SetActive(false);
         anim.speed = 0;
+        Destroy(this.gameObject);
         //myAnimator.speed = 0.0;
     }
     IEnumerator AttackTimer(float firstTime, float secondTime)
