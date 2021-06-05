@@ -1,7 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 
+<<<<<<< HEAD
 public class DungeonCamera : MonoBehaviour
 {
     public GameObject player;
@@ -68,36 +68,22 @@ public class DungeonCamera : MonoBehaviour
                     
                     Debug.Log(hit.collider.gameObject + "2");
                 }
+=======
+public class DungeonCamera : MonoBehaviour {
+	public GameObject target;
+	public float damping = 1;
+	Vector3 offset;
+>>>>>>> parent of 5edaaed (123123)
 
-            }
-        }
-        foreach (GameObject oldWall in mTransparentWalls)
-            {
-            bool bFind = false;
-                foreach (GameObject newWall in newAddedWall)//이부분이 안되고 있다
-                {
-                    if (newWall == oldWall)
-                    {
-                        bFind = true;
-                    Debug.Log(oldWall + "3");
-                    Debug.Log(newWall + "4");
-                    break;
-                    }
-                   
-                }
-                if (bFind == false)
-                {
-                Debug.Log(oldWall + "5");
-                MeshRenderer mc = oldWall.GetComponent<MeshRenderer>();
-                    mc.material.shader = Shader.Find("Standard");
-                    Color c = mc.material.color;
-                    c.a = 1.0f;
-                    mc.material.color = c;
-                    mTransparentWalls.Remove(oldWall);
-                break;
-                    
-                }
+	void Start() {
+		offset = transform.position - target.transform.position;
+	}
+	
+	void LateUpdate() {
+		Vector3 desiredPosition = target.transform.position + offset;
+		Vector3 position = Vector3.Lerp(transform.position, desiredPosition, Time.deltaTime * damping);
+		transform.position = position;
 
-            }
-        }
-  }
+		//transform.LookAt(target.transform.position);
+	}
+}

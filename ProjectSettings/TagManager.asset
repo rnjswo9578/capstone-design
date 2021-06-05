@@ -3,29 +3,18 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Shadow
-  - Collide
-  - PLAYER
-  - PLAYER_WEAPON
-  - MONSTER_WEAPON
-  - Door
-  - Stair
-  - BEAM
-  - StartPortal
-  - StatusManager
-  - PortalManager
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Walkable
+  - 
   - Water
   - UI
   - 
   - 
-  - TempCast
-  - Walkable
+  - 
+  - 
   - 
   - 
   - 
