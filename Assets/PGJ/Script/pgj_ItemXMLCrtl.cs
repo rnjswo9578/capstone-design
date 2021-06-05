@@ -14,7 +14,7 @@ public class pgj_ItemXMLCrtl : MonoBehaviour
     void Start()
     {
         //파싱 시작
-        StartCoroutine(Process());
+        Interpret(m_strName);
     }
 
     void Update()
@@ -23,16 +23,14 @@ public class pgj_ItemXMLCrtl : MonoBehaviour
 
     }
 
-    IEnumerator Process()
+    private void OnDestroy()
     {
-        yield return 0;
-        Interpret(m_strName);
+        
     }
-
-
 
     private void Interpret(string _strSource)
     {
+        //Debug.Log("111item" + _strSource);
         XmlNodeList xmlNodeList = null;
         XmlDocument xmlDoc = new XmlDocument();
 
@@ -47,17 +45,17 @@ public class pgj_ItemXMLCrtl : MonoBehaviour
         foreach (XmlNode node in xmlNodeList)
         {
             // 자식이 있을 때에 돔
-            if (node.Name.Equals("ItemsInfo") && node.HasChildNodes)
+            if (node.Name.Equals("Weapon") && node.HasChildNodes)
             {
                 foreach (XmlNode child in node.ChildNodes)
                 {
+                    //Debug.Log("444item");
                     ItemInfo item = new ItemInfo();
-                    Debug.Log(child.Attributes.GetNamedItem("id").Value);
                     item.ID = int.Parse(child.Attributes.GetNamedItem("id").Value);
                     item.NAME = child.Attributes.GetNamedItem("name").Value;
                     item.ICON = child.Attributes.GetNamedItem("icon").Value;
-                    item.BUY_COST = int.Parse(child.Attributes.GetNamedItem("buy_cost").Value);
-                    item.SELL_COST = int.Parse(child.Attributes.GetNamedItem("sell_cost").Value);
+                    item.BUY_COST = int.Parse(child.Attributes.GetNamedItem("buy").Value);
+                    item.SELL_COST = int.Parse(child.Attributes.GetNamedItem("sell").Value);
 
                     // 다 만들어 졌다면 이제 매니저에 넣어줌
                     pgj_ItemManager.INSTANCE.AddItem(item);

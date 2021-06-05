@@ -7,6 +7,9 @@ public class pgj_StoreSystem : MonoBehaviour
     private bool inPlayer;
     public GameObject player;
     public GameObject inventory;
+    public GameObject store1;
+    public GameObject store2;
+
 
     // Start is called before the first frame update
     void Start()
@@ -20,11 +23,20 @@ public class pgj_StoreSystem : MonoBehaviour
     {
         if (inPlayer)
         {
-            Debug.Log("in");
             if (Input.GetKeyDown(KeyCode.F))
             {
                 Debug.Log("F");
                 inventory.SetActive(true);
+                if (transform.name == "store1FX")
+                {
+                    store1.SetActive(true);
+                    store2.SetActive(false);
+                }
+                else if (transform.name == "store2FX")
+                {
+                    store1.SetActive(false);
+                    store2.SetActive(true);
+                }
             }
         }
     }
