@@ -3,7 +3,11 @@
   <Character>
     <Name>name2</Name>
     <maxHp>150</maxHp>
+<<<<<<< HEAD
     <hp>142</hp>
+=======
+    <hp>150</hp>
+>>>>>>> parent of 5edaaed (123123)
     <attackSpeed>0</attackSpeed>
     <attackPower>5</attackPower>
     <defense>5</defense>

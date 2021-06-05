@@ -69,7 +69,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1533774944794888928}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.102839485, y: 0.8163579, z: 0.3395648}
@@ -533,7 +533,6 @@ GameObject:
   - component: {fileID: 1535691318312818274}
   - component: {fileID: 1535691318312818286}
   - component: {fileID: 1535691318312818285}
-  - component: {fileID: 2266539512872450636}
   m_Layer: 0
   m_Name: Character_BR_Dwarf_01 1
   m_TagString: Untagged
@@ -565,7 +564,6 @@ Transform:
   - {fileID: 1540111283179598965}
   - {fileID: 1539802038888004757}
   - {fileID: 1535691319778450494}
-  - {fileID: 7526221954540738819}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -613,12 +611,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3eb7a4cad606ba4499f077deee2dbdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  point: {fileID: 7526221954540738819}
+  point: {fileID: 0}
   damping: 5
   maxhp: 100
   myWeapon: {fileID: 1535691318005277551}
   hpBar: {fileID: 1535691319055898872}
-  player: {fileID: 0}
+  player: {fileID: 1984486853856238318, guid: 2e961a96029b8824e8ac7404e62bb509, type: 3}
 --- !u!195 &1535691318312818285
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -641,19 +639,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &2266539512872450636
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1533940782826531525}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49bcec0d9bcdb554fab43f6c0152b888, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coin: {fileID: 2066139703828085056, guid: 89ffc58fa6855af4c934e2f0d7dd58cd, type: 3}
 --- !u!1 &1533946777505968279
 GameObject:
   m_ObjectHideFlags: 0
@@ -3380,36 +3365,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba76db7d722e2274aac4dcd876aff14d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &9211019305044712026
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7526221954540738819}
-  m_Layer: 0
-  m_Name: BossPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7526221954540738819
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9211019305044712026}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.83, y: 0.01, z: 0.009107947}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
-  m_Children: []
-  m_Father: {fileID: 1540077841699482053}
-  m_RootOrder: 13
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1535691319185373546
 PrefabInstance:
   m_ObjectHideFlags: 0

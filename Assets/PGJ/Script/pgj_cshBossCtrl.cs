@@ -57,15 +57,9 @@ public class pgj_cshBossCtrl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player == null)
-        {
-            playerTr = GameObject.FindGameObjectWithTag("PLAYER").GetComponent<Transform>();
-            player = GameObject.FindGameObjectWithTag("PLAYER");
-            playerStatus = player.GetComponent<lji_playerStatus>();
-        }
         distPoint = Vector3.Distance(tr.position, point.position);
 
-        
+
 
         if (!isDead)
         {
@@ -163,7 +157,7 @@ public class pgj_cshBossCtrl : MonoBehaviour
         else if (anim.GetCurrentAnimatorStateInfo(0).IsName("pattern3") && pattern == 3)
         {
             pattern = 4;
-            StartCoroutine(AttackTimer(0.2f, 0.4f));
+            StartCoroutine(AttackTimer(0.1f, 0.3f));
         }
         else if (anim.GetCurrentAnimatorStateInfo(0).IsName("pattern4") && pattern == 4)
         {
@@ -237,7 +231,6 @@ public class pgj_cshBossCtrl : MonoBehaviour
         yield return new WaitForSeconds(time);
         //GameObject.FindGameObjectWithTag("PLAYER").SetActive(false);
         anim.speed = 0;
-        Destroy(this.gameObject);
         //myAnimator.speed = 0.0;
     }
     IEnumerator AttackTimer(float firstTime, float secondTime)
