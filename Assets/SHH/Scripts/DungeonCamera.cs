@@ -5,18 +5,18 @@ using UnityEngine;
 public class DungeonCamera : MonoBehaviour
 {
     public GameObject player;
-    public float x = 5.45f, y=13f, z= -20f;
+    public float x, y, z;
     private List<GameObject> mTransparentWalls=new List<GameObject>();
     private List<GameObject> newAddedWall=new List<GameObject>();
     private float maxdis,maxdis1,maxdis2;
-    private Vector3 pos1,pos2;
+    private Vector3 pos,pos1,pos2;
     // Start is called before the first frame update
     void Start()
     {
         if (player == null)
             player = GameObject.FindGameObjectWithTag("PLAYER");
         maxdis = Mathf.Sqrt(x * x + (y-1) * (y-1) + z * z);
-        maxdis1 = Mathf.Sqrt(x * x + (y + 1) * (y + 1) + z * z);
+        maxdis1 = Mathf.Sqrt(x * x + 1+ z * z);
         maxdis2 = Mathf.Sqrt(x * x + (y - 1) * (y - 1) + (z+5) * (z+5));
 
     }
@@ -34,13 +34,30 @@ public class DungeonCamera : MonoBehaviour
 
     private void FadeOutWall()
     {
-        Vector3 ScreenPos = Camera.main.WorldToScreenPoint(player.transform.position);
-        Ray ray = Camera.main.ScreenPointToRay(ScreenPos);
+        Vector3 ScreenPos = Camera.main.WorldToScreenPoint(player.transform.position );
+        var list = new List<RaycastHit>();
+        for (int i = 1; i <= y+5; i++)
+        {
+            pos = player.transform.position + new Vector3(x, i, z);
+            Ray ray4 = new Ray(pos, player.transform.position);
+            maxdis = Mathf.Sqrt(x * x + y * y + z * z);
+            RaycastHit[] hits4 = Physics.RaycastAll(ray4,maxdis);
+            list.AddRange(hits4);
+            
+        }
+
+        /*Ray ray = Camera.main.ScreenPointToRay(ScreenPos);
         Ray ray2 = new Ray(pos1, ScreenPos);
         Ray ray3 = new Ray(pos2, ScreenPos);
-        RaycastHit[] hits = Physics.RaycastAll(ray, maxdis);// Physics.RaycastAll(ray2,maxdis1)+Physics.RaycastAll(ray3,maxdis2);
+        RaycastHit[] hits1 = Physics.RaycastAll(ray, maxdis);// Physics.RaycastAll(ray2,maxdis1)+Physics.RaycastAll(ray3,maxdis2);
+        RaycastHit[] hits2 = Physics.RaycastAll(ray2, maxdis);
+        RaycastHit[] hits3 = Physics.RaycastAll(ray3, maxdis);
+        
+        list.AddRange(hits1);
+        list.AddRange(hits2);
+        list.AddRange(hits3);*/
         newAddedWall.Clear();
-        foreach (RaycastHit hit in hits)
+        foreach (RaycastHit hit in list)
         {
             if (hit.collider.gameObject != player.gameObject && hit.collider.tag != "Stair")
             {
@@ -74,7 +91,7 @@ public class DungeonCamera : MonoBehaviour
         foreach (GameObject oldWall in mTransparentWalls)
             {
             bool bFind = false;
-                foreach (GameObject newWall in newAddedWall)//이부분이 안되고 있다
+                foreach (GameObject newWall in newAddedWall)
                 {
                     if (newWall == oldWall)
                     {
