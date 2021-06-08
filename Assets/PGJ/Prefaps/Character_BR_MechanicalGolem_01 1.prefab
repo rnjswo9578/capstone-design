@@ -43,6 +43,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.14392565, y: 0.15050559, z: 8.597485}
   m_Center: {x: 0.000112959024, y: 0.0124707585, z: 4.3463573}
+--- !u!114 &630175500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5951578285579427252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eefb330ae85a88f41acf773262ecddbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 50
+  player: {fileID: 0}
 --- !u!1 &5951590180500892660
 GameObject:
   m_ObjectHideFlags: 0
@@ -433,11 +447,25 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5951646365882989173}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.36742038, y: 1.6764487, z: 0.47415507}
   m_Center: {x: -0.008776483, y: 0.30307263, z: 0.116002664}
+--- !u!114 &1901262738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5951646365882989173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eefb330ae85a88f41acf773262ecddbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 30
+  player: {fileID: 0}
 --- !u!1 &5952499126675296850
 GameObject:
   m_ObjectHideFlags: 0
@@ -3020,6 +3048,7 @@ GameObject:
   - component: {fileID: 5952499126707778252}
   - component: {fileID: 5952499126707778254}
   - component: {fileID: 5952499126707778255}
+  - component: {fileID: 9220416788769651593}
   m_Layer: 0
   m_Name: Character_BR_MechanicalGolem_01 1
   m_TagString: Untagged
@@ -3099,9 +3128,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e8bfe653b2aec544bb6984cd2d01a3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bloodFX: {fileID: 273563603507936733, guid: 6ed57c0a22f14304cac1c8c23560dd60, type: 3}
   point: {fileID: 0}
+  defaultPoint: {fileID: 0}
   damping: 5
-  maxhp: 500
+  maxhp: 200
   myWeapon: {fileID: 5952499126656709276}
   beam: {fileID: 5952499127857721308}
   hpBar: {fileID: 5952499126675296851}
@@ -3131,6 +3162,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &9220416788769651593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5953669291204807156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49bcec0d9bcdb554fab43f6c0152b888, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coin: {fileID: 545083201874188914, guid: 8b4cf02d47c216b48b95768ad2577f09, type: 3}
 --- !u!1 &5953671646952084168
 GameObject:
   m_ObjectHideFlags: 0

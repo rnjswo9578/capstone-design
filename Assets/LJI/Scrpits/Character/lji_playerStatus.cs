@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using RPGCharacterAnims;
 using System.Xml;
 
@@ -38,7 +39,9 @@ public class lji_playerStatus : MonoBehaviour
     //이동 속도 관련 함수는 movementStat을 불러서 수정;
     //ex) movementStat.runSpeed = 5
 
-    RPGCharacterController characterController;
+    public RPGCharacterController characterController;
+
+    public int gold = 0;
 
     [Header("Weapon")]
     // Weapon SET//3번은 맨주먹
@@ -59,21 +62,20 @@ public class lji_playerStatus : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        movementStat = GetComponent<RPGCharacterMovementController>();
+        characterController = GetComponent<RPGCharacterController>();
 
-        playerStatusManger = GameObject.FindGameObjectWithTag("StatusManager");
         //LoadXml(loadXml);
         //StartCoroutine(WaitLoadXml());
-        GetPlayerStatus();
-        this.transform.position=GameObject.FindGameObjectWithTag("StartPortal").transform.position;
-        movementStat = GetComponent<RPGCharacterMovementController>();
-
-        characterController = GetComponent<RPGCharacterController>();
+        //this.transform.position=GameObject.FindGameObjectWithTag("StartPortal").transform.position;
 
         totalAttackSpeed = attackSpeed;
         totalAttackPower = attackPower;
         totalDefense = defense;
         movementStat.runSpeed = runSpeed;
-        
+
+        playerStatusManger = GameObject.FindGameObjectWithTag("StatusManager");
+        GetPlayerStatus();
     }
     
     // Update is called once per frame
@@ -86,24 +88,31 @@ public class lji_playerStatus : MonoBehaviour
         if (hp <= 0)
         {
             death();
+            hp = 0;
         }
     }
 
     void death()
     {
+        Debug.Log("HP0 is Dead");
         if (characterController.CanStartAction("Death"))
         {
             characterController.StartAction("Death");
         }
 
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            if (characterController.isDead)
-                Destroy(this.gameObject);
-        }
+        StartCoroutine(LoadDeathScene());
+        //if (Input.GetKeyDown(KeyCode.Return))
+        //{
+        //    if (characterController.isDead)
+        //        Destroy(this.gameObject);
+        //}
     }
 
-
+    IEnumerator LoadDeathScene()
+    {
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene("DeadScene");
+    }
 
 
     private void OnDestroy()
@@ -259,8 +268,6 @@ public class lji_playerStatus : MonoBehaviour
 
         xmlDoc.Save("./Assets/Resources/PlayerStatus.xml");
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
 
     public void SetGold(int addGold)
     {
@@ -330,8 +337,4 @@ public class lji_playerStatus : MonoBehaviour
         statusManager.upperArmor=upperArmor;
         statusManager.lowerArmor=lowerArmor;
     }
-=======
->>>>>>> parent of 5edaaed (123123)
-=======
->>>>>>> parent of 5edaaed (123123)
 }

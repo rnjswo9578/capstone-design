@@ -12,6 +12,12 @@ EditorBuildSettings:
     path: Assets/PGJ/Scenes/store.unity
     guid: cc44ef0e927540e4fb8a4bd919389bd8
   - enabled: 1
+    path: Assets/GameScenes/StartScene.unity
+    guid: f0029f22ef31901418ccbf6aa873a006
+  - enabled: 1
+    path: Assets/GameScenes/TutorialScene.unity
+    guid: bbc67f263e9eb2d478e2d9a102efc79f
+  - enabled: 1
     path: Assets/GameScenes/Scene1.unity
     guid: a2c83e9a268948c45bf7574c002b3113
   - enabled: 1
@@ -23,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/GameScenes/Scene4.unity
     guid: c4ccdb25592734e409a74514cd940b20
+  - enabled: 1
+    path: Assets/GameScenes/DeadScene.unity
+    guid: 3fe726af1432c8c418ff6aa90de0db75
   m_configObjects: {}

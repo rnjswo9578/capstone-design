@@ -75,6 +75,11 @@ namespace RPGCharacterAnims
             rigidbody = GetComponent<Rigidbody>();
         }
 
+        private void Start()
+        {
+            WeaponSwitch(playerStatus.nowWeaponSet+1);
+        }
+
         private void Update()
         {
             // Pause input for other external input.

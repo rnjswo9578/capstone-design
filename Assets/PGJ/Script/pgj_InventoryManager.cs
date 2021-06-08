@@ -36,14 +36,13 @@ public class pgj_InventoryManager : MonoBehaviour
     }
 
     // 파싱한 정보를 저장
-    Dictionary<int, InventoryInfo> m_dicData = new Dictionary<int, InventoryInfo>();
     List<InventoryInfo> inven_Data = new List<InventoryInfo>();
     // 아이템 추가.
 
     public void AddItem(InventoryInfo _cInfo)
     {
         //빈 칸이 있는지 체크
-        if (inven_Data.Count <= 50)
+        if (inven_Data.Count < 50)
             inven_Data.Add(_cInfo); //아이템 추가
         else
         {
@@ -51,7 +50,7 @@ public class pgj_InventoryManager : MonoBehaviour
             temp.ID = 0;
             temp.ITEM_RANK = 0;
             int index =0;
-            for (index = 0; index <= 50; index++)
+            for (index = 0; index < 50; index++)
             {
                 if(inven_Data[index].Equals(temp))
                     break;
@@ -59,8 +58,8 @@ public class pgj_InventoryManager : MonoBehaviour
             //아이템 추가
             inven_Data.RemoveAt(index: index);
             inven_Data.Insert(index: index, item: _cInfo);
-
         }
+        Debug.Log("addinven");
     }
     public void deleteItem(int number)
     {
@@ -68,7 +67,7 @@ public class pgj_InventoryManager : MonoBehaviour
         InventoryInfo temp = new InventoryInfo();
         temp.ID = 0;
         temp.ITEM_RANK = 0;
-        if (inven_Data[number].Equals(temp))
+        if (inven_Data[number].ID == 0 && inven_Data[number].ITEM_RANK ==0)
             return;
         else
         {

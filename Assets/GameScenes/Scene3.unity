@@ -1134,6 +1134,36 @@ Transform:
   m_Father: {fileID: 896460100}
   m_RootOrder: 85
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: -28.43}
+--- !u!1 &349792334
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 349792335}
+  m_Layer: 0
+  m_Name: MonsterPointer2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &349792335
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 349792334}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -12.052926, y: 5.18, z: -10.075373}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_Children: []
+  m_Father: {fileID: 474244721}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &357482484
 GameObject:
   m_ObjectHideFlags: 0
@@ -1229,6 +1259,36 @@ Transform:
   m_Father: {fileID: 1848191623}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 25, y: 0, z: 0}
+--- !u!1 &357586875
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 357586876}
+  m_Layer: 0
+  m_Name: MonsterPointer3.1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &357586876
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357586875}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.655423, y: 0.41, z: 8.060273}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_Children: []
+  m_Father: {fileID: 474244721}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &368650296
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1309,6 +1369,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drawMeshTreeOnStart: 1
+--- !u!1 &377842386
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 377842387}
+  m_Layer: 0
+  m_Name: MonsterPointer1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &377842387
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 377842386}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.81, y: 5.0948677, z: -31.819052}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_Children: []
+  m_Father: {fileID: 474244721}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &399313958 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8601188546691421155, guid: a2d67c12d92de5441b916e74be1796f8, type: 3}
@@ -1455,6 +1545,44 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1670853603}
   m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &474244720
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 474244721}
+  m_Layer: 0
+  m_Name: MonsterPointer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &474244721
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 474244720}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1469332140}
+  - {fileID: 377842387}
+  - {fileID: 1863196956}
+  - {fileID: 349792335}
+  - {fileID: 1931228239}
+  - {fileID: 357586876}
+  - {fileID: 1801259151}
+  - {fileID: 1182320624}
+  m_Father: {fileID: 0}
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &481313851 stripped
 GameObject:
@@ -3152,6 +3280,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character_BR_Dwarf_01 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1535691318312818286, guid: 0a0274158b7261e408b1879662b6f394, type: 3}
+      propertyPath: point
+      value: 
+      objectReference: {fileID: 377842387}
+    - target: {fileID: 1535691318312818286, guid: 0a0274158b7261e408b1879662b6f394, type: 3}
+      propertyPath: defaultPoint
+      value: 
+      objectReference: {fileID: 1469332140}
     - target: {fileID: 1540077841699482053, guid: 0a0274158b7261e408b1879662b6f394, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -4046,6 +4182,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1182320623
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1182320624}
+  m_Layer: 0
+  m_Name: MonsterPointer4.1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1182320624
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182320623}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.22, y: 0.09, z: -2.61}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_Children: []
+  m_Father: {fileID: 474244721}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1187071827
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4376,6 +4542,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character_BR_Dwarf_01 1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1535691318312818286, guid: 0a0274158b7261e408b1879662b6f394, type: 3}
+      propertyPath: point
+      value: 
+      objectReference: {fileID: 1931228239}
+    - target: {fileID: 1535691318312818286, guid: 0a0274158b7261e408b1879662b6f394, type: 3}
+      propertyPath: defaultPoint
+      value: 
+      objectReference: {fileID: 357586876}
     - target: {fileID: 1540077841699482053, guid: 0a0274158b7261e408b1879662b6f394, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -5020,6 +5194,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drawMeshTreeOnStart: 1
+--- !u!1 &1469332139
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1469332140}
+  m_Layer: 0
+  m_Name: MonsterPointer1.1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1469332140
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1469332139}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 6.2359996, y: 5.0948677, z: -31.819052}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_Children: []
+  m_Father: {fileID: 474244721}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1491647533
 GameObject:
   m_ObjectHideFlags: 0
@@ -5527,6 +5731,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character_BR_Dwarf_01 1 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1535691318312818286, guid: 0a0274158b7261e408b1879662b6f394, type: 3}
+      propertyPath: point
+      value: 
+      objectReference: {fileID: 1801259151}
+    - target: {fileID: 1535691318312818286, guid: 0a0274158b7261e408b1879662b6f394, type: 3}
+      propertyPath: defaultPoint
+      value: 
+      objectReference: {fileID: 1182320624}
     - target: {fileID: 1540077841699482053, guid: 0a0274158b7261e408b1879662b6f394, type: 3}
       propertyPath: m_RootOrder
       value: 20
@@ -5537,7 +5749,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1540077841699482053, guid: 0a0274158b7261e408b1879662b6f394, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 0.09
       objectReference: {fileID: 0}
     - target: {fileID: 1540077841699482053, guid: 0a0274158b7261e408b1879662b6f394, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5582,6 +5794,36 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 484164, guid: 7d4b7f62843a70e48ad6f3b8dd9edc48, type: 3}
   m_PrefabInstance: {fileID: 2110237912}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1801259150
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1801259151}
+  m_Layer: 0
+  m_Name: MonsterPointer4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1801259151
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801259150}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 8.21, y: 0.09, z: -2.61}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_Children: []
+  m_Father: {fileID: 474244721}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1811646979
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9360,6 +9602,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character_BR_Dwarf_01 1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1535691318312818286, guid: 0a0274158b7261e408b1879662b6f394, type: 3}
+      propertyPath: point
+      value: 
+      objectReference: {fileID: 349792335}
+    - target: {fileID: 1535691318312818286, guid: 0a0274158b7261e408b1879662b6f394, type: 3}
+      propertyPath: defaultPoint
+      value: 
+      objectReference: {fileID: 1863196956}
     - target: {fileID: 1540077841699482053, guid: 0a0274158b7261e408b1879662b6f394, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -9449,6 +9699,36 @@ Transform:
   - {fileID: 1491647537}
   m_Father: {fileID: 0}
   m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1863196955
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1863196956}
+  m_Layer: 0
+  m_Name: MonsterPointer2.1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1863196956
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1863196955}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -12.052926, y: 5.18, z: 2.9246268}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_Children: []
+  m_Father: {fileID: 474244721}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1869050669
 PrefabInstance:
@@ -9606,6 +9886,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1670853603}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1931228238
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1931228239}
+  m_Layer: 0
+  m_Name: MonsterPointer3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1931228239
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931228238}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.9445765, y: 0.41, z: 8.060273}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_Children: []
+  m_Father: {fileID: 474244721}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1954960498 stripped
 GameObject:

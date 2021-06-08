@@ -35,6 +35,8 @@ public class lji_damage : MonoBehaviour
             if (damage <= 0)
                 damage = 1;
             playerStatus.hp -= damage;
+            if (playerStatus.hp < 0)
+                playerStatus.hp = 0;
             characterController.StartAction("GetHit",new HitContext());
         }
     }

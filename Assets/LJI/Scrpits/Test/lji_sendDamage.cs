@@ -9,7 +9,7 @@ public class lji_sendDamage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        player= GameObject.FindGameObjectWithTag("PLAYER");
     }
 
     // Update is called once per frame

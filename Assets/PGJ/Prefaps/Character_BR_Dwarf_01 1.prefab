@@ -69,11 +69,25 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1533774944794888928}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.102839485, y: 0.8163579, z: 0.3395648}
   m_Center: {x: -0.00030355604, y: 0.11445519, z: 0.05740449}
+--- !u!114 &6153429482738867980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533774944794888928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eefb330ae85a88f41acf773262ecddbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 15
+  player: {fileID: 0}
 --- !u!1 &1533793328696552997
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,6 +547,7 @@ GameObject:
   - component: {fileID: 1535691318312818274}
   - component: {fileID: 1535691318312818286}
   - component: {fileID: 1535691318312818285}
+  - component: {fileID: 2266539512872450636}
   m_Layer: 0
   m_Name: Character_BR_Dwarf_01 1
   m_TagString: Untagged
@@ -611,12 +626,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3eb7a4cad606ba4499f077deee2dbdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bloodFX: {fileID: 273563603507936733, guid: 6ed57c0a22f14304cac1c8c23560dd60, type: 3}
   point: {fileID: 0}
+  defaultPoint: {fileID: 0}
   damping: 5
   maxhp: 100
   myWeapon: {fileID: 1535691318005277551}
   hpBar: {fileID: 1535691319055898872}
-  player: {fileID: 1984486853856238318, guid: 2e961a96029b8824e8ac7404e62bb509, type: 3}
+  player: {fileID: 0}
 --- !u!195 &1535691318312818285
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -639,6 +656,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &2266539512872450636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533940782826531525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49bcec0d9bcdb554fab43f6c0152b888, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coin: {fileID: 2066139703828085056, guid: 89ffc58fa6855af4c934e2f0d7dd58cd, type: 3}
 --- !u!1 &1533946777505968279
 GameObject:
   m_ObjectHideFlags: 0
@@ -3398,7 +3428,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4936059015039842, guid: 8313455c7845e6e478393ddbe4434b85, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.3
+      value: 0.29
       objectReference: {fileID: 0}
     - target: {fileID: 4936059015039842, guid: 8313455c7845e6e478393ddbe4434b85, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3406,7 +3436,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4936059015039842, guid: 8313455c7845e6e478393ddbe4434b85, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.07
+      value: -0.06
       objectReference: {fileID: 0}
     - target: {fileID: 4936059015039842, guid: 8313455c7845e6e478393ddbe4434b85, type: 3}
       propertyPath: m_LocalRotation.w
