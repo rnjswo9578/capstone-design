@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
 public class shh_selectDoor : MonoBehaviour
 {
     public Camera Cam;
@@ -32,9 +31,9 @@ public class shh_selectDoor : MonoBehaviour
                     if (isOpened == false)
                     {
                        // door.transform.GetChild(0).gameObject.transform.Rotate(0, 90, 0);
-                        door.transform.GetChild(0).gameObject.transform.DORotate(new Vector3(0, -90, 0), 1);
-                        door.transform.GetChild(1).gameObject.transform.DORotate(new Vector3(0, 90, 0), 1);
-                       // door.transform.GetChild(1).gameObject.transform.Rotate(0, -90, 0);
+                        door.transform.GetChild(0).gameObject.transform.rotation = Quaternion.Slerp(door.transform.GetChild(0).gameObject.transform.rotation,Quaternion.Euler(0f,-90.0f,0f), Time.deltaTime*5);
+                        door.transform.GetChild(1).gameObject.transform.rotation = Quaternion.Slerp(door.transform.GetChild(1).gameObject.transform.rotation, Quaternion.Euler(0f, 90.0f, 0f), Time.deltaTime * 5);
+                        // door.transform.GetChild(1).gameObject.transform.Rotate(0, -90, 0);
                         isOpened = true;
                     }
                 }
