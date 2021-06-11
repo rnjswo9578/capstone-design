@@ -10,8 +10,7 @@ TagManager:
   - PortalManager
   - StatusManager
   - BEAM
-  - Stair
-  - Door
+  - Wall
   layers:
   - Default
   - TransparentFX
