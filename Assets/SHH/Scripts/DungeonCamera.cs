@@ -36,14 +36,14 @@ public class DungeonCamera : MonoBehaviour
     {
         Vector3 ScreenPos = Camera.main.WorldToScreenPoint(player.transform.position );
         var list = new List<RaycastHit>();
-        for (int i = 1; i <= y+5; i++)
+        for (int i = 1; i <= y + 5; i++)
         {
             pos = player.transform.position + new Vector3(x, i, z);
             Ray ray4 = new Ray(pos, player.transform.position);
             maxdis = Mathf.Sqrt(x * x + y * y + z * z);
-            RaycastHit[] hits4 = Physics.RaycastAll(ray4,maxdis);
+            RaycastHit[] hits4 = Physics.RaycastAll(ray4, maxdis);
             list.AddRange(hits4);
-            
+
         }
 
         /*Ray ray = Camera.main.ScreenPointToRay(ScreenPos);
@@ -52,11 +52,11 @@ public class DungeonCamera : MonoBehaviour
         RaycastHit[] hits1 = Physics.RaycastAll(ray, maxdis);// Physics.RaycastAll(ray2,maxdis1)+Physics.RaycastAll(ray3,maxdis2);
         RaycastHit[] hits2 = Physics.RaycastAll(ray2, maxdis);
         RaycastHit[] hits3 = Physics.RaycastAll(ray3, maxdis);
-        
+
         list.AddRange(hits1);
         list.AddRange(hits2);
-        list.AddRange(hits3);*/
-        newAddedWall.Clear();
+        list.AddRange(hits3);
+        newAddedWall.Clear();*/
         foreach (RaycastHit hit in list)
         {
             if (hit.collider.gameObject != player.gameObject && hit.collider.tag != "Stair")

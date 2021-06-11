@@ -66,6 +66,7 @@ namespace RPGCharacterAnims
         public int side = 1;
         public int nowWeaponSet = 0;
 
+        lji_playerSounds sound;
         private void Awake()
         {
             rpgCharacterController = GetComponent<RPGCharacterController>();
@@ -73,6 +74,7 @@ namespace RPGCharacterAnims
             currentAim = Vector3.zero;
 
             rigidbody = GetComponent<Rigidbody>();
+            sound = GetComponent<lji_playerSounds>();
         }
 
         private void Start()
@@ -114,6 +116,7 @@ namespace RPGCharacterAnims
                 if (isDash)
                 {
                     Dashing();
+                    sound.PlaySound("Dash");
                 }
                 else
                     Moving();
@@ -178,6 +181,7 @@ namespace RPGCharacterAnims
                             inputAttackL = Input.GetMouseButtonDown(1);
                         }
                         playerStatus.side = 1;
+                        sound.PlaySound("Attack");
                     }
                 }
                 else
@@ -206,6 +210,7 @@ namespace RPGCharacterAnims
                             inputAttackR = Input.GetMouseButtonDown(0);
                         }
                         playerStatus.side = 2;
+                        sound.PlaySound("Attack");
                     }
                 }
                 else

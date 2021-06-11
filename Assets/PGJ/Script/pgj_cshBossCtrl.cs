@@ -36,7 +36,8 @@ public class pgj_cshBossCtrl : MonoBehaviour
     public GameObject player;
     lji_playerStatus playerStatus;
     private bool isDamage = false;
-    
+
+    lji_monsterSounds sound;
     // Start is called before the first frame update
     void Start()
     {
@@ -55,6 +56,8 @@ public class pgj_cshBossCtrl : MonoBehaviour
         //lji ¼öÁ¤
         playerStatus = player.GetComponent<lji_playerStatus>();
         player = GameObject.FindGameObjectWithTag("PLAYER");
+
+        sound = GetComponent<lji_monsterSounds>();
         
     }
 
@@ -152,6 +155,7 @@ public class pgj_cshBossCtrl : MonoBehaviour
             //}
             StartCoroutine(DamageTimer());
             playerAttack();
+            sound.PlaySound("Damaged");
         }
     }
     void Attack()
@@ -255,6 +259,7 @@ public class pgj_cshBossCtrl : MonoBehaviour
     {
         yield return new WaitForSeconds(firstTime);
         myWeapon.enabled = true;
+        sound.PlaySound("Attack");
         yield return new WaitForSeconds(secondTime);
         myWeapon.enabled = false;
     }

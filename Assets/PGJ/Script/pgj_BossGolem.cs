@@ -43,6 +43,8 @@ public class pgj_BossGolem : MonoBehaviour
     public GameObject player;
     lji_playerStatus playerStatus;
     private bool isDamage = false;
+
+    lji_bossSounds sound;
     // Start is called before the first frame update
     void Start()
     {
@@ -65,6 +67,7 @@ public class pgj_BossGolem : MonoBehaviour
 
         //lji ¼öÁ¤
         playerStatus = player.GetComponent<lji_playerStatus>();
+        sound = GetComponent<lji_bossSounds>();
     }
 
     // Update is called once per frame
@@ -173,6 +176,7 @@ public class pgj_BossGolem : MonoBehaviour
             //}
             StartCoroutine(DamageTimer());
             playerAttack();
+            sound.PlaySound("Damaged");
         }
     }
     void Attack()
@@ -294,6 +298,7 @@ public class pgj_BossGolem : MonoBehaviour
     IEnumerator AttackTimer(float firstTime, float secondTime)
     {
         yield return new WaitForSeconds(firstTime);
+        sound.PlaySound("Attack");
         myWeapon.enabled = true;
         yield return new WaitForSeconds(secondTime);
         myWeapon.enabled = false;
@@ -301,6 +306,7 @@ public class pgj_BossGolem : MonoBehaviour
     IEnumerator BeamAttackTimer(float firstTime, float secondTime)
     {
         yield return new WaitForSeconds(firstTime);
+        sound.PlaySound("Beam");
         beam.enabled = true;
         yield return new WaitForSeconds(secondTime);
         beam.enabled = false;

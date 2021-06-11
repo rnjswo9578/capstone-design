@@ -7,16 +7,24 @@ public class lji_startButton : MonoBehaviour
 {
     public string nextScene="Scene1";
 
+    public AudioClip audioClick;
+
+    AudioSource audioSource;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = audioClick;
+    }
+
     public void LoadSceneButton()
     {
-        Debug.Log("pressButton");
+        //Debug.Log("pressButton");
+        audioSource.Play();
         StartCoroutine(LoadScene());
     }
 
-    public void TestButton()
-    {
-        Debug.Log("pressButton");
-    }
+   
 
     IEnumerator LoadScene()
     {
@@ -30,6 +38,7 @@ public class lji_startButton : MonoBehaviour
 
     public void ExitProgram()
     {
+        audioSource.Play();
         Application.Quit();
     }
 }

@@ -3,7 +3,7 @@
   <Character>
     <Name>name2</Name>
     <maxHp>150</maxHp>
-    <hp>90</hp>
+    <hp>150</hp>
     <attackSpeed>0</attackSpeed>
     <attackPower>5</attackPower>
     <defense>5</defense>
@@ -12,7 +12,7 @@
     <addAttackPower>0</addAttackPower>
     <addDefense>0</addDefense>
     <addRunSpeed>0</addRunSpeed>
-    <totalAttackSpeed>0.3</totalAttackSpeed>
+    <totalAttackSpeed>0.5</totalAttackSpeed>
     <totalAttackPower>5</totalAttackPower>
     <totalDefense>5</totalDefense>
     <totalRunSpeed>4</totalRunSpeed>
@@ -30,7 +30,7 @@
     <leftWeaponTier1>2</leftWeaponTier1>
     <leftWeaponTier2>0</leftWeaponTier2>
     <leftWeaponTier3>0</leftWeaponTier3>
-    <rightWeaponSpeed1>0.3</rightWeaponSpeed1>
+    <rightWeaponSpeed1>0</rightWeaponSpeed1>
     <rightWeaponSpeed2>0</rightWeaponSpeed2>
     <rightWeaponSpeed3>0.5</rightWeaponSpeed3>
     <leftWeaponSpeed1>0</leftWeaponSpeed1>

@@ -16,8 +16,6 @@ public class lji_deadSceneManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            //Debug.Log("test");
-            //LoadScene();
             SceneManager.LoadScene("Scene1");
         }
 
