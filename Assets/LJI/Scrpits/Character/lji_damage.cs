@@ -13,11 +13,14 @@ public class lji_damage : MonoBehaviour
     bool isDamage=false;
     public float damageTimer = 1f;
     int damage;
+    lji_playerSounds sound;
+
     void Start()
     {
         characterController = GetComponent<RPGCharacterController>();
         playerStatus = GetComponent<lji_playerStatus>();
 
+        sound = GetComponent<lji_playerSounds>();
         damage = 10;
     }
     
@@ -38,6 +41,7 @@ public class lji_damage : MonoBehaviour
             if (playerStatus.hp < 0)
                 playerStatus.hp = 0;
             characterController.StartAction("GetHit",new HitContext());
+            sound.PlaySound("Damaged");
         }
     }
 

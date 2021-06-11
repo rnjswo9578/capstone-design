@@ -58,13 +58,16 @@ public class lji_playerStatus : MonoBehaviour
     public int head = (int)Armor.Default;
     public int upperArmor = (int)Armor.Default;
     public int lowerArmor = (int)Armor.Default;
-    
+
+
+    //
+    lji_playerSounds sound;
     // Start is called before the first frame update
     void Start()
     {
         movementStat = GetComponent<RPGCharacterMovementController>();
         characterController = GetComponent<RPGCharacterController>();
-
+        sound = GetComponent<lji_playerSounds>();
         //LoadXml(loadXml);
         //StartCoroutine(WaitLoadXml());
         //this.transform.position=GameObject.FindGameObjectWithTag("StartPortal").transform.position;
@@ -98,6 +101,7 @@ public class lji_playerStatus : MonoBehaviour
         if (characterController.CanStartAction("Death"))
         {
             characterController.StartAction("Death");
+            sound.PlaySound("Die");
         }
 
         StartCoroutine(LoadDeathScene());

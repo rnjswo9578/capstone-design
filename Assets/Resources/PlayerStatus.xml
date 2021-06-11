@@ -3,7 +3,7 @@
   <Character>
     <Name>name2</Name>
     <maxHp>150</maxHp>
-    <hp>0</hp>
+    <hp>150</hp>
     <attackSpeed>0</attackSpeed>
     <attackPower>5</attackPower>
     <defense>5</defense>
@@ -12,7 +12,7 @@
     <addAttackPower>0</addAttackPower>
     <addDefense>0</addDefense>
     <addRunSpeed>0</addRunSpeed>
-    <totalAttackSpeed>0</totalAttackSpeed>
+    <totalAttackSpeed>0.5</totalAttackSpeed>
     <totalAttackPower>5</totalAttackPower>
     <totalDefense>5</totalDefense>
     <totalRunSpeed>4</totalRunSpeed>
