@@ -10,6 +10,7 @@ TagManager:
   - PortalManager
   - StatusManager
   - BEAM
+  - Wall
   layers:
   - Default
   - TransparentFX

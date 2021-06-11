@@ -6,18 +6,18 @@ public class DungeonCamera : MonoBehaviour
 {
     public GameObject player;
     public float x, y, z;
+    private int targetx, targety;
     private List<GameObject> mTransparentWalls=new List<GameObject>();
     private List<GameObject> newAddedWall=new List<GameObject>();
-    private float maxdis,maxdis1,maxdis2;
-    private Vector3 pos,pos1,pos2;
+    private float maxdis;
+    private Vector3 pos;
     // Start is called before the first frame update
     void Start()
     {
         if (player == null)
             player = GameObject.FindGameObjectWithTag("PLAYER");
-        maxdis = Mathf.Sqrt(x * x + (y-1) * (y-1) + z * z);
-        maxdis1 = Mathf.Sqrt(x * x + 1+ z * z);
-        maxdis2 = Mathf.Sqrt(x * x + (y - 1) * (y - 1) + (z+5) * (z+5));
+        targetx = (int)x - 2;
+        targety = (int)y - 6;
 
     }
 
@@ -25,8 +25,6 @@ public class DungeonCamera : MonoBehaviour
     void Update()
     {
         Vector3 offset = new Vector3(x, y, z); //0, 13, -20
-        pos1 =player.transform.position + new Vector3(x, 1, z);
-        pos2 = player.transform.position + new Vector3(x,y,z+5);
         transform.position = player.transform.position + offset;
         transform.LookAt(player.transform);
         FadeOutWall();
@@ -34,32 +32,25 @@ public class DungeonCamera : MonoBehaviour
 
     private void FadeOutWall()
     {
-        Vector3 ScreenPos = Camera.main.WorldToScreenPoint(player.transform.position );
+       // Vector3 ScreenPos = Camera.main.WorldToScreenPoint(player.transform.position );
         var list = new List<RaycastHit>();
-        for (int i = 1; i <= y+5; i++)
+        for (int j = targetx; j <= x + 2; j++)
         {
-            pos = player.transform.position + new Vector3(x, i, z);
-            Ray ray4 = new Ray(pos, player.transform.position);
-            maxdis = Mathf.Sqrt(x * x + y * y + z * z);
-            RaycastHit[] hits4 = Physics.RaycastAll(ray4,maxdis);
-            list.AddRange(hits4);
-            
-        }
+            for (int i = targety; i <= y + 4; i+=2)
+            {
+                pos = player.transform.position + new Vector3(j, i, z);
+                Ray ray4 = new Ray(pos, (player.transform.position - pos).normalized);
+                maxdis = (player.transform.position - pos).magnitude;
+                RaycastHit[] hits4 = Physics.RaycastAll(ray4, maxdis);
+                //Debug.DrawRay(pos, (player.transform.position - pos).normalized * maxdis, Color.red, 0.3f);
+                list.AddRange(hits4);
 
-        /*Ray ray = Camera.main.ScreenPointToRay(ScreenPos);
-        Ray ray2 = new Ray(pos1, ScreenPos);
-        Ray ray3 = new Ray(pos2, ScreenPos);
-        RaycastHit[] hits1 = Physics.RaycastAll(ray, maxdis);// Physics.RaycastAll(ray2,maxdis1)+Physics.RaycastAll(ray3,maxdis2);
-        RaycastHit[] hits2 = Physics.RaycastAll(ray2, maxdis);
-        RaycastHit[] hits3 = Physics.RaycastAll(ray3, maxdis);
-        
-        list.AddRange(hits1);
-        list.AddRange(hits2);
-        list.AddRange(hits3);*/
+            }
+        }
         newAddedWall.Clear();
         foreach (RaycastHit hit in list)
         {
-            if (hit.collider.gameObject != player.gameObject && hit.collider.tag != "Stair")
+            if (hit.collider.gameObject != player.gameObject && hit.collider.tag =="Wall")
             {
                 bool bFind = false;
                 newAddedWall.Add(hit.collider.gameObject);
