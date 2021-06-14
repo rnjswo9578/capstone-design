@@ -5,7 +5,7 @@ using RPGCharacterAnims;
 
 public class lji_statusManager : MonoBehaviour
 {
-    private static lji_statusManager instance = null;
+    public static lji_statusManager instance = null; //private static lji_statusManager instance = null;
 
     [Header("Xml")]
     public string loadXml;
@@ -71,4 +71,42 @@ public class lji_statusManager : MonoBehaviour
                 Destroy(this.gameObject); //둘 이상 존재하면 안되는 객체이니 방금 AWake된 자신을 삭제 
         }
     }
+
+
+
+
+
+
+    public void changeGold(int other) 
+    {
+        gold = gold + other;
+    }
+    public int getGold()
+    {
+        return gold;
+    }
+    public void changeW(int r, int l)
+    {
+        rightWeapon[0] = r;
+        leftWeapon[0] = l;
+    }
+    public void changeHead(int other)
+    {
+        head = other;
+    }
+    public void changeUArmor(int other)
+    {
+        upperArmor = other;
+    }
+    public void changeLArmor(int other)
+    {
+        lowerArmor = other;
+    }
+    public void changeTier(int other)
+    {
+        rightWeaponTier[0] = other;
+        leftWeaponTier[0] = other;
+    }
+
+
 }

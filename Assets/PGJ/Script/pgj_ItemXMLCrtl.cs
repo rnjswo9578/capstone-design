@@ -25,7 +25,7 @@ public class pgj_ItemXMLCrtl : MonoBehaviour
 
     private void OnDestroy()
     {
-        
+
     }
 
     private void Interpret(string _strSource)
@@ -51,6 +51,7 @@ public class pgj_ItemXMLCrtl : MonoBehaviour
                 {
                     //Debug.Log("444item");
                     ItemInfo item = new ItemInfo();
+
                     item.ID = int.Parse(child.Attributes.GetNamedItem("id").Value);
                     item.NAME = child.Attributes.GetNamedItem("name").Value;
                     item.ICON = child.Attributes.GetNamedItem("icon").Value;

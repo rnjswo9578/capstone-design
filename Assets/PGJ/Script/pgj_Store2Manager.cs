@@ -6,6 +6,7 @@ public class pgj_Store2Manager : MonoBehaviour
 {
     private static pgj_Store2Manager m_pInstance;
     private static object m_pLock = new object();
+    private int sellid = 0;
 
     public static pgj_Store2Manager INSTANCE
     {
@@ -98,6 +99,13 @@ public class pgj_Store2Manager : MonoBehaviour
     {
         return inven_Data.Count;
     }
-
+    public void setSellID(int id)
+    {
+        sellid = id;
+    }
+    public int getSellID()
+    {
+        return sellid;
+    }
 }
 

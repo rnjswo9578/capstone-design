@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class pgj_InventoryManager : MonoBehaviour
+public class pgj_Inventory2Manager : MonoBehaviour
 {
-    private static pgj_InventoryManager m_pInstance;
+    private static pgj_Inventory2Manager m_pInstance;
     private static object m_pLock = new object();
-    private int sellid = 0;
+    private int wornid = 0;
+    private int oldwornid = 0;
 
-    public static pgj_InventoryManager INSTANCE
+    public static pgj_Inventory2Manager INSTANCE
     {
         get
         {
@@ -16,9 +17,9 @@ public class pgj_InventoryManager : MonoBehaviour
             {
                 if (m_pInstance == null)
                 {
-                    m_pInstance = (pgj_InventoryManager)FindObjectOfType(typeof(pgj_InventoryManager));
+                    m_pInstance = (pgj_Inventory2Manager)FindObjectOfType(typeof(pgj_Inventory2Manager));
 
-                    if (FindObjectsOfType(typeof(pgj_InventoryManager)).Length > 1)
+                    if (FindObjectsOfType(typeof(pgj_Inventory2Manager)).Length > 1)
                     {
                         return m_pInstance;
                     }
@@ -26,8 +27,8 @@ public class pgj_InventoryManager : MonoBehaviour
                     if (m_pInstance == null)
                     {
                         GameObject singleton = new GameObject();
-                        m_pInstance = singleton.AddComponent<pgj_InventoryManager>();
-                        singleton.name = typeof(pgj_InventoryManager).ToString();
+                        m_pInstance = singleton.AddComponent<pgj_Inventory2Manager>();
+                        singleton.name = typeof(pgj_Inventory2Manager).ToString();
                         DontDestroyOnLoad(singleton);
                     }
                 }
@@ -37,49 +38,51 @@ public class pgj_InventoryManager : MonoBehaviour
     }
 
     // 파싱한 정보를 저장
-    List<InventoryInfo> inven_Data = new List<InventoryInfo>();
+    //Dictionary<int, InventoryInfo> m_dicData = new Dictionary<int, InventoryInfo>();
+    List<Inventory2Info> inven_Data = new List<Inventory2Info>();
     // 아이템 추가.
 
-    public void AddItem(InventoryInfo _cInfo)
+    public void AddItem(Inventory2Info _cInfo)
     {
         //빈 칸이 있는지 체크
-        if (inven_Data.Count < 50)
+        if (inven_Data.Count < 5)
             inven_Data.Add(_cInfo); //아이템 추가
         else
         {
-            InventoryInfo temp = new InventoryInfo();
+            Inventory2Info temp = new Inventory2Info();
             temp.ID = 0;
             temp.ITEM_RANK = 0;
-            int index =0;
-            for (index = 0; index < 50; index++)
+            int index = 0;
+            for (index = 0; index < 5; index++)
             {
-                if (inven_Data[index].ID == 0)
+                if (inven_Data[index].Equals(temp))
                     break;
             }
             //아이템 추가
-            Debug.Log("Insert Item" + index);
             inven_Data.RemoveAt(index: index);
             inven_Data.Insert(index: index, item: _cInfo);
+            Debug.Log("addinven");
         }
-        Debug.Log("addinven");
     }
-    public void deleteItem(int number)
+    public void deleteItem(int number, int id, int rank)
     {
         //빈 칸이 있는지 체크
-        InventoryInfo temp = new InventoryInfo();
-        temp.ID = 0;
-        temp.ITEM_RANK = 0;
-        if (inven_Data[number].ID == 0 && inven_Data[number].ITEM_RANK ==0)
+        Inventory2Info temp = new Inventory2Info();
+        temp.ID = id;
+        temp.ITEM_RANK = rank;
+        if (inven_Data[number].ID == 0 && inven_Data[number].ITEM_RANK == 0)
             return;
         else
         {
+            oldwornid = inven_Data[number].ID;
+            wornid = id;
             //아이템 추가
             inven_Data.RemoveAt(index: number);
-            inven_Data.Insert(index: inven_Data.Count-1, item: temp);
+            inven_Data.Insert(index: number, item: temp);
         }
     }
     // 전체 리스트 얻기
-    public List<InventoryInfo> GetAllItems()
+    public List<Inventory2Info> GetAllItems()
     {
         return inven_Data;
     }
@@ -90,17 +93,18 @@ public class pgj_InventoryManager : MonoBehaviour
     {
         return inven_Data.Count;
     }
+
     public void setWornID(int id)
     {
-        sellid = id;
+        wornid = id;
     }
     public int getWornID()
     {
-        return sellid;
+        return wornid;
     }
 }
 
-public class InventoryInfo
+public class Inventory2Info
 {
     private int item_id;
     private int item_rank;
@@ -117,3 +121,4 @@ public class InventoryInfo
         get { return item_rank; }
     }
 }
+
