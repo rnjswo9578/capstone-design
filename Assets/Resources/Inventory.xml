@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <InventoryInfo>
 	<Items>
-		<Field number="1" rank="0" id="1"/>
-		<Field number="2" rank="0" id="2"/>
-		<Field number="3" rank="0" id="4"/>
-		<Field number="4" rank="0" id="7"/>
-		<Field number="5" rank="0" id="0"/>
+		<Field number="1" rank="0" id="501"/>
+		<Field number="2" rank="0" id="502"/>
+		<Field number="3" rank="0" id="504"/>
+		<Field number="4" rank="0" id="507"/>
+		<Field number="5" rank="0" id="441"/>
 		<Field number="6" rank="0" id="0"/>
 		<Field number="7" rank="0" id="0"/>
 		<Field number="8" rank="0" id="0"/>

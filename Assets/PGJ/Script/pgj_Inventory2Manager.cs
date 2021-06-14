@@ -6,6 +6,8 @@ public class pgj_Inventory2Manager : MonoBehaviour
 {
     private static pgj_Inventory2Manager m_pInstance;
     private static object m_pLock = new object();
+    private int wornid = 0;
+    private int oldwornid = 0;
 
     public static pgj_Inventory2Manager INSTANCE
     {
@@ -62,16 +64,18 @@ public class pgj_Inventory2Manager : MonoBehaviour
             Debug.Log("addinven");
         }
     }
-    public void deleteItem(int number)
+    public void deleteItem(int number, int id, int rank)
     {
         //빈 칸이 있는지 체크
         Inventory2Info temp = new Inventory2Info();
-        temp.ID = 0;
-        temp.ITEM_RANK = 0;
+        temp.ID = id;
+        temp.ITEM_RANK = rank;
         if (inven_Data[number].ID == 0 && inven_Data[number].ITEM_RANK == 0)
             return;
         else
         {
+            oldwornid = inven_Data[number].ID;
+            wornid = id;
             //아이템 추가
             inven_Data.RemoveAt(index: number);
             inven_Data.Insert(index: number, item: temp);
@@ -90,6 +94,14 @@ public class pgj_Inventory2Manager : MonoBehaviour
         return inven_Data.Count;
     }
 
+    public void setWornID(int id)
+    {
+        wornid = id;
+    }
+    public int getWornID()
+    {
+        return wornid;
+    }
 }
 
 public class Inventory2Info

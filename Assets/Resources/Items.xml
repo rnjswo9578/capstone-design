@@ -2,20 +2,20 @@
 <ItemsInfo>
 	<Weapon>
 		<Field sell="0" buy="0" icon="null_item" name="null_item" id="0"/>
-		<Field sell="50" buy="100" icon="Berry_02" name="item1" id="1"/>
-		<Field sell="50" buy="100" icon="Berry_03" name="item2" id="2"/>
-		<Field sell="50" buy="100" icon="Book_00" name="item3" id="3"/>
-		<Field sell="50" buy="100" icon="Book_03" name="item4" id="4"/>
-		<Field sell="50" buy="100" icon="Cloak_02" name="item5" id="5"/>
-		<Field sell="50" buy="100" icon="Cloak_03" name="item6" id="6"/>
-		<Field sell="50" buy="100" icon="Coin_03" name="item7" id="7"/>
-		<Field sell="50" buy="100" icon="Crystal Ball_02" name="item8" id="8"/>
-		<Field sell="50" buy="100" icon="Crystal Ball_03" name="item9" id="9"/>
-		<Field sell="50" buy="100" icon="aa" name="item10" id="10"/>
-		<Field sell="50" buy="100" icon="aa" name="item11" id="11"/>
-		<Field sell="50" buy="100" icon="aa" name="item12" id="12"/>
-		<Field sell="50" buy="100" icon="aa" name="item13" id="13"/>
-		<Field sell="50" buy="100" icon="aa" name="item14" id="14"/>
+		<Field sell="50" buy="100" icon="Berry_02" name="item1" id="501"/>
+		<Field sell="50" buy="100" icon="Berry_03" name="item2" id="502"/>
+		<Field sell="50" buy="100" icon="Book_00" name="item3" id="503"/>
+		<Field sell="50" buy="100" icon="Book_03" name="item4" id="504"/>
+		<Field sell="50" buy="100" icon="Cloak_02" name="item5" id="505"/>
+		<Field sell="50" buy="100" icon="Cloak_03" name="item6" id="506"/>
+		<Field sell="50" buy="100" icon="Coin_03" name="item7" id="507"/>
+		<Field sell="50" buy="100" icon="Crystal Ball_02" name="item8" id="508"/>
+		<Field sell="50" buy="100" icon="Crystal Ball_03" name="item9" id="509"/>
+		<Field sell="50" buy="100" icon="aa" name="item10" id="510"/>
+		<Field sell="50" buy="100" icon="aa" name="item11" id="511"/>
+		<Field sell="50" buy="100" icon="aa" name="item12" id="512"/>
+		<Field sell="50" buy="100" icon="aa" name="item13" id="513"/>
+		<Field sell="50" buy="100" icon="aa" name="item14" id="514"/>
 		<Field sell="50" buy="100" icon="item000" name="item000" id="000"/>
 		<Field sell="50" buy="100" icon="item020" name="item020" id="020"/>
 		<Field sell="50" buy="100" icon="item120" name="item120" id="120"/>

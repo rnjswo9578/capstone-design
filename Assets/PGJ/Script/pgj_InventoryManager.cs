@@ -6,6 +6,7 @@ public class pgj_InventoryManager : MonoBehaviour
 {
     private static pgj_InventoryManager m_pInstance;
     private static object m_pLock = new object();
+    private int sellid = 0;
 
     public static pgj_InventoryManager INSTANCE
     {
@@ -52,10 +53,11 @@ public class pgj_InventoryManager : MonoBehaviour
             int index =0;
             for (index = 0; index < 50; index++)
             {
-                if(inven_Data[index].Equals(temp))
+                if (inven_Data[index].ID == 0)
                     break;
             }
             //아이템 추가
+            Debug.Log("Insert Item" + index);
             inven_Data.RemoveAt(index: index);
             inven_Data.Insert(index: index, item: _cInfo);
         }
@@ -73,7 +75,7 @@ public class pgj_InventoryManager : MonoBehaviour
         {
             //아이템 추가
             inven_Data.RemoveAt(index: number);
-            inven_Data.Insert(index: number, item: temp);
+            inven_Data.Insert(index: inven_Data.Count-1, item: temp);
         }
     }
     // 전체 리스트 얻기
@@ -88,7 +90,14 @@ public class pgj_InventoryManager : MonoBehaviour
     {
         return inven_Data.Count;
     }
-
+    public void setWornID(int id)
+    {
+        sellid = id;
+    }
+    public int getWornID()
+    {
+        return sellid;
+    }
 }
 
 public class InventoryInfo

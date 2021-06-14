@@ -66,11 +66,6 @@ public class pgj_StoreController : MonoBehaviour
 
         }
         oldClick = click;
-
-        if (isChange)
-        {
-            ChangeInven();
-        }
     }
 
     private void InitStore1()
@@ -111,48 +106,80 @@ public class pgj_StoreController : MonoBehaviour
     {
         if (this.transform.name == "Store1 Scroll View")
         {
+            for (int i = 0; i < store1Prefabs.Count; i++)
+                Destroy(store1Prefabs[i]);
+
             store1List = pgj_StoreManager.INSTANCE.GetAllItems();
 
             string path;
             int id;
 
-            id = store1List[store1List.Count - 1].ID;
-            path = "Basic RPG Item Free/" + itemlist[id].NAME;
-            Debug.Log(path);
-            store1Prefabs.Add(Instantiate(Resources.Load(path, typeof(GameObject)), contents.transform) as GameObject);
-            isChange = false;
+            for (int index = 0; index < store1List.Count; index++)
+            {
+                id = store1List[index].ID;
+                path = "Basic RPG Item Free/" + itemlist[id].NAME;
+                store1Prefabs.Add(Instantiate(Resources.Load(path, typeof(GameObject)), contents.transform) as GameObject);
+            }
         }
         if (this.transform.name == "Store2 Scroll View")
         {
+            for (int i = 0; i < store2Prefabs.Count; i++)
+                Destroy(store2Prefabs[i]);
             store2List = pgj_Store2Manager.INSTANCE.GetAllItems();
 
             string path;
             int id;
 
-            id = store2List[store1List.Count - 1].ID;
-            path = "Basic RPG Item Free/" + itemlist[id].NAME;
-            Debug.Log(path);
-            store2Prefabs.Add(Instantiate(Resources.Load(path, typeof(GameObject)), contents.transform) as GameObject);
-            isChange = false;
+            for (int index = 0; index < store2List.Count; index++)
+            {
+                id = store2List[index].ID;
+                path = "Basic RPG Item Free/" + itemlist[id].NAME;
+                store2Prefabs.Add(Instantiate(Resources.Load(path, typeof(GameObject)), contents.transform) as GameObject);
+            }
         }
     }
 
     public void Buy()
     {
         Debug.Log(selectedIndex);
+        int id;
+        int gold = lji_statusManager.instance.getGold();
+
         if (this.transform.name == "Store1 Scroll View")
         {
-            pgj_StoreManager.INSTANCE.deleteItem(selectedIndex);
-            isChange = true;
-            Debug.Log(store2Prefabs[selectedIndex].transform.name); //여기에 돈 주고 받는 것 넣기
-            Destroy(store2Prefabs[selectedIndex]);
+            id = store1List[selectedIndex].ID;
+            pgj_StoreManager.INSTANCE.setSellID(id); //buy한 id저장
+
+            if (itemlist[id].BUY_COST <= gold)
+            {
+                lji_statusManager.instance.changeGold(-itemlist[id].BUY_COST); //돈 변화
+
+                pgj_StoreManager.INSTANCE.deleteItem(selectedIndex);
+                ChangeInven();
+            }
+            else
+            {
+                id = -100;
+                pgj_StoreManager.INSTANCE.setSellID(id);
+            }
         }
         if (this.transform.name == "Store2 Scroll View")
         {
-            pgj_Store2Manager.INSTANCE.deleteItem(selectedIndex);
-            isChange = true;
-            Debug.Log(store2Prefabs[selectedIndex].transform.name); //여기에 돈 주고 받는 것 넣기
-            Destroy(store2Prefabs[selectedIndex]);
+            id = store2List[selectedIndex].ID;
+            pgj_Store2Manager.INSTANCE.setSellID(id); //buy한 id저장
+
+            if (itemlist[id].BUY_COST <= gold)
+            {
+                lji_statusManager.instance.changeGold(-itemlist[id].BUY_COST);  //돈 변화
+
+                pgj_Store2Manager.INSTANCE.deleteItem(selectedIndex);
+                ChangeInven();
+            }
+            else
+            {
+                id = -100;
+                pgj_Store2Manager.INSTANCE.setSellID(id);
+            }
         }
     }
 }

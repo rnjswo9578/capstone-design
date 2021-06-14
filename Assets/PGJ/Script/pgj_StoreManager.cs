@@ -6,6 +6,7 @@ public class pgj_StoreManager : MonoBehaviour
 {
     private static pgj_StoreManager m_pInstance;
     private static object m_pLock = new object();
+    private int sellid = 0;
 
     public static pgj_StoreManager INSTANCE
     {
@@ -73,7 +74,7 @@ public class pgj_StoreManager : MonoBehaviour
         {
             //아이템 추가
             inven_Data.RemoveAt(index: number);
-            inven_Data.Insert(index: number, item: temp);
+            inven_Data.Insert(index: inven_Data.Count, item: temp);
         }
     }
     public void deleteAllItem()
@@ -100,5 +101,13 @@ public class pgj_StoreManager : MonoBehaviour
         return inven_Data.Count;
     }
 
+    public void setSellID(int id)
+    {
+        sellid = id;
+    }
+    public int getSellID()
+    {
+        return sellid;
+    }
 }
 
