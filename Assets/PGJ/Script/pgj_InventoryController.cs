@@ -111,7 +111,7 @@ public class pgj_InventoryController : MonoBehaviour
         Debug.Log("sellitem");
         pgj_InventoryManager.INSTANCE.deleteItem(selectedIndex);
         isChange = true;
-        Debug.Log(prefabs[selectedIndex].transform.name); //여기에 돈 주고 받는 것 넣기
+        //Debug.Log(prefabs[selectedIndex].transform.name); //여기에 돈 주고 받는 것 넣기
         Destroy(prefabs[selectedIndex]);
 
     }

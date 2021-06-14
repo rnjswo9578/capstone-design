@@ -46,6 +46,7 @@ public class pgj_ItemManager : MonoBehaviour
         if (m_dicData.ContainsKey(_cInfo.ID)) return;
         //아이템 추가
         m_dicData.Add(_cInfo.ID, _cInfo);
+        Debug.Log("additem");
     }
 
     // 하나의 아이템 얻기

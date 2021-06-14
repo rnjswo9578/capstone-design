@@ -55,9 +55,9 @@ public class pgj_Store : MonoBehaviour
                     SceneManager.LoadScene("store");
                 }
             }
-                //SceneManager.LoadScene("store", LoadSceneMode.Additive); "store"¾ÀÀ» ÇöÀç ¾À¿¡ ·Îµå
-                //pgj_GameManager.instance.MoveToOtherScene(player, sceneNum);
-            
+            //SceneManager.LoadScene("store", LoadSceneMode.Additive); "store"¾ÀÀ» ÇöÀç ¾À¿¡ ·Îµå
+            //pgj_GameManager.instance.MoveToOtherScene(player, sceneNum);
+
         }
     }
 

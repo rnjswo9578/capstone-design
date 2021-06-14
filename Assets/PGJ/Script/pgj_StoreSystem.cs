@@ -10,7 +10,6 @@ public class pgj_StoreSystem : MonoBehaviour
     public GameObject store1;
     public GameObject store2;
 
-
     // Start is called before the first frame update
     void Start()
     {
