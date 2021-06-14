@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/PGJ/Scenes/moster test3.unity
     guid: 7e6e22e7ce012d648b8e4cccd1ec8b14
-  - enabled: 0
+  - enabled: 1
     path: Assets/PGJ/Scenes/store.unity
     guid: cc44ef0e927540e4fb8a4bd919389bd8
   - enabled: 1
@@ -26,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/GameScenes/Scene3.unity
     guid: a414d1e1040e84a45acfb41548c2018e
+  - enabled: 1
+    path: Assets/GameScenes/Scene3_NoMonster.unity
+    guid: 771a6031aa1257147a97b8d4f335e89d
   - enabled: 1
     path: Assets/GameScenes/Scene4.unity
     guid: c4ccdb25592734e409a74514cd940b20

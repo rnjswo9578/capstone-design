@@ -9,7 +9,7 @@ public class pgj_DoorOpen : MonoBehaviour
     private bool inPlayer;
     private bool isOpen;
     private bool isOpening;
-    private int a;
+    private float a;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,9 +33,9 @@ public class pgj_DoorOpen : MonoBehaviour
         if (isOpening && !isOpen)
         {
             door.transform.Rotate(new Vector3(0f, 100f, 0f) * Time.deltaTime);
-            a++;
+            a+=Time.deltaTime;
         }
-        if (a > 400)
+        if (a > 1.2f)
             isOpen = true;
     }
     private void OnTriggerEnter(Collider other)
