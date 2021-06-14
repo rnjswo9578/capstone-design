@@ -1026,11 +1026,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!1 &1386991506 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5378981492108047362, guid: 7b7f5a404ba669048bf26769f5a395a2, type: 3}
-  m_PrefabInstance: {fileID: 5378981493411150736}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1403928075
 GameObject:
   m_ObjectHideFlags: 0
@@ -1685,44 +1680,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7590196595679402850, guid: 2e961a96029b8824e8ac7404e62bb509, type: 3}
-      propertyPath: hp
-      value: 150
-      objectReference: {fileID: 0}
-    - target: {fileID: 7590196595679402850, guid: 2e961a96029b8824e8ac7404e62bb509, type: 3}
-      propertyPath: leftWeapon.Array.data[1]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7590196595679402850, guid: 2e961a96029b8824e8ac7404e62bb509, type: 3}
-      propertyPath: leftWeapon.Array.data[2]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7590196595679402850, guid: 2e961a96029b8824e8ac7404e62bb509, type: 3}
-      propertyPath: rightWeapon.Array.data[1]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7590196595679402850, guid: 2e961a96029b8824e8ac7404e62bb509, type: 3}
-      propertyPath: rightWeapon.Array.data[2]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7590196595679402850, guid: 2e961a96029b8824e8ac7404e62bb509, type: 3}
-      propertyPath: leftWeaponTier.Array.data[0]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7590196595679402850, guid: 2e961a96029b8824e8ac7404e62bb509, type: 3}
-      propertyPath: rightWeaponTier.Array.data[0]
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7590196595679402850, guid: 2e961a96029b8824e8ac7404e62bb509, type: 3}
-      propertyPath: rightWeaponTier.Array.data[1]
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 9041241672109609083, guid: 2e961a96029b8824e8ac7404e62bb509, type: 3}
-      propertyPath: respawnPoint
-      value: 
-      objectReference: {fileID: 1386991506}
-    m_RemovedComponents:
-    - {fileID: 9041241672109609083, guid: 2e961a96029b8824e8ac7404e62bb509, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e961a96029b8824e8ac7404e62bb509, type: 3}
 --- !u!1001 &5378981493411150736
 PrefabInstance:

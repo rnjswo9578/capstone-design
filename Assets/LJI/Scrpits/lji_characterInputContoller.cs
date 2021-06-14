@@ -199,8 +199,7 @@ namespace RPGCharacterAnims
                     if (isAttack == false)
                     {
                         StartCoroutine(IsAttack());
-
-                        attackTimer += Time.deltaTime;
+                        
                         if (rpgCharacterController.rightWeapon.Equals((int)Weapon.TwoHandStaff))
                         {
                             inputCastR = Input.GetMouseButtonDown(0);
@@ -698,6 +697,8 @@ namespace RPGCharacterAnims
                 weaponContext.leftWeapon = leftWeapon;
                 rpgCharacterController.StartAction("SwitchWeapon", weaponContext);
             }
+
+            AttackSpeedSet();
         }
         
 
@@ -706,7 +707,6 @@ namespace RPGCharacterAnims
         {
             //무기나 장비에 따른 공격력 속도 방어력 계산식 추가
             playerStatus.totalAttackPower = playerStatus.attackPower+playerStatus.addAttackPower;
-            AttackSpeedSet();
             playerStatus.totalAttackSpeed = playerStatus.attackSpeed + playerStatus.addAttackSpeed+playerStatus.rightWeaponSpeed[playerStatus.nowWeaponSet];
             //실드 장착했으면 방어력 +5
             if(playerStatus.leftWeapon[playerStatus.nowWeaponSet]==(int)Weapon.Shield)
