@@ -284,7 +284,7 @@ public class lji_playerStatus : MonoBehaviour
     //    LoadXml(loadXml);
     //}
 
-    void GetPlayerStatus()
+    public void GetPlayerStatus()
     {
         lji_statusManager statusManager = playerStatusManger.GetComponent<lji_statusManager>();
         maxHp = statusManager.maxHp;

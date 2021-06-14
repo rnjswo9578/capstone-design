@@ -7,6 +7,7 @@ using UnityEngine.EventSystems;
 public class pgj_InventoryController : MonoBehaviour
 {
     public GameObject contents;
+    
 
     private List<GameObject> prefabs;
 
