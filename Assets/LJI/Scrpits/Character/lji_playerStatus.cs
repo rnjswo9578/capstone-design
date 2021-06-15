@@ -125,7 +125,6 @@ public class lji_playerStatus : MonoBehaviour
         OverwriteXml();
     }
 
-
     void LoadXml(string filename)
     {
         TextAsset textAsset = (TextAsset)Resources.Load(filename);
@@ -138,7 +137,6 @@ public class lji_playerStatus : MonoBehaviour
         foreach (XmlNode node in nodes)
         {
             Debug.Log("name :: " + node.SelectSingleNode("Name").InnerText);
-
             Debug.Log("MaxHp :: " + node.SelectSingleNode("maxHp").InnerText);
             Debug.Log("hp :: " + node.SelectSingleNode("hp").InnerText);
 
@@ -174,7 +172,6 @@ public class lji_playerStatus : MonoBehaviour
             totalAttackPower = int.Parse(node.SelectSingleNode("totalAttackPower").InnerText);
             totalDefense = int.Parse(node.SelectSingleNode("totalDefense").InnerText);
             totalRunSpeed = int.Parse(node.SelectSingleNode("totalRunSpeed").InnerText);
-
         }
 
         nodes = xmlDoc.SelectNodes("PlayerInfo/Weapon");
