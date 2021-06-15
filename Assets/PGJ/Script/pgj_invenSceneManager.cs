@@ -31,7 +31,7 @@ public class pgj_invenSceneManager : MonoBehaviour
     }
 
     public bool invenInit() 
-    {
+    {     
         return isInit;
     }
 
@@ -42,7 +42,6 @@ public class pgj_invenSceneManager : MonoBehaviour
     public void setInstance()
     {
         isInit = true;
-
     }
 
 }

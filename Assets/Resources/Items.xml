@@ -17,6 +17,10 @@
 		<Field sell="50" buy="100" icon="aa" name="item13" id="513"/>
 		<Field sell="50" buy="100" icon="aa" name="item14" id="514"/>
 		<Field sell="50" buy="50" icon="item000" name="item000" id="000"/>
+		<Field sell="25" buy="50" icon="item010" name="item010" id="010"/>
+		<Field sell="50" buy="100" icon="item110" name="item110" id="110"/>
+		<Field sell="75" buy="150" icon="item210" name="item210" id="210"/>
+		<Field sell="100" buy="200" icon="item310" name="item310" id="310"/>
 		<Field sell="25" buy="50" icon="item020" name="item020" id="020"/>
 		<Field sell="50" buy="100" icon="item120" name="item120" id="120"/>
 		<Field sell="75" buy="150" icon="item220" name="item220" id="220"/>

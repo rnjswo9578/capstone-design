@@ -95,6 +95,13 @@ public class lji_playerStatus : MonoBehaviour
         }
     }
 
+    private void LateUpdate()
+    {
+        int ingold = lji_statusManager.instance.getGold();
+        if (ingold != gold)
+            gold = ingold;
+    }
+
     void death()
     {
         Debug.Log("HP0 is Dead");
