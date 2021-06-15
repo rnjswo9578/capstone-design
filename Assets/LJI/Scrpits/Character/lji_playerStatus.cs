@@ -42,6 +42,7 @@ public class lji_playerStatus : MonoBehaviour
     public RPGCharacterController characterController;
 
     public int gold = 0;
+    private bool goldInit = false;
 
     [Header("Weapon")]
     // Weapon SET//3¹øÀº ¸ÇÁÖ¸Ô
@@ -98,8 +99,12 @@ public class lji_playerStatus : MonoBehaviour
     private void LateUpdate()
     {
         int ingold = lji_statusManager.instance.getGold();
-        if (ingold != gold)
-            gold = ingold;
+        if (!goldInit)
+            if (ingold != gold)
+            {
+                goldInit = !goldInit;
+                gold = ingold;
+            }
     }
 
     void death()
