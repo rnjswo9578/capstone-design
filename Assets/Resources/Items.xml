@@ -2,8 +2,8 @@
 <ItemsInfo>
 	<Weapon>
 		<Field sell="0" buy="0" icon="null_item" name="null_item" id="0"/>
-		<Field sell="50" buy="100" icon="Berry_02" name="item1" id="501"/>
-		<Field sell="50" buy="100" icon="Berry_03" name="item2" id="502"/>
+		<Field sell="50" buy="100" icon="Small Potion_00" name="item1" id="501"/>
+		<Field sell="50" buy="100" icon="Small Potion_03" name="item2" id="502"/>
 		<Field sell="50" buy="100" icon="Book_00" name="item3" id="503"/>
 		<Field sell="50" buy="100" icon="Book_03" name="item4" id="504"/>
 		<Field sell="50" buy="100" icon="Cloak_02" name="item5" id="505"/>
