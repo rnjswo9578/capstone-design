@@ -201,6 +201,15 @@ public class pgj_InventoryController : MonoBehaviour
                 default: break;
             }
             pgj_InventoryManager.INSTANCE.deleteItem(selectedIndex);
+
+            //장비창에 있던 아이템 불러오기
+            id = pgj_Inventory2Manager.INSTANCE.GetIoldid();
+
+            InventoryInfo temp = new InventoryInfo();
+            temp.ID = itemlist[id].ID;
+            temp.ITEM_RANK = id / 100;
+            pgj_InventoryManager.INSTANCE.AddItem(temp);
+
             ChangeInven();
         }
 

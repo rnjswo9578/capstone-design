@@ -70,7 +70,7 @@ public class pgj_Inventory2Manager : MonoBehaviour
         Inventory2Info temp = new Inventory2Info();
         temp.ID = id;
         temp.ITEM_RANK = rank;
-        if (inven_Data[number].ID == 0 && inven_Data[number].ITEM_RANK == 0)
+        if (inven_Data[number].ID == 0)
             return;
         else
         {
@@ -92,6 +92,10 @@ public class pgj_Inventory2Manager : MonoBehaviour
     public int GetItemsCount()
     {
         return inven_Data.Count;
+    }
+    public int GetIoldid()
+    {
+        return oldwornid;
     }
 
     public void setWornID(int id)

@@ -2,8 +2,8 @@
 <ItemsInfo>
 	<Weapon>
 		<Field sell="0" buy="0" icon="null_item" name="null_item" id="0"/>
-		<Field sell="50" buy="100" icon="Small Potion_00" name="item1" id="501"/>
-		<Field sell="50" buy="100" icon="Small Potion_03" name="item2" id="502"/>
+		<Field sell="10" buy="20" icon="Small Potion_00" name="item1" id="501"/>
+		<Field sell="10" buy="20" icon="Small Potion_03" name="item2" id="502"/>
 		<Field sell="50" buy="100" icon="Book_00" name="item3" id="503"/>
 		<Field sell="50" buy="100" icon="Book_03" name="item4" id="504"/>
 		<Field sell="50" buy="100" icon="Cloak_02" name="item5" id="505"/>
@@ -16,40 +16,40 @@
 		<Field sell="50" buy="100" icon="aa" name="item12" id="512"/>
 		<Field sell="50" buy="100" icon="aa" name="item13" id="513"/>
 		<Field sell="50" buy="100" icon="aa" name="item14" id="514"/>
-		<Field sell="50" buy="100" icon="item000" name="item000" id="000"/>
-		<Field sell="50" buy="100" icon="item020" name="item020" id="020"/>
+		<Field sell="50" buy="50" icon="item000" name="item000" id="000"/>
+		<Field sell="25" buy="50" icon="item020" name="item020" id="020"/>
 		<Field sell="50" buy="100" icon="item120" name="item120" id="120"/>
-		<Field sell="50" buy="100" icon="item220" name="item220" id="220"/>
-		<Field sell="50" buy="100" icon="item320" name="item320" id="320"/>
-		<Field sell="50" buy="100" icon="item030" name="item030" id="030"/>
+		<Field sell="75" buy="150" icon="item220" name="item220" id="220"/>
+		<Field sell="100" buy="200" icon="item320" name="item320" id="320"/>
+		<Field sell="25" buy="50" icon="item030" name="item030" id="030"/>
 		<Field sell="50" buy="100" icon="item130" name="item130" id="130"/>
-		<Field sell="50" buy="100" icon="item230" name="item230" id="230"/>
-		<Field sell="50" buy="100" icon="item330" name="item330" id="330"/>
-		<Field sell="50" buy="100" icon="item060" name="item060" id="060"/>
+		<Field sell="75" buy="150" icon="item230" name="item230" id="230"/>
+		<Field sell="100" buy="200" icon="item330" name="item330" id="330"/>
+		<Field sell="25" buy="50" icon="item060" name="item060" id="060"/>
 		<Field sell="50" buy="100" icon="item160" name="item160" id="160"/>
-		<Field sell="50" buy="100" icon="item260" name="item260" id="260"/>
-		<Field sell="50" buy="100" icon="item360" name="item360" id="360"/>
-		<Field sell="50" buy="100" icon="item098" name="item098" id="098"/>
+		<Field sell="75" buy="150" icon="item260" name="item260" id="260"/>
+		<Field sell="100" buy="200" icon="item360" name="item360" id="360"/>
+		<Field sell="25" buy="50" icon="item098" name="item098" id="098"/>
 		<Field sell="50" buy="100" icon="item198" name="item198" id="198"/>
-		<Field sell="50" buy="100" icon="item298" name="item298" id="298"/>
-		<Field sell="50" buy="100" icon="item398" name="item398" id="398"/>
+		<Field sell="75" buy="150" icon="item298" name="item298" id="298"/>
+		<Field sell="100" buy="200" icon="item398" name="item398" id="398"/>
 		<Field sell="50" buy="100" icon="item440" name="item440" id="440"/>
-		<Field sell="50" buy="100" icon="item441" name="item441" id="441"/>
-		<Field sell="50" buy="100" icon="item442" name="item442" id="442"/>
-		<Field sell="50" buy="100" icon="item443" name="item443" id="443"/>
-		<Field sell="50" buy="100" icon="item444" name="item444" id="444"/>
-		<Field sell="50" buy="100" icon="item445" name="item445" id="445"/>
+		<Field sell="60" buy="125" icon="item441" name="item441" id="441"/>
+		<Field sell="70" buy="150" icon="item442" name="item442" id="442"/>
+		<Field sell="90" buy="175" icon="item443" name="item443" id="443"/>
+		<Field sell="100" buy="200" icon="item444" name="item444" id="444"/>
+		<Field sell="125" buy="225" icon="item445" name="item445" id="445"/>
 		<Field sell="50" buy="100" icon="item450" name="item450" id="450"/>
-		<Field sell="50" buy="100" icon="item451" name="item451" id="451"/>
-		<Field sell="50" buy="100" icon="item452" name="item452" id="452"/>
-		<Field sell="50" buy="100" icon="item453" name="item453" id="453"/>
-		<Field sell="50" buy="100" icon="item454" name="item454" id="454"/>
-		<Field sell="50" buy="100" icon="item455" name="item455" id="455"/>
+		<Field sell="60" buy="125" icon="item451" name="item451" id="451"/>
+		<Field sell="70" buy="150" icon="item452" name="item452" id="452"/>
+		<Field sell="90" buy="175" icon="item453" name="item453" id="453"/>
+		<Field sell="100" buy="200" icon="item454" name="item454" id="454"/>
+		<Field sell="125" buy="225" icon="item455" name="item455" id="455"/>
 		<Field sell="50" buy="100" icon="item460" name="item460" id="460"/>
-		<Field sell="50" buy="100" icon="item461" name="item461" id="461"/>
-		<Field sell="50" buy="100" icon="item462" name="item462" id="462"/>
-		<Field sell="50" buy="100" icon="item463" name="item463" id="463"/>
-		<Field sell="50" buy="100" icon="item464" name="item464" id="464"/>
-		<Field sell="50" buy="100" icon="item465" name="item465" id="465"/>
+		<Field sell="60" buy="125" icon="item461" name="item461" id="461"/>
+		<Field sell="70" buy="150" icon="item462" name="item462" id="462"/>
+		<Field sell="90" buy="175" icon="item463" name="item463" id="463"/>
+		<Field sell="100" buy="200" icon="item464" name="item464" id="464"/>
+		<Field sell="125" buy="225" icon="item465" name="item465" id="465"/>
 	</Weapon>
 </ItemsInfo>
