@@ -80,6 +80,7 @@ public class lji_statusManager : MonoBehaviour
     public void changeGold(int other) 
     {
         gold = gold + other;
+        GameObject.FindWithTag("PLAYER").SendMessage("GetPlayerStatus");
     }
     public int getGold()
     {
@@ -89,23 +90,28 @@ public class lji_statusManager : MonoBehaviour
     {
         rightWeapon[0] = r;
         leftWeapon[0] = l;
+        GameObject.FindWithTag("PLAYER").SendMessage("GetPlayerStatus");
     }
     public void changeHead(int other)
     {
         head = other;
+        GameObject.FindWithTag("PLAYER").SendMessage("GetPlayerStatus");
     }
     public void changeUArmor(int other)
     {
         upperArmor = other;
+        GameObject.FindWithTag("PLAYER").SendMessage("GetPlayerStatus");
     }
     public void changeLArmor(int other)
     {
         lowerArmor = other;
+        GameObject.FindWithTag("PLAYER").SendMessage("GetPlayerStatus");
     }
     public void changeTier(int other)
     {
         rightWeaponTier[0] = other;
         leftWeaponTier[0] = other;
+        GameObject.FindWithTag("PLAYER").SendMessage("GetPlayerStatus");
     }
 
 

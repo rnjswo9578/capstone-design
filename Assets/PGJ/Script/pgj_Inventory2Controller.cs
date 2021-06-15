@@ -95,11 +95,13 @@ public class pgj_Inventory2Controller : MonoBehaviour
     public void Worn()
     {
         int id = newID;
+        Debug.Log("worn cid = " + id + "oldid = " + oldID);
         oldID = newID;
 
         int rw = (id % 100) / 10;
         int lw = id % 10;
         int wearable = id / 100;
+        Debug.Log("worn rw = " + rw + "lw = " + lw + "wearable = " + wearable);
 
         if (id != 0 && wearable != 5)
         {
@@ -135,7 +137,6 @@ public class pgj_Inventory2Controller : MonoBehaviour
                     break;
                 default: break;
             }
-            pgj_InventoryManager.INSTANCE.deleteItem(selectedIndex);
             ChangeInven();
         }
     }

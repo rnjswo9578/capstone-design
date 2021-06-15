@@ -1,22 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <InventoryInfo>
 	<Items>
-		<Field number="1" rank="0" id="501"/>
-		<Field number="2" rank="0" id="502"/>
-		<Field number="3" rank="0" id="503"/>
-		<Field number="4" rank="0" id="504"/>
-		<Field number="5" rank="0" id="505"/>
-		<Field number="6" rank="0" id="506"/>
-		<Field number="7" rank="0" id="507"/>
-		<Field number="8" rank="0" id="508"/>
-		<Field number="9" rank="0" id="0"/>
-		<Field number="10" rank="0" id="0"/>
-		<Field number="11" rank="0" id="0"/>
-		<Field number="12" rank="0" id="0"/>
-		<Field number="13" rank="0" id="0"/>
-		<Field number="14" rank="0" id="0"/>
-		<Field number="15" rank="0" id="0"/>
-		<Field number="16" rank="0" id="0"/>
+		<Field number="1" rank="0" id="020"/>
+		<Field number="2" rank="0" id="120"/>
+		<Field number="3" rank="0" id="220"/>
+		<Field number="4" rank="0" id="320"/>
+		<Field number="5" rank="0" id="030"/>
+		<Field number="6" rank="0" id="130"/>
+		<Field number="7" rank="0" id="230"/>
+		<Field number="8" rank="0" id="330"/>
+		<Field number="9" rank="0" id="060"/>
+		<Field number="10" rank="0" id="160"/>
+		<Field number="11" rank="0" id="260"/>
+		<Field number="12" rank="0" id="360"/>
+		<Field number="13" rank="0" id="098"/>
+		<Field number="14" rank="0" id="198"/>
+		<Field number="15" rank="0" id="298"/>
+		<Field number="16" rank="0" id="398"/>
 		<Field number="17" rank="0" id="0"/>
 		<Field number="18" rank="0" id="0"/>
 		<Field number="19" rank="0" id="0"/>
