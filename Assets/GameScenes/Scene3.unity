@@ -3523,7 +3523,7 @@ GameObject:
   - component: {fileID: 769202751}
   m_Layer: 9
   m_Name: GameObject (3)
-  m_TagString: Stair
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5119,7 +5119,7 @@ GameObject:
   - component: {fileID: 1267045161}
   m_Layer: 9
   m_Name: GameObject (3)
-  m_TagString: Stair
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
