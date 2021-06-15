@@ -12,16 +12,25 @@
     <addAttackPower>0</addAttackPower>
     <addDefense>0</addDefense>
     <addRunSpeed>0</addRunSpeed>
+<<<<<<< Updated upstream
     <totalAttackSpeed>0.3</totalAttackSpeed>
+=======
+    <totalAttackSpeed>0</totalAttackSpeed>
+>>>>>>> Stashed changes
     <totalAttackPower>5</totalAttackPower>
     <totalDefense>5</totalDefense>
     <totalRunSpeed>4</totalRunSpeed>
   </Character>
   <Weapon>
+<<<<<<< Updated upstream
     <rightWeapon1>9</rightWeapon1>
     <rightWeapon2>1</rightWeapon2>
+=======
+    <rightWeapon1>1</rightWeapon1>
+    <rightWeapon2>0</rightWeapon2>
+>>>>>>> Stashed changes
     <rightWeapon3>0</rightWeapon3>
-    <leftWeapon1>8</leftWeapon1>
+    <leftWeapon1>0</leftWeapon1>
     <leftWeapon2>0</leftWeapon2>
     <leftWeapon3>0</leftWeapon3>
     <rightWeaponTier1>0</rightWeaponTier1>
@@ -30,8 +39,13 @@
     <leftWeaponTier1>0</leftWeaponTier1>
     <leftWeaponTier2>0</leftWeaponTier2>
     <leftWeaponTier3>0</leftWeaponTier3>
+<<<<<<< Updated upstream
     <rightWeaponSpeed1>0.3</rightWeaponSpeed1>
     <rightWeaponSpeed2>0</rightWeaponSpeed2>
+=======
+    <rightWeaponSpeed1>0</rightWeaponSpeed1>
+    <rightWeaponSpeed2>0.5</rightWeaponSpeed2>
+>>>>>>> Stashed changes
     <rightWeaponSpeed3>0.5</rightWeaponSpeed3>
     <leftWeaponSpeed1>0</leftWeaponSpeed1>
     <leftWeaponSpeed2>0</leftWeaponSpeed2>
