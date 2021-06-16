@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using RPGCharacterAnims;
 using System.Xml;
+using System;
 
 public class lji_playerStatus : MonoBehaviour
 {
@@ -96,6 +97,7 @@ public class lji_playerStatus : MonoBehaviour
         }
     }
 
+<<<<<<< Updated upstream
     //private void LateUpdate()
     //{
     //    int ingold = lji_statusManager.instance.getGold();
@@ -106,6 +108,18 @@ public class lji_playerStatus : MonoBehaviour
     //            gold = ingold;
     //        }
     //}
+=======
+    /*private void LateUpdate()
+    {
+        int ingold = lji_statusManager.instance.getGold();
+        if (!goldInit)
+            if (ingold != gold)
+            {
+                goldInit = !goldInit;
+                gold = ingold;
+            }
+    }*/
+>>>>>>> Stashed changes
 
     void death()
     {
@@ -317,9 +331,218 @@ public class lji_playerStatus : MonoBehaviour
         rightWeaponSpeed = statusManager.rightWeaponSpeed;
         leftWeaponSpeed = statusManager.leftWeaponSpeed;
 
-        head = statusManager.head;
-        upperArmor = statusManager.upperArmor;
-        lowerArmor = statusManager.lowerArmor;
+
+        if (head != statusManager.head)
+        {
+            changeHeadStatus(statusManager.head); 
+        }
+        if (upperArmor != statusManager.upperArmor)
+        {
+            changeUpperArmorStatus(statusManager.head);
+        }
+        if (lowerArmor != statusManager.lowerArmor)
+        {
+            changeLowerArmorStatus(statusManager.head);
+        }
+        Debug.Log("------------------GetPlayerStatus-------------------");
+        setEffect();
+
+        SetPlayerStatus();
+    }
+
+    private void changeHeadStatus(int stHead)
+    {
+        int tmpDefence = 0;
+        int tmpAttackPower = 0;
+        int tmpRunSpeed = 0;
+        float tmpAttackSpeed = 0;
+
+        if (stHead == 1)
+        {
+
+        }
+        else if (stHead == 2)
+        {
+
+        }
+        else if (stHead == 3)
+        {
+            tmpDefence++;
+        }
+        else if (stHead == 4)
+        {
+            tmpDefence++;
+        }
+        else if (stHead == 5)
+        {
+            tmpDefence++;
+        }
+
+        //기본 방어력
+        if (head == 0 && stHead != 0)
+            tmpDefence++;
+        if (head != 0 && stHead == 0)//기본 장비 착용시
+        {
+            tmpAttackPower = 0;
+            tmpRunSpeed = 0;
+            tmpAttackSpeed = 0;
+            tmpDefence = 0;
+        }
+
+
+
+        head = stHead;
+        addDefense = tmpDefence;
+        addAttackPower = tmpAttackPower;
+        addAttackSpeed = tmpAttackSpeed;
+        addRunSpeed = tmpRunSpeed;
+    }
+
+    private void changeUpperArmorStatus(int stUpperArmor)
+    {
+        int tmpDefence = 0;
+        int tmpAttackPower = 0;
+        int tmpRunSpeed = 0;
+        float tmpAttackSpeed = 0;
+
+        if (stUpperArmor == 1)
+        {
+
+        }
+        else if (stUpperArmor == 2)
+        {
+            tmpAttackPower++;
+        }
+        else if (stUpperArmor == 3)
+        {
+            tmpAttackPower++;
+        }
+        else if (stUpperArmor == 4)
+        {
+            tmpDefence++;
+            tmpAttackPower++;
+        }
+        else if (stUpperArmor == 5)
+        {
+            tmpDefence++;
+            tmpAttackPower++;
+        }
+
+        if (upperArmor == 0 && stUpperArmor != 0)
+            tmpDefence++;
+        if (upperArmor != 0 && stUpperArmor == 0)
+        {
+            tmpAttackPower = 0;
+            tmpRunSpeed = 0;
+            tmpAttackSpeed = 0;
+            tmpDefence = 0;
+        }
+
+        upperArmor = stUpperArmor;
+        addDefense = tmpDefence;
+        addAttackPower = tmpAttackPower;
+        addAttackSpeed = tmpAttackSpeed;
+        addRunSpeed = tmpRunSpeed;
+
+    }
+
+    private void changeLowerArmorStatus(int stLowerArmor)
+    {
+        int tmpDefence = 0;
+        int tmpAttackPower = 0;
+        int tmpRunSpeed = 0;
+        float tmpAttackSpeed = 0;
+
+        if (stLowerArmor == 1)
+        {
+            tmpRunSpeed++;
+        }
+        else if (stLowerArmor == 2)
+        {
+            tmpRunSpeed++;
+        }
+        else if (stLowerArmor == 3)
+        {
+            tmpRunSpeed++;
+        }
+        else if (stLowerArmor == 4)
+        {
+            tmpRunSpeed++;
+        }
+        else if (stLowerArmor == 5)
+        {
+            tmpRunSpeed++;
+            tmpDefence++;
+        }
+
+        if (lowerArmor == 0 && stLowerArmor != 0)
+            tmpDefence++;
+        if (lowerArmor != 0 && stLowerArmor == 0)
+        {
+            tmpAttackPower = 0;
+            tmpRunSpeed = 0;
+            tmpAttackSpeed = 0;
+            tmpDefence = 0;
+        }
+
+        lowerArmor = stLowerArmor;
+        addDefense = tmpDefence;
+        addAttackPower = tmpAttackPower;
+        addAttackSpeed = tmpAttackSpeed;
+        addRunSpeed = tmpRunSpeed;
+
+    }
+
+    private void setEffect() 
+    {
+        int tmpDefence = 0;
+        int tmpAttackPower = 0;
+        int tmpRunSpeed = 0;
+        float tmpAttackSpeed = 0;
+
+        if (head == 1 && upperArmor == 1 && lowerArmor == 1)
+        {
+            tmpAttackPower += 1;
+            tmpAttackSpeed += 0.1f;
+        }
+        else if (head == 2 && upperArmor == 2 && lowerArmor == 2)
+        {
+            tmpDefence -= 2; //방감 
+            tmpAttackPower += 2;
+            tmpAttackSpeed += 0.2f;
+        }
+        else if (head == 3 && upperArmor == 3 && lowerArmor == 3)
+        {
+            tmpAttackPower += 1;
+            tmpRunSpeed += 1;
+            tmpAttackSpeed += 0.1f;
+        }
+        else if (head == 4 && upperArmor == 4 && lowerArmor == 4)
+        {
+            tmpDefence += 2;
+            tmpAttackPower += 1;
+            tmpRunSpeed += 1;
+            tmpAttackSpeed += 0.1f;
+        }
+        else if (head == 5 && upperArmor == 5 && lowerArmor == 5)
+        {
+            tmpDefence += 3;
+            tmpAttackPower += 2;
+            tmpAttackSpeed += 0.1f;
+        }
+        else 
+        {
+            tmpDefence = 0;
+            tmpAttackPower = 0;
+            tmpRunSpeed = 0;
+            tmpAttackSpeed = 0;
+        }
+
+        addDefense += tmpDefence;
+        addAttackPower += tmpAttackPower;
+        addAttackSpeed += tmpAttackSpeed;
+        addRunSpeed += tmpRunSpeed;
+
     }
 
     void SetPlayerStatus()
@@ -346,7 +569,7 @@ public class lji_playerStatus : MonoBehaviour
         statusManager.rightWeaponSpeed=rightWeaponSpeed;
         statusManager.leftWeaponSpeed=leftWeaponSpeed;
 
-        statusManager.head=head;
+        statusManager.head = head;
         statusManager.upperArmor=upperArmor;
         statusManager.lowerArmor=lowerArmor;
     }

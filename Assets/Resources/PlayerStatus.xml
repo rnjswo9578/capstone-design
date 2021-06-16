@@ -3,7 +3,6 @@
   <Character>
     <Name>name2</Name>
     <maxHp>150</maxHp>
-    <hp>150</hp>
     <attackSpeed>0</attackSpeed>
     <attackPower>5</attackPower>
     <defense>5</defense>
@@ -12,17 +11,21 @@
     <addAttackPower>0</addAttackPower>
     <addDefense>0</addDefense>
     <addRunSpeed>0</addRunSpeed>
+<<<<<<< Updated upstream
     <totalAttackSpeed>0.3</totalAttackSpeed>
+=======
+    <totalAttackSpeed>0.5</totalAttackSpeed>
+>>>>>>> Stashed changes
     <totalAttackPower>5</totalAttackPower>
     <totalDefense>5</totalDefense>
     <totalRunSpeed>4</totalRunSpeed>
   </Character>
   <Weapon>
     <rightWeapon1>9</rightWeapon1>
-    <rightWeapon2>1</rightWeapon2>
+    <rightWeapon2>9</rightWeapon2>
     <rightWeapon3>0</rightWeapon3>
     <leftWeapon1>8</leftWeapon1>
-    <leftWeapon2>0</leftWeapon2>
+    <leftWeapon2>8</leftWeapon2>
     <leftWeapon3>0</leftWeapon3>
     <rightWeaponTier1>1</rightWeaponTier1>
     <rightWeaponTier2>0</rightWeaponTier2>

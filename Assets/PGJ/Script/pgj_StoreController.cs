@@ -7,6 +7,8 @@ using UnityEngine.EventSystems;
 public class pgj_StoreController : MonoBehaviour
 {
     public GameObject contents;
+    public Text showInfo;
+
     List<GameObject> store1Prefabs;
     List<GameObject> store2Prefabs;
 
@@ -61,6 +63,17 @@ public class pgj_StoreController : MonoBehaviour
 
                     selectedIndex = (int)(x - y * 5);
                     Debug.Log(selectedIndex);
+
+                    int id = 0;
+                    if (this.transform.name == "Store1 Scroll View")
+                        id = store1List[selectedIndex].ID;
+                    if (this.transform.name == "Store2 Scroll View")
+                        id = store2List[selectedIndex].ID;
+                    if (id != 0)
+                    {
+                        string info = "아이템 정보\nBuy cost: " + itemlist[id].BUY_COST + "\nSell cost: " + itemlist[id].SELL_COST;
+                        showInfo.text = info;
+                    }
                 }
             }
 
