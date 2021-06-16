@@ -128,5 +128,17 @@ public class lji_statusManager : MonoBehaviour
         leftWeaponTier[0] = other;
         GameObject.FindWithTag("PLAYER").SendMessage("GetPlayerStatus");
     }
-    
+
+    public void changeSubW(int r, int l)
+    {
+        rightWeapon[1] = r;
+        leftWeapon[1] = l;
+        GameObject.FindWithTag("PLAYER").SendMessage("GetPlayerStatus");
+    }
+    public void changeSubTier(int other)
+    {
+        rightWeaponTier[1] = other;
+        leftWeaponTier[1] = other;
+        GameObject.FindWithTag("PLAYER").SendMessage("GetPlayerStatus");
+    }
 }

@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class pgj_InventoryController : MonoBehaviour
 {
     public GameObject contents;
+    public Text showInfo;
     
 
     private List<GameObject> prefabs;
@@ -43,7 +44,6 @@ public class pgj_InventoryController : MonoBehaviour
             isInit = true;
         }
 
-
         if (Input.GetMouseButtonDown(0))
         {
             click = EventSystem.current.currentSelectedGameObject;
@@ -60,6 +60,13 @@ public class pgj_InventoryController : MonoBehaviour
 
                     selectedIndex = (int)(x - y * 5);
                     Debug.Log(selectedIndex);
+
+                    int id = invenlist[selectedIndex].ID;
+                    if (id != 0)
+                    {
+                        string info = "내 아이템 정보\nBuy cost: " + itemlist[id].BUY_COST + "\nSell cost: " + itemlist[id].SELL_COST;
+                        showInfo.text = info;
+                    }
                 }
             }
 
