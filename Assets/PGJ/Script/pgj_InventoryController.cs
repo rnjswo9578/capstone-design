@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class pgj_InventoryController : MonoBehaviour
 {
@@ -13,9 +14,8 @@ public class pgj_InventoryController : MonoBehaviour
 
     private int selectedIndex;
     private bool isInit;
-    private bool isChange;
+    private bool preInit;
     private GameObject click;
-    private GameObject oldClick;
     private List<InventoryInfo> invenlist;
     private Dictionary<int, ItemInfo> itemlist;
 
@@ -27,10 +27,11 @@ public class pgj_InventoryController : MonoBehaviour
     {
         //InitInven();
         isInit = false;
-        isChange = false;
+        preInit = false;
         prefabs = new List<GameObject>();
         invenlist = new List<InventoryInfo>();
         itemlist = pgj_ItemManager.INSTANCE.GetAllItems(); //key = item.id
+
     }
 
     // Update is called once per frame
@@ -63,9 +64,39 @@ public class pgj_InventoryController : MonoBehaviour
             }
 
         }
+    }
 
-        oldClick = click;
+    private void LateUpdate()
+    {
+        if (!preInit)
+            if (pgj_invenSceneManager.INSTANCE.needInven1Inint)
+            {
 
+                Debug.Log("---------------------------------------------");
+                initInstanse();
+                preInit = !preInit;
+            }
+    }
+
+    private void OnDestroy()
+    {
+        for (int index = 0; index < 50; index++)
+            pgj_invenSceneManager.INSTANCE.inventoryID[index] = invenlist[index].ID;
+    }
+
+    private void initInstanse() 
+    {
+        InventoryInfo temp;
+
+        pgj_InventoryManager.INSTANCE.deleteAllItems();
+
+        for (int index = 0; index < 50; index++)
+        {
+            temp = new InventoryInfo();
+            temp.ID = pgj_invenSceneManager.INSTANCE.inventoryID[index];
+            temp.ITEM_RANK = 0;
+            pgj_InventoryManager.INSTANCE.AddItem(temp);
+        }
     }
 
     private void InitInven()
@@ -211,8 +242,55 @@ public class pgj_InventoryController : MonoBehaviour
             pgj_InventoryManager.INSTANCE.AddItem(temp);
 
             ChangeInven();
-        }
+        }  
+    }
+    public void Worn2()
+    {
+        int id = invenlist[selectedIndex].ID;
+        pgj_InventoryManager.INSTANCE.setWornID(id);
 
-        
+        int rw = (id % 100) / 10;
+        int lw = id % 10;
+        int wearable = id / 100;
+
+        if (id != 0 && wearable != 5)
+        {
+            Debug.Log(id + " SUB  lw = " + lw + ", rw = " + rw + "  " + wearable);
+            switch (wearable)
+            {
+                case 0:
+                    Worn2f(id, rw, lw, wearable, 4, 0);
+                    break;
+                case 1:
+                    Worn2f(id, rw, lw, wearable, 4, 1);
+                    break;
+                case 2:
+                    Worn2f(id, rw, lw, wearable, 4, 2);
+                    break;
+                case 3:
+                    Worn2f(id, rw, lw, wearable, 4, 3);
+                    break;
+                default: break;
+            }
+        }
+    }
+
+    private void Worn2f(int id,int rw,int lw,int wearable, int number, int rank) 
+    {
+        lji_statusManager.instance.changeSubW(rw, lw);
+        lji_statusManager.instance.changeSubTier(rank);
+        pgj_Inventory2Manager.INSTANCE.deleteItem2(number, id, rank);
+        pgj_InventoryManager.INSTANCE.deleteItem(selectedIndex);
+
+
+        //장비창에 있던 아이템 불러오기
+        id = pgj_Inventory2Manager.INSTANCE.GetIoldid2();
+
+        InventoryInfo temp = new InventoryInfo();
+        temp.ID = itemlist[id].ID;
+        temp.ITEM_RANK = id / 100;
+        pgj_InventoryManager.INSTANCE.AddItem(temp);
+
+        ChangeInven();
     }
 }

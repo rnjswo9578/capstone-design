@@ -1,16 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class pgj_invenSceneManager : MonoBehaviour
 {
-    public bool isInit = false;
+    private string isChange = "N";
+    public bool needInven1Inint = false;
+    public bool needInven2Inint = false;
+
     public int[] inventoryID = new int[50] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                                              0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
                                              0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
                                              0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
                                              0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-    public int[] inventory2ID = new int[4] { 0, 0, 0, 0 };
+    public int[] inventory2ID = new int[5] { 440, 450, 460, 098, 098 };
 
 
     public static pgj_invenSceneManager INSTANCE = null;
@@ -23,6 +27,7 @@ public class pgj_invenSceneManager : MonoBehaviour
             INSTANCE = this; 
             DontDestroyOnLoad(gameObject); 
         }
+
         else
         {
             if (INSTANCE != this)
@@ -30,18 +35,25 @@ public class pgj_invenSceneManager : MonoBehaviour
         }
     }
 
-    public bool invenInit() 
+    private void Update()
+    {
+        if (!isChange.Equals(SceneManager.GetActiveScene().name))
+        {
+            if(needInven1Inint == false)
+                needInven1Inint = true;
+            if (needInven2Inint == false)
+                needInven2Inint = true;
+        }
+    }
+
+    public string getSceneName() 
     {     
-        return isInit;
+        return isChange;
     }
 
-    public void getInstance() 
+    public void setInstance(string sceneName)
     {
-
-    }
-    public void setInstance()
-    {
-        isInit = true;
+        isChange = sceneName;
     }
 
 }

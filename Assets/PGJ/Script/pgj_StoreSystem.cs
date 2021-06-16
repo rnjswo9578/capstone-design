@@ -12,7 +12,8 @@ public class pgj_StoreSystem : MonoBehaviour
     public GameObject inventory2;
     public GameObject store1;
     public GameObject store2;
-    public GameObject wornbutton;
+    public GameObject wornButton;
+    public GameObject subWornButton;
     public GameObject sellbutton;
     public GameObject buy1button;
     public GameObject buy2button;
@@ -23,7 +24,8 @@ public class pgj_StoreSystem : MonoBehaviour
         inPlayer = false;
         isOn = false;
         inventory.SetActive(false);
-        wornbutton.SetActive(false);
+        wornButton.SetActive(false);
+        subWornButton.SetActive(false);
     }
 
     // Update is called once per frame
@@ -37,7 +39,8 @@ public class pgj_StoreSystem : MonoBehaviour
                 inventory.SetActive(true);
                 sellbutton.SetActive(true);
                 inventory2.SetActive(false);
-                wornbutton.SetActive(false);
+                wornButton.SetActive(false);
+                subWornButton.SetActive(false);
                 if (transform.name == "store1FX")
                 {
                     buy1button.SetActive(true);
@@ -58,11 +61,12 @@ public class pgj_StoreSystem : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.I))
         {
             Debug.Log("i");
-            if (isOn)
+            if (!isOn)
             {
                 inventory.SetActive(true);
                 inventory2.SetActive(true);
-                wornbutton.SetActive(true);
+                wornButton.SetActive(true);
+                subWornButton.SetActive(true);
                 store1.SetActive(false);
                 store2.SetActive(false);
                 sellbutton.SetActive(false);
