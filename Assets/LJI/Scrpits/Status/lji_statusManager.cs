@@ -137,9 +137,24 @@ public class lji_statusManager : MonoBehaviour
         XmlDocument xmlDoc = new XmlDocument();
         xmlDoc.LoadXml(textAsset.text);
 
+<<<<<<< Updated upstream
         XmlNode goldXml = xmlDoc.SelectSingleNode("GoldInfo/Gold");
         goldXml.InnerText = gold + "";
 
         xmlDoc.Save("./Assets/Resources/Gold.xml");
+=======
+
+    public void changeSubW(int r, int l)
+    {
+        rightWeapon[1] = r;
+        leftWeapon[1] = l;
+        GameObject.FindWithTag("PLAYER").SendMessage("GetPlayerStatus");
+    }
+    public void changeSubTier(int other)
+    {
+        rightWeaponTier[1] = other;
+        leftWeaponTier[1] = other;
+        GameObject.FindWithTag("PLAYER").SendMessage("GetPlayerStatus");
+>>>>>>> Stashed changes
     }
 }

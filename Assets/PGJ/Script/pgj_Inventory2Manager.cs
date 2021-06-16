@@ -8,6 +8,8 @@ public class pgj_Inventory2Manager : MonoBehaviour
     private static object m_pLock = new object();
     private int wornid = 0;
     private int oldwornid = 0;
+    private int wornid2 = 0;
+    private int oldwornid2 = 0;
 
     public static pgj_Inventory2Manager INSTANCE
     {
@@ -45,6 +47,7 @@ public class pgj_Inventory2Manager : MonoBehaviour
     public void AddItem(Inventory2Info _cInfo)
     {
         //빈 칸이 있는지 체크
+        Debug.Log("inven_Data.Count: " + inven_Data.Count);
         if (inven_Data.Count < 5)
             inven_Data.Add(_cInfo); //아이템 추가
         else
@@ -55,13 +58,13 @@ public class pgj_Inventory2Manager : MonoBehaviour
             int index = 0;
             for (index = 0; index < 5; index++)
             {
-                if (inven_Data[index].Equals(temp))
+                if (inven_Data[index].ID == 0)
                     break;
             }
             //아이템 추가
             inven_Data.RemoveAt(index: index);
             inven_Data.Insert(index: index, item: _cInfo);
-            Debug.Log("addinven");
+            Debug.Log("addinven :" + index + " ,,, " + _cInfo.ID);
         }
     }
     public void deleteItem(int number, int id, int rank)
@@ -81,6 +84,36 @@ public class pgj_Inventory2Manager : MonoBehaviour
             inven_Data.Insert(index: number, item: temp);
         }
     }
+    public void deleteAllItems()
+    {
+        Inventory2Info temp = new Inventory2Info();
+        temp.ID = 0;
+        temp.ITEM_RANK = 0;
+        for (int index = 0; index < 5; index++)
+        {
+            inven_Data.RemoveAt(index: index);
+            inven_Data.Insert(index: index, item: temp);
+            Debug.Log("deleteinven: " + index);
+        }
+    }
+
+    public void deleteItem2(int number, int id, int rank)
+    {
+        //빈 칸이 있는지 체크
+        Inventory2Info temp = new Inventory2Info();
+        temp.ID = id;
+        temp.ITEM_RANK = rank;
+        if (inven_Data[number].ID == 0)
+            return;
+        else
+        {
+            oldwornid2 = inven_Data[number].ID;
+            wornid2 = id;
+            //아이템 추가
+            inven_Data.RemoveAt(index: number);
+            inven_Data.Insert(index: number, item: temp);
+        }
+    } 
     // 전체 리스트 얻기
     public List<Inventory2Info> GetAllItems()
     {
@@ -105,6 +138,21 @@ public class pgj_Inventory2Manager : MonoBehaviour
     public int getWornID()
     {
         return wornid;
+    }
+
+
+    public int GetIoldid2()
+    {
+        return oldwornid2;
+    }
+
+    public void setWornID2(int id)
+    {
+        wornid2 = id;
+    }
+    public int getWornID2()
+    {
+        return wornid2;
     }
 }
 

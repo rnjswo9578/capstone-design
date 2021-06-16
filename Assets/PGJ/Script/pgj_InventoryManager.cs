@@ -78,6 +78,18 @@ public class pgj_InventoryManager : MonoBehaviour
             inven_Data.Insert(index: inven_Data.Count-1, item: temp);
         }
     }
+    public void deleteAllItems() 
+    {
+        InventoryInfo temp = new InventoryInfo();
+        temp.ID = 0;
+        temp.ITEM_RANK = 0;
+        for (int index = 0; index < 50; index++)
+        {
+            inven_Data.RemoveAt(index: index);
+            inven_Data.Insert(index: index, item: temp);
+        }
+    } 
+
     // 전체 리스트 얻기
     public List<InventoryInfo> GetAllItems()
     {
