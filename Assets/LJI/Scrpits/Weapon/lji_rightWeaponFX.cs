@@ -11,7 +11,7 @@ public class lji_rightWeaponFX : MonoBehaviour
     public lji_playerStatus playerStatus;
 
     int nowWeaponTier = 0;
-    int newWeaponTier;
+    int newWeaponTier = 0;
     // Start is called before the first frame update
     void Start()
     {

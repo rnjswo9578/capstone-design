@@ -54,7 +54,8 @@ public class lji_attack : MonoBehaviour
     void Update()
     {
 
-        if (!characterController.CanStartAction("Attack") || characterController.isAttacking)//공격 중일 때
+        //if (!characterController.CanStartAction("Attack") || characterController.isAttacking)//공격 중일 때
+        if (characterInputController.isAttack)
         {
 
             //양손 공격//양손 공격은 attackside가 running attack때 변경 안되서 따로 검사

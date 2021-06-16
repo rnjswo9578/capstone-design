@@ -11,6 +11,8 @@ TagManager:
   - StatusManager
   - BEAM
   - Wall
+  - Stair
+  - GoldManager
   layers:
   - Default
   - TransparentFX

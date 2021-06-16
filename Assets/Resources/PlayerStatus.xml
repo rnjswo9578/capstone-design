@@ -5,16 +5,16 @@
     <maxHp>150</maxHp>
     <hp>150</hp>
     <attackSpeed>0</attackSpeed>
-    <attackPower>0</attackPower>
-    <defense>0</defense>
+    <attackPower>5</attackPower>
+    <defense>5</defense>
     <runSpeed>4</runSpeed>
     <addAttackSpeed>0</addAttackSpeed>
     <addAttackPower>0</addAttackPower>
     <addDefense>0</addDefense>
     <addRunSpeed>0</addRunSpeed>
-    <totalAttackSpeed>0</totalAttackSpeed>
-    <totalAttackPower>0</totalAttackPower>
-    <totalDefense>0</totalDefense>
+    <totalAttackSpeed>0.3</totalAttackSpeed>
+    <totalAttackPower>5</totalAttackPower>
+    <totalDefense>5</totalDefense>
     <totalRunSpeed>4</totalRunSpeed>
   </Character>
   <Weapon>
@@ -24,15 +24,15 @@
     <leftWeapon1>8</leftWeapon1>
     <leftWeapon2>0</leftWeapon2>
     <leftWeapon3>0</leftWeapon3>
-    <rightWeaponTier1>0</rightWeaponTier1>
+    <rightWeaponTier1>1</rightWeaponTier1>
     <rightWeaponTier2>0</rightWeaponTier2>
     <rightWeaponTier3>0</rightWeaponTier3>
-    <leftWeaponTier1>0</leftWeaponTier1>
+    <leftWeaponTier1>2</leftWeaponTier1>
     <leftWeaponTier2>0</leftWeaponTier2>
     <leftWeaponTier3>0</leftWeaponTier3>
-    <rightWeaponSpeed1>0</rightWeaponSpeed1>
+    <rightWeaponSpeed1>0.3</rightWeaponSpeed1>
     <rightWeaponSpeed2>0</rightWeaponSpeed2>
-    <rightWeaponSpeed3>0</rightWeaponSpeed3>
+    <rightWeaponSpeed3>0.5</rightWeaponSpeed3>
     <leftWeaponSpeed1>0</leftWeaponSpeed1>
     <leftWeaponSpeed2>0</leftWeaponSpeed2>
     <leftWeaponSpeed3>0</leftWeaponSpeed3>

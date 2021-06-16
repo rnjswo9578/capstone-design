@@ -243,7 +243,7 @@ public class pgj_cshBossCtrl : MonoBehaviour
     IEnumerator DamageTimer()
     {
         isDamage = true;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         isDamage = false;
     }
     //

@@ -284,7 +284,7 @@ public class pgj_BossGolem : MonoBehaviour
     IEnumerator DamageTimer()
     {
         isDamage = true;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         isDamage = false;
     }
     IEnumerator MonsterDeath(float time)

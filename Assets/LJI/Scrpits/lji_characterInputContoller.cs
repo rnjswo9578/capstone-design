@@ -20,7 +20,7 @@ namespace RPGCharacterAnims
         //공격 속도 제한 함수(기본은 2초)
         public float attackDelay = 2f;
         float attackTimer = 0f;
-        private bool isAttack = false;
+        public bool isAttack = false;
 
         SwitchWeaponContext weaponContext = new SwitchWeaponContext();
 
@@ -237,8 +237,8 @@ namespace RPGCharacterAnims
                 //inputRoll = Input.GetButtonDown("L3");
 
                 //inputShield = Input.GetButtonDown("Shield");
-                if(rpgCharacterController.rightWeapon.Equals((int)Weapon.Shield))
-                    inputShield = Input.GetMouseButton(0);
+                //if(rpgCharacterController.rightWeapon.Equals((int)Weapon.Shield))
+                //    inputShield = Input.GetMouseButton(0);
                 if (rpgCharacterController.leftWeapon.Equals((int)Weapon.Shield))
                     inputShield = Input.GetMouseButton(1);
                 //inputRelax = Input.GetButtonDown("Relax");
