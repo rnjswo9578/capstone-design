@@ -39,13 +39,15 @@ public class pgj_cshIdleMonsterCtrl : MonoBehaviour
         float dist = Vector3.Distance(tr.position, playerTr.position);
         float distPoint = Vector3.Distance(tr.position, point.position);
 
+        Debug.Log(distPoint);
+
         if (dist <= crossLoad)
         {
             isAttack = true;
             isIdle = false;
             AttackNavSetting();
         }
-        else if (dist <= 20.0f)
+        else if (dist <= 15.0f)
         {
             movePos = playerTr.position;
             isAttack = false;

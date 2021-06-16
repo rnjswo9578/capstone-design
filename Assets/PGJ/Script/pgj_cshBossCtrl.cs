@@ -163,7 +163,7 @@ public class pgj_cshBossCtrl : MonoBehaviour
         if (pattern == 0)
         {
             pattern = 1;
-            StartCoroutine(AttackTimer(0.7f, 0.5f));
+            //StartCoroutine(AttackTimer(0.7f, 0.5f));
         }
         else if (anim.GetCurrentAnimatorStateInfo(0).IsName("pattern1") && pattern == 1)
         {
@@ -183,7 +183,7 @@ public class pgj_cshBossCtrl : MonoBehaviour
         else if (anim.GetCurrentAnimatorStateInfo(0).IsName("pattern4") && pattern == 4)
         {
             pattern = 1;
-            StartCoroutine(AttackTimer(0.7f, 0.5f));
+            StartCoroutine(AttackTimer(0.2f, 0.5f));
         }
     }
 
