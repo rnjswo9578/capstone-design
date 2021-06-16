@@ -128,32 +128,6 @@ public class lji_statusManager : MonoBehaviour
         leftWeaponTier[0] = other;
         GameObject.FindWithTag("PLAYER").SendMessage("GetPlayerStatus");
     }
-<<<<<<< Updated upstream
-    
-=======
-
-    void LoadXml(string filename)
-    {
-        TextAsset textAsset = (TextAsset)Resources.Load(filename);
-        XmlDocument xmlDoc = new XmlDocument();
-        xmlDoc.LoadXml(textAsset.text);
-
-        XmlNode goldXml = xmlDoc.SelectSingleNode("GoldInfo/Gold");
-        gold=int.Parse(goldXml.InnerText);
-
-    }
-
-    public void OverwriteXml()
-    {
-        TextAsset textAsset = (TextAsset)Resources.Load("Gold");
-        XmlDocument xmlDoc = new XmlDocument();
-        xmlDoc.LoadXml(textAsset.text);
-
-        XmlNode goldXml = xmlDoc.SelectSingleNode("GoldInfo/Gold");
-        goldXml.InnerText = gold + "";
-
-        xmlDoc.Save("./Assets/Resources/Gold.xml");
-    }
 
     public void changeSubW(int r, int l)
     {
@@ -166,7 +140,5 @@ public class lji_statusManager : MonoBehaviour
         rightWeaponTier[1] = other;
         leftWeaponTier[1] = other;
         GameObject.FindWithTag("PLAYER").SendMessage("GetPlayerStatus");
-
     }
->>>>>>> Stashed changes
 }
