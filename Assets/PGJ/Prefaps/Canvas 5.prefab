@@ -193,7 +193,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00022347167, y: 0.000030517578}
+  m_AnchoredPosition: {x: -0.00022347167, y: 0}
   m_SizeDelta: {x: -3, y: 500}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &994406682895490833
@@ -1525,7 +1525,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 994406683925572293}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.00000006103516
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2621,7 +2621,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 994406682804972507}
   m_HandleRect: {fileID: 994406682804972506}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -3063,6 +3063,9 @@ MonoBehaviour:
   sellbutton: {fileID: 994406683707909185}
   buy1button: {fileID: 994406684811298850}
   buy2button: {fileID: 994406684483241024}
+  showInfo1: {fileID: 994406684322887048}
+  showInfo2: {fileID: 994406683839766967}
+  showInfo3: {fileID: 994406683920778851}
 --- !u!1 &994406684447476026
 GameObject:
   m_ObjectHideFlags: 0

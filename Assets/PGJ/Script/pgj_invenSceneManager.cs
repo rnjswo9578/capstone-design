@@ -14,7 +14,7 @@ public class pgj_invenSceneManager : MonoBehaviour
                                              0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
                                              0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
                                              0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-    public int[] inventory2ID = new int[5] { 440, 450, 460, 098, 098 };
+    public int[] inventory2ID = new int[5] { 440, 450, 460, 098, 010 };
 
 
     public static pgj_invenSceneManager INSTANCE = null;

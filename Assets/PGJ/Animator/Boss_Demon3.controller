@@ -864,7 +864,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: walk
-  m_Speed: 0.8
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 4505380946534690892}
@@ -879,7 +879,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 1827226128182048838, guid: a3c9743cf45a15d47b5c36cc5b4d594c, type: 3}
+  m_Motion: {fileID: 7400000, guid: 0df4f7d8b74dc7542a35cc94197c97e2, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1053,7 +1053,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Boss_Demon
+  m_Name: Boss_Demon3
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: isAttack
@@ -2135,7 +2135,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 6fdf28ca534dc1a44b633bbf43804973, type: 3}
+  m_Motion: {fileID: 7400000, guid: 5a32d9b61e74fd04abd359cd46c92263, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

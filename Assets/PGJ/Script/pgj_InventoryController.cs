@@ -32,7 +32,8 @@ public class pgj_InventoryController : MonoBehaviour
         prefabs = new List<GameObject>();
         invenlist = new List<InventoryInfo>();
         itemlist = pgj_ItemManager.INSTANCE.GetAllItems(); //key = item.id
-
+        
+        showInfo.text = "내 아이템 정보\nBuy cost: \nSell cost: ";
     }
 
     // Update is called once per frame

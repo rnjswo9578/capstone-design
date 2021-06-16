@@ -1,18 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
-//lji 수정
 using RPGCharacterAnims;
 
-public class pgj_cshBossCtrl : MonoBehaviour
+public class pgj_cshBossCtrl2 : MonoBehaviour
 {
     public GameObject bloodFX;
     public Transform point;
     public Transform defaultPoint;
 
-    public float damping = 5.0f;
+    public float damping;
     public int maxhp = 100;
     private int hp;
     private int pattern = 0;
@@ -50,15 +50,17 @@ public class pgj_cshBossCtrl : MonoBehaviour
 
         anim = this.GetComponentInChildren<Animator>();
 
-
+        damping = 3.0f;
         myWeapon.enabled = false;
-        
+
+        anim.speed = 0.7f;
+
         //lji 수정
         playerStatus = player.GetComponent<lji_playerStatus>();
         player = GameObject.FindGameObjectWithTag("PLAYER");
 
         sound = GetComponent<lji_monsterSounds>();
-        
+
     }
 
     // Update is called once per frame
@@ -72,7 +74,7 @@ public class pgj_cshBossCtrl : MonoBehaviour
         }
         distPoint = Vector3.Distance(tr.position, point.position);
 
-        
+
 
         if (!isDead)
         {
@@ -124,7 +126,7 @@ public class pgj_cshBossCtrl : MonoBehaviour
             anim.SetBool("isAttack", isAttack);
             anim.SetBool("isIdle", isIdle);
             anim.SetInteger("pattern", pattern);
-            
+
 
 
             Quaternion rot = Quaternion.LookRotation(movePos - tr.position);
@@ -137,9 +139,9 @@ public class pgj_cshBossCtrl : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         int damage;
-        if (other.tag == "PLAYER_WEAPON"&&isDamage==false)
+        if (other.tag == "PLAYER_WEAPON" && isDamage == false)
         {
-            Instantiate(bloodFX,gameObject.transform.position, Quaternion.identity);
+            Instantiate(bloodFX, gameObject.transform.position, Quaternion.identity);
             //textUIAnim.SetTrigger("isHit");
             //damage = Random.Range(10, 15);
             //hp = hp - damage;
@@ -172,12 +174,12 @@ public class pgj_cshBossCtrl : MonoBehaviour
         else if (anim.GetCurrentAnimatorStateInfo(0).IsName("pattern1") && pattern == 1)
         {
             pattern = 2;
-            StartCoroutine(AttackTimer(0.5f,0.5f));
+            StartCoroutine(AttackTimer(0.5f, 0.5f));
         }
         else if (anim.GetCurrentAnimatorStateInfo(0).IsName("pattern2") && pattern == 2)
         {
             pattern = 3;
-            StartCoroutine(AttackTimer(0.2f,0.3f));
+            StartCoroutine(AttackTimer(0.2f, 0.3f));
         }
         else if (anim.GetCurrentAnimatorStateInfo(0).IsName("pattern3") && pattern == 3)
         {
@@ -235,8 +237,8 @@ public class pgj_cshBossCtrl : MonoBehaviour
             case (int)Weapon.TwoHandSpear: damage = 40; break;
             case (int)Weapon.TwoHandSword: damage = 45; break;
         }
-        Debug.Log("weapon"+weapon);
-        Debug.Log("damage"+damage);
+        Debug.Log("weapon" + weapon);
+        Debug.Log("damage" + damage);
         damage += weaponTierDamage + playerStatus.totalAttackPower;
 
         hp = hp - damage;

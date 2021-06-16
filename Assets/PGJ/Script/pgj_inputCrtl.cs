@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class pgj_inputCrtl : MonoBehaviour
 {
@@ -16,6 +17,9 @@ public class pgj_inputCrtl : MonoBehaviour
     public GameObject sellbutton;
     public GameObject buy1button;
     public GameObject buy2button;
+    public Text showInfo1;
+    public Text showInfo2;
+    public Text showInfo3;
 
     // Start is called before the first frame update
     void Start()
@@ -48,8 +52,14 @@ public class pgj_inputCrtl : MonoBehaviour
             else
             {
                 inventory.SetActive(false);
+                showInfo1.text = " ";
             }
             isOn = !isOn;
+        }
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            showInfo2.text = " ";
+            showInfo3.text = " ";
         }
     }
 }
