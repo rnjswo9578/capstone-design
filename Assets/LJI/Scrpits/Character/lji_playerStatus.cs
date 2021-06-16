@@ -165,11 +165,11 @@ public class lji_playerStatus : MonoBehaviour
         }
         if (upperArmor != statusManager.upperArmor)
         {
-            changeUpperArmorStatus(statusManager.head);
+            changeUpperArmorStatus(statusManager.upperArmor);
         }
         if (lowerArmor != statusManager.lowerArmor)
         {
-            changeLowerArmorStatus(statusManager.head);
+            changeLowerArmorStatus(statusManager.lowerArmor);
         }
         Debug.Log("------------------GetPlayerStatus-------------------");
         setEffect();

@@ -5751,7 +5751,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8989290448706778454, guid: 4a775bb0c4be99b4fb5bd4472338e6e3, type: 3}
       propertyPath: nextScene
-      value: Store
+      value: store
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a775bb0c4be99b4fb5bd4472338e6e3, type: 3}

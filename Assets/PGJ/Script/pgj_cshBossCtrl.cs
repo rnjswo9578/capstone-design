@@ -200,8 +200,19 @@ public class pgj_cshBossCtrl : MonoBehaviour
         }
         else//왼손 공격
         {
-            weapon = playerStatus.leftWeapon[playerStatus.nowWeaponSet];
-            weaponTierDamage = playerStatus.leftWeaponTier[playerStatus.nowWeaponSet] * 5;
+            if (playerStatus.rightWeapon[playerStatus.nowWeaponSet] == (int)Weapon.TwoHandSword ||
+                 playerStatus.rightWeapon[playerStatus.nowWeaponSet] == (int)Weapon.TwoHandSpear ||
+                 playerStatus.rightWeapon[playerStatus.nowWeaponSet] == (int)Weapon.TwoHandAxe ||
+                 playerStatus.rightWeapon[playerStatus.nowWeaponSet] == (int)Weapon.TwoHandStaff)
+            {
+                weapon = playerStatus.rightWeapon[playerStatus.nowWeaponSet];
+                weaponTierDamage = playerStatus.rightWeaponTier[playerStatus.nowWeaponSet] * 5;
+            }
+            else
+            {
+                weapon = playerStatus.leftWeapon[playerStatus.nowWeaponSet];
+                weaponTierDamage = playerStatus.leftWeaponTier[playerStatus.nowWeaponSet] * 5;
+            }
         }
         switch (weapon)//무기 초기 대미지 값
         {

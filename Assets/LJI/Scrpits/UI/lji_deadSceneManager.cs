@@ -10,13 +10,14 @@ public class lji_deadSceneManager : MonoBehaviour
     private void Start()
     {
         Destroy(GameObject.FindGameObjectWithTag("StatusManager"));
+        Destroy(GameObject.FindGameObjectWithTag("InvenManager"));
     }
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            SceneManager.LoadScene("Scene1");
+            SceneManager.LoadScene("StartStore");
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))

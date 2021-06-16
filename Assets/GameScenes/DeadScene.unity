@@ -860,4 +860,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16399d36f1be3674bbb61d22efb27a0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextScene: Scene1
+  nextScene: StartStore
