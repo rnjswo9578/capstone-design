@@ -677,15 +677,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8218914685840055107, guid: 9006ef0916445644ea6f0a92f4706195, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 8218914685840055107, guid: 9006ef0916445644ea6f0a92f4706195, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 8218914685840055107, guid: 9006ef0916445644ea6f0a92f4706195, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 8218914685840055107, guid: 9006ef0916445644ea6f0a92f4706195, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4021,7 +4021,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eefb330ae85a88f41acf773262ecddbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 30
+  damage: 15
   player: {fileID: 111228272}
 --- !u!4 &1339723545 stripped
 Transform:
@@ -4124,7 +4124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eefb330ae85a88f41acf773262ecddbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 30
+  damage: 15
   player: {fileID: 111228272}
 --- !u!1001 &1397247629
 PrefabInstance:
@@ -4480,7 +4480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eefb330ae85a88f41acf773262ecddbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 30
+  damage: 15
   player: {fileID: 111228272}
 --- !u!65 &1603140436
 BoxCollider:
